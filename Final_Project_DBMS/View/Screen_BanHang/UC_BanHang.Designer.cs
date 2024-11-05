@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.label12 = new System.Windows.Forms.Label();
             this.tc_ban_hang = new System.Windows.Forms.TabControl();
@@ -46,12 +47,13 @@
             this.lbl_ten_khachhang = new System.Windows.Forms.Label();
             this.lbl_giam_gia = new System.Windows.Forms.Label();
             this.lbl_title_giam_gia = new System.Windows.Forms.Label();
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.lv_hoa_don = new System.Windows.Forms.ListView();
             this.label4 = new System.Windows.Forms.Label();
             this.tb_types = new System.Windows.Forms.TabControl();
             this.tp_thu_cung = new System.Windows.Forms.TabPage();
             this.flp_thu_cung = new System.Windows.Forms.FlowLayoutPanel();
             this.tp_vat_pham = new System.Windows.Forms.TabPage();
+            this.flp_vatpham = new System.Windows.Forms.FlowLayoutPanel();
             this.tp_dich_vu = new System.Windows.Forms.TabPage();
             this.panel1 = new System.Windows.Forms.Panel();
             this.txt_gia_ket_thuc = new System.Windows.Forms.TextBox();
@@ -77,6 +79,8 @@
             this.btn_tim_kiem_thanh_vien = new System.Windows.Forms.Button();
             this.txt_tim_kiem_thanh_vien = new System.Windows.Forms.TextBox();
             this.btn_them_thanh_vien = new System.Windows.Forms.Button();
+            this.imageList = new System.Windows.Forms.ImageList(this.components);
+            this.flp_dichvu = new System.Windows.Forms.FlowLayoutPanel();
             this.flowLayoutPanel2.SuspendLayout();
             this.tc_ban_hang.SuspendLayout();
             this.tp_spdv.SuspendLayout();
@@ -84,6 +88,8 @@
             this.panel7.SuspendLayout();
             this.tb_types.SuspendLayout();
             this.tp_thu_cung.SuspendLayout();
+            this.tp_vat_pham.SuspendLayout();
+            this.tp_dich_vu.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tp_hoa_don.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gv_hoadon_chuathanhtoan)).BeginInit();
@@ -103,6 +109,7 @@
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
             this.flowLayoutPanel2.Size = new System.Drawing.Size(1501, 50);
             this.flowLayoutPanel2.TabIndex = 4;
+            this.flowLayoutPanel2.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel2_Paint);
             // 
             // label12
             // 
@@ -111,7 +118,7 @@
             this.label12.Location = new System.Drawing.Point(3, 3);
             this.label12.Margin = new System.Windows.Forms.Padding(3);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(184, 40);
+            this.label12.Size = new System.Drawing.Size(362, 50);
             this.label12.TabIndex = 1;
             this.label12.Text = "Bán hàng";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -144,7 +151,7 @@
             // panel2
             // 
             this.panel2.Controls.Add(this.panel7);
-            this.panel2.Controls.Add(this.listView1);
+            this.panel2.Controls.Add(this.lv_hoa_don);
             this.panel2.Controls.Add(this.label4);
             this.panel2.Location = new System.Drawing.Point(964, 3);
             this.panel2.Margin = new System.Windows.Forms.Padding(0);
@@ -272,15 +279,15 @@
             this.lbl_title_giam_gia.TabIndex = 28;
             this.lbl_title_giam_gia.Text = "Điểm tích lũy:";
             // 
-            // listView1
+            // lv_hoa_don
             // 
-            this.listView1.FullRowSelect = true;
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(3, 31);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(519, 527);
-            this.listView1.TabIndex = 23;
-            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.lv_hoa_don.FullRowSelect = true;
+            this.lv_hoa_don.HideSelection = false;
+            this.lv_hoa_don.Location = new System.Drawing.Point(3, 31);
+            this.lv_hoa_don.Name = "lv_hoa_don";
+            this.lv_hoa_don.Size = new System.Drawing.Size(519, 527);
+            this.lv_hoa_don.TabIndex = 23;
+            this.lv_hoa_don.UseCompatibleStateImageBehavior = false;
             // 
             // label4
             // 
@@ -302,6 +309,7 @@
             this.tb_types.SelectedIndex = 0;
             this.tb_types.Size = new System.Drawing.Size(962, 598);
             this.tb_types.TabIndex = 1;
+            this.tb_types.SelectedIndexChanged += new System.EventHandler(this.tb_types_SelectedIndexChanged);
             // 
             // tp_thu_cung
             // 
@@ -324,6 +332,7 @@
             // 
             // tp_vat_pham
             // 
+            this.tp_vat_pham.Controls.Add(this.flp_vatpham);
             this.tp_vat_pham.Location = new System.Drawing.Point(4, 25);
             this.tp_vat_pham.Name = "tp_vat_pham";
             this.tp_vat_pham.Padding = new System.Windows.Forms.Padding(3);
@@ -332,8 +341,17 @@
             this.tp_vat_pham.Text = "Vật phẩm";
             this.tp_vat_pham.UseVisualStyleBackColor = true;
             // 
+            // flp_vatpham
+            // 
+            this.flp_vatpham.AutoScroll = true;
+            this.flp_vatpham.Location = new System.Drawing.Point(2, 0);
+            this.flp_vatpham.Name = "flp_vatpham";
+            this.flp_vatpham.Size = new System.Drawing.Size(951, 569);
+            this.flp_vatpham.TabIndex = 2;
+            // 
             // tp_dich_vu
             // 
+            this.tp_dich_vu.Controls.Add(this.flp_dichvu);
             this.tp_dich_vu.Location = new System.Drawing.Point(4, 25);
             this.tp_dich_vu.Name = "tp_dich_vu";
             this.tp_dich_vu.Padding = new System.Windows.Forms.Padding(3);
@@ -383,6 +401,7 @@
             this.btn_chon_khoang_gia.TabIndex = 28;
             this.btn_chon_khoang_gia.Text = "Chọn khoảng giá";
             this.btn_chon_khoang_gia.UseVisualStyleBackColor = true;
+            this.btn_chon_khoang_gia.Click += new System.EventHandler(this.btn_chon_khoang_gia_Click);
             // 
             // label7
             // 
@@ -414,7 +433,7 @@
             // 
             this.lbl_title_sap_xep_gia.Location = new System.Drawing.Point(4, 76);
             this.lbl_title_sap_xep_gia.Name = "lbl_title_sap_xep_gia";
-            this.lbl_title_sap_xep_gia.Size = new System.Drawing.Size(129, 23);
+            this.lbl_title_sap_xep_gia.Size = new System.Drawing.Size(172, 23);
             this.lbl_title_sap_xep_gia.TabIndex = 25;
             this.lbl_title_sap_xep_gia.Text = "Sắp xếp theo giá:";
             // 
@@ -429,6 +448,7 @@
             this.cb_alphabet.Name = "cb_alphabet";
             this.cb_alphabet.Size = new System.Drawing.Size(332, 24);
             this.cb_alphabet.TabIndex = 24;
+            this.cb_alphabet.SelectedIndexChanged += new System.EventHandler(this.cb_alphabet_SelectedIndexChanged);
             // 
             // cb_gia
             // 
@@ -441,6 +461,7 @@
             this.cb_gia.Name = "cb_gia";
             this.cb_gia.Size = new System.Drawing.Size(332, 24);
             this.cb_gia.TabIndex = 23;
+            this.cb_gia.SelectedIndexChanged += new System.EventHandler(this.cb_gia_SelectedIndexChanged);
             // 
             // btn_tim_kiem
             // 
@@ -450,6 +471,7 @@
             this.btn_tim_kiem.Size = new System.Drawing.Size(29, 24);
             this.btn_tim_kiem.TabIndex = 6;
             this.btn_tim_kiem.UseVisualStyleBackColor = true;
+            this.btn_tim_kiem.Click += new System.EventHandler(this.btn_tim_kiem_Click);
             // 
             // txt_tim_kiem
             // 
@@ -458,7 +480,7 @@
             this.txt_tim_kiem.Name = "txt_tim_kiem";
             this.txt_tim_kiem.Size = new System.Drawing.Size(472, 24);
             this.txt_tim_kiem.TabIndex = 5;
-            this.txt_tim_kiem.Text = "Tìm kiếm";
+            this.txt_tim_kiem.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.txt_tim_kiem_MouseDoubleClick);
             // 
             // tp_hoa_don
             // 
@@ -578,6 +600,19 @@
             this.btn_them_thanh_vien.Text = "Thêm";
             this.btn_them_thanh_vien.UseVisualStyleBackColor = true;
             // 
+            // imageList
+            // 
+            this.imageList.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
+            this.imageList.ImageSize = new System.Drawing.Size(16, 16);
+            this.imageList.TransparentColor = System.Drawing.Color.Transparent;
+            // 
+            // flp_dichvu
+            // 
+            this.flp_dichvu.Location = new System.Drawing.Point(3, 3);
+            this.flp_dichvu.Name = "flp_dichvu";
+            this.flp_dichvu.Size = new System.Drawing.Size(951, 563);
+            this.flp_dichvu.TabIndex = 0;
+            // 
             // UC_BanHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -586,6 +621,7 @@
             this.Controls.Add(this.flowLayoutPanel2);
             this.Name = "UC_BanHang";
             this.Size = new System.Drawing.Size(1500, 800);
+            this.Load += new System.EventHandler(this.UC_BanHang_Load);
             this.flowLayoutPanel2.ResumeLayout(false);
             this.tc_ban_hang.ResumeLayout(false);
             this.tp_spdv.ResumeLayout(false);
@@ -595,6 +631,8 @@
             this.panel7.PerformLayout();
             this.tb_types.ResumeLayout(false);
             this.tp_thu_cung.ResumeLayout(false);
+            this.tp_vat_pham.ResumeLayout(false);
+            this.tp_dich_vu.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.tp_hoa_don.ResumeLayout(false);
@@ -629,12 +667,11 @@
         private System.Windows.Forms.Label lbl_ten_khachhang;
         private System.Windows.Forms.Label lbl_giam_gia;
         private System.Windows.Forms.Label lbl_title_giam_gia;
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ListView lv_hoa_don;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TabControl tb_types;
         private System.Windows.Forms.TabPage tp_thu_cung;
         private System.Windows.Forms.FlowLayoutPanel flp_thu_cung;
-        private System.Windows.Forms.TabPage tp_vat_pham;
         private System.Windows.Forms.TabPage tp_dich_vu;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btn_chon_khoang_gia;
@@ -660,5 +697,9 @@
         private System.Windows.Forms.Button btn_them_thanh_vien;
         private System.Windows.Forms.TextBox txt_gia_ket_thuc;
         private System.Windows.Forms.TextBox txt_gia_bat_dau;
+        private System.Windows.Forms.ImageList imageList;
+        private System.Windows.Forms.TabPage tp_vat_pham;
+        private System.Windows.Forms.FlowLayoutPanel flp_vatpham;
+        private System.Windows.Forms.FlowLayoutPanel flp_dichvu;
     }
 }

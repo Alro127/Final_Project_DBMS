@@ -33,6 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="PresentationCore" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -46,8 +47,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="control\converter\imageLinkConverter.cs" />
     <Compile Include="DataAccess\Database.cs" />
     <Compile Include="DataAccess\DA_BanHang.cs" />
+    <Compile Include="DataAccess\DA_ChiTietSPDV.cs" />
     <Compile Include="DataAccess\DA_DoanhThu.cs" />
     <Compile Include="DataAccess\DA_PhanCa.cs" />
     <Compile Include="DataAccess\DA_QuanLy.cs" />

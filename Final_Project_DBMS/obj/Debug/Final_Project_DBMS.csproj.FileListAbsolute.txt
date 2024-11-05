@@ -19,3 +19,24 @@ D:\HK1_Nam3\DBMS\Final_Project_DBMS\Final_Project_DBMS\obj\Debug\Final_Project_D
 D:\HK1_Nam3\DBMS\Final_Project_DBMS\Final_Project_DBMS\obj\Debug\Final_Project_DBMS.View.Screen_BanHang.UC_SanPhamCard.resources
 D:\HK1_Nam3\DBMS\Final_Project_DBMS\Final_Project_DBMS\obj\Debug\Final_Project_DBMS.View.Screen_BanHang.Form_ChiTietSPDV.resources
 D:\HK1_Nam3\DBMS\Final_Project_DBMS\Final_Project_DBMS\obj\Debug\Final_Project_DBMS.View.Screen_BanHang.Form_DanhSachPhongDV.resources
+D:\University\Năm 3\Kỳ 1\DBMS\Project\Final_Project_DBMS\Final_Project_DBMS\bin\Debug\Final_Project_DBMS.exe.config
+D:\University\Năm 3\Kỳ 1\DBMS\Project\Final_Project_DBMS\Final_Project_DBMS\bin\Debug\Final_Project_DBMS.exe
+D:\University\Năm 3\Kỳ 1\DBMS\Project\Final_Project_DBMS\Final_Project_DBMS\bin\Debug\Final_Project_DBMS.pdb
+D:\University\Năm 3\Kỳ 1\DBMS\Project\Final_Project_DBMS\Final_Project_DBMS\obj\Debug\Final_Project_DBMS.csproj.AssemblyReference.cache
+D:\University\Năm 3\Kỳ 1\DBMS\Project\Final_Project_DBMS\Final_Project_DBMS\obj\Debug\Final_Project_DBMS.Properties.Resources.resources
+D:\University\Năm 3\Kỳ 1\DBMS\Project\Final_Project_DBMS\Final_Project_DBMS\obj\Debug\Final_Project_DBMS.View.MainPage.resources
+D:\University\Năm 3\Kỳ 1\DBMS\Project\Final_Project_DBMS\Final_Project_DBMS\obj\Debug\Final_Project_DBMS.View.Screen_BanHang.Form_ChiTietSPDV.resources
+D:\University\Năm 3\Kỳ 1\DBMS\Project\Final_Project_DBMS\Final_Project_DBMS\obj\Debug\Final_Project_DBMS.View.Screen_BanHang.Form_DanhSachPhongDV.resources
+D:\University\Năm 3\Kỳ 1\DBMS\Project\Final_Project_DBMS\Final_Project_DBMS\obj\Debug\Final_Project_DBMS.View.Screen_BanHang.Form_ThemKhachHang.resources
+D:\University\Năm 3\Kỳ 1\DBMS\Project\Final_Project_DBMS\Final_Project_DBMS\obj\Debug\Final_Project_DBMS.View.Screen_BanHang.UC_DichVuCard.resources
+D:\University\Năm 3\Kỳ 1\DBMS\Project\Final_Project_DBMS\Final_Project_DBMS\obj\Debug\Final_Project_DBMS.View.Screen_BanHang.UC_SanPhamCard.resources
+D:\University\Năm 3\Kỳ 1\DBMS\Project\Final_Project_DBMS\Final_Project_DBMS\obj\Debug\Final_Project_DBMS.View.Screen_BanHang.UC_BanHang.resources
+D:\University\Năm 3\Kỳ 1\DBMS\Project\Final_Project_DBMS\Final_Project_DBMS\obj\Debug\Final_Project_DBMS.View.Screen_DoanhThu.UC_DoanhThu.resources
+D:\University\Năm 3\Kỳ 1\DBMS\Project\Final_Project_DBMS\Final_Project_DBMS\obj\Debug\Final_Project_DBMS.View.Screen_PhanCa.Form_ThemCaLam.resources
+D:\University\Năm 3\Kỳ 1\DBMS\Project\Final_Project_DBMS\Final_Project_DBMS\obj\Debug\Final_Project_DBMS.View.Screen_PhanCa.UC_PhanCa.resources
+D:\University\Năm 3\Kỳ 1\DBMS\Project\Final_Project_DBMS\Final_Project_DBMS\obj\Debug\Final_Project_DBMS.View.Screen_QuanLy.UC_QuanLy.resources
+D:\University\Năm 3\Kỳ 1\DBMS\Project\Final_Project_DBMS\Final_Project_DBMS\obj\Debug\Final_Project_DBMS.View.Screen_TinhLuong.UC_TinhLuong.resources
+D:\University\Năm 3\Kỳ 1\DBMS\Project\Final_Project_DBMS\Final_Project_DBMS\obj\Debug\Final_Project_DBMS.csproj.GenerateResource.cache
+D:\University\Năm 3\Kỳ 1\DBMS\Project\Final_Project_DBMS\Final_Project_DBMS\obj\Debug\Final_Project_DBMS.csproj.CoreCompileInputs.cache
+D:\University\Năm 3\Kỳ 1\DBMS\Project\Final_Project_DBMS\Final_Project_DBMS\obj\Debug\Final_Project_DBMS.exe
+D:\University\Năm 3\Kỳ 1\DBMS\Project\Final_Project_DBMS\Final_Project_DBMS\obj\Debug\Final_Project_DBMS.pdb
