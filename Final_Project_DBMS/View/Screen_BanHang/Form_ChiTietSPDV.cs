@@ -21,5 +21,10 @@ namespace Final_Project_DBMS.View.Screen_BanHang
         {
 
         }
+
+        private void richTextBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

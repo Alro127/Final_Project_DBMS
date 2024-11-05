@@ -16,5 +16,10 @@ namespace Final_Project_DBMS.View.Screen_BanHang
         {
             InitializeComponent();
         }
+
+        private void grbTen_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -30,8 +30,8 @@
         {
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.label12 = new System.Windows.Forms.Label();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tc_ban_hang = new System.Windows.Forms.TabControl();
+            this.tp_spdv = new System.Windows.Forms.TabPage();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
             this.btn_huy_bo = new System.Windows.Forms.Button();
@@ -48,12 +48,14 @@
             this.lbl_title_giam_gia = new System.Windows.Forms.Label();
             this.listView1 = new System.Windows.Forms.ListView();
             this.label4 = new System.Windows.Forms.Label();
-            this.tabControl2 = new System.Windows.Forms.TabControl();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.tb_types = new System.Windows.Forms.TabControl();
+            this.tp_thu_cung = new System.Windows.Forms.TabPage();
             this.flp_thu_cung = new System.Windows.Forms.FlowLayoutPanel();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tp_vat_pham = new System.Windows.Forms.TabPage();
+            this.tp_dich_vu = new System.Windows.Forms.TabPage();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.txt_gia_ket_thuc = new System.Windows.Forms.TextBox();
+            this.txt_gia_bat_dau = new System.Windows.Forms.TextBox();
             this.btn_chon_khoang_gia = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -63,34 +65,32 @@
             this.cb_gia = new System.Windows.Forms.ComboBox();
             this.btn_tim_kiem = new System.Windows.Forms.Button();
             this.txt_tim_kiem = new System.Windows.Forms.TextBox();
-            this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.tp_hoa_don = new System.Windows.Forms.TabPage();
+            this.gv_hoadon_chuathanhtoan = new System.Windows.Forms.DataGridView();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.tabPage8 = new System.Windows.Forms.TabPage();
             this.btn_chinh_sua_hoadon = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.dtp = new System.Windows.Forms.DateTimePicker();
-            this.gv_hoadon_chuathanhtoan = new System.Windows.Forms.DataGridView();
+            this.tp_thanh_vien = new System.Windows.Forms.TabPage();
+            this.gv_thanh_vien = new System.Windows.Forms.DataGridView();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.btn_them_thanh_vien = new System.Windows.Forms.Button();
             this.btn_tim_kiem_thanh_vien = new System.Windows.Forms.Button();
             this.txt_tim_kiem_thanh_vien = new System.Windows.Forms.TextBox();
-            this.gv_thanh_vien = new System.Windows.Forms.DataGridView();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.btn_them_thanh_vien = new System.Windows.Forms.Button();
             this.flowLayoutPanel2.SuspendLayout();
-            this.tabControl1.SuspendLayout();
-            this.tabPage1.SuspendLayout();
+            this.tc_ban_hang.SuspendLayout();
+            this.tp_spdv.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel7.SuspendLayout();
-            this.tabControl2.SuspendLayout();
-            this.tabPage3.SuspendLayout();
+            this.tb_types.SuspendLayout();
+            this.tp_thu_cung.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.tabPage5.SuspendLayout();
-            this.panel4.SuspendLayout();
-            this.tabPage8.SuspendLayout();
+            this.tp_hoa_don.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gv_hoadon_chuathanhtoan)).BeginInit();
-            this.panel3.SuspendLayout();
+            this.panel4.SuspendLayout();
+            this.tp_thanh_vien.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gv_thanh_vien)).BeginInit();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // flowLayoutPanel2
@@ -116,30 +116,30 @@
             this.label12.Text = "Bán hàng";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // tabControl1
+            // tc_ban_hang
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage5);
-            this.tabControl1.Controls.Add(this.tabPage8);
-            this.tabControl1.Location = new System.Drawing.Point(0, 50);
-            this.tabControl1.Margin = new System.Windows.Forms.Padding(0);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1500, 750);
-            this.tabControl1.TabIndex = 7;
+            this.tc_ban_hang.Controls.Add(this.tp_spdv);
+            this.tc_ban_hang.Controls.Add(this.tp_hoa_don);
+            this.tc_ban_hang.Controls.Add(this.tp_thanh_vien);
+            this.tc_ban_hang.Location = new System.Drawing.Point(0, 50);
+            this.tc_ban_hang.Margin = new System.Windows.Forms.Padding(0);
+            this.tc_ban_hang.Name = "tc_ban_hang";
+            this.tc_ban_hang.SelectedIndex = 0;
+            this.tc_ban_hang.Size = new System.Drawing.Size(1500, 750);
+            this.tc_ban_hang.TabIndex = 7;
             // 
-            // tabPage1
+            // tp_spdv
             // 
-            this.tabPage1.Controls.Add(this.panel2);
-            this.tabPage1.Controls.Add(this.tabControl2);
-            this.tabPage1.Controls.Add(this.panel1);
-            this.tabPage1.Location = new System.Drawing.Point(4, 25);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1492, 721);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "tabPage1";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            this.tp_spdv.Controls.Add(this.panel2);
+            this.tp_spdv.Controls.Add(this.tb_types);
+            this.tp_spdv.Controls.Add(this.panel1);
+            this.tp_spdv.Location = new System.Drawing.Point(4, 25);
+            this.tp_spdv.Name = "tp_spdv";
+            this.tp_spdv.Padding = new System.Windows.Forms.Padding(3);
+            this.tp_spdv.Size = new System.Drawing.Size(1492, 721);
+            this.tp_spdv.TabIndex = 0;
+            this.tp_spdv.Text = "Sản phẩm và dịch vụ";
+            this.tp_spdv.UseVisualStyleBackColor = true;
             // 
             // panel2
             // 
@@ -292,27 +292,27 @@
             this.label4.TabIndex = 11;
             this.label4.Text = "Tạo hóa đơn mới";
             // 
-            // tabControl2
+            // tb_types
             // 
-            this.tabControl2.Controls.Add(this.tabPage3);
-            this.tabControl2.Controls.Add(this.tabPage4);
-            this.tabControl2.Controls.Add(this.tabPage2);
-            this.tabControl2.Location = new System.Drawing.Point(3, 120);
-            this.tabControl2.Name = "tabControl2";
-            this.tabControl2.SelectedIndex = 0;
-            this.tabControl2.Size = new System.Drawing.Size(962, 598);
-            this.tabControl2.TabIndex = 1;
+            this.tb_types.Controls.Add(this.tp_thu_cung);
+            this.tb_types.Controls.Add(this.tp_vat_pham);
+            this.tb_types.Controls.Add(this.tp_dich_vu);
+            this.tb_types.Location = new System.Drawing.Point(3, 120);
+            this.tb_types.Name = "tb_types";
+            this.tb_types.SelectedIndex = 0;
+            this.tb_types.Size = new System.Drawing.Size(962, 598);
+            this.tb_types.TabIndex = 1;
             // 
-            // tabPage3
+            // tp_thu_cung
             // 
-            this.tabPage3.Controls.Add(this.flp_thu_cung);
-            this.tabPage3.Location = new System.Drawing.Point(4, 25);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(954, 569);
-            this.tabPage3.TabIndex = 0;
-            this.tabPage3.Text = "tabPage3";
-            this.tabPage3.UseVisualStyleBackColor = true;
+            this.tp_thu_cung.Controls.Add(this.flp_thu_cung);
+            this.tp_thu_cung.Location = new System.Drawing.Point(4, 25);
+            this.tp_thu_cung.Name = "tp_thu_cung";
+            this.tp_thu_cung.Padding = new System.Windows.Forms.Padding(3);
+            this.tp_thu_cung.Size = new System.Drawing.Size(954, 569);
+            this.tp_thu_cung.TabIndex = 0;
+            this.tp_thu_cung.Text = "Thú cưng";
+            this.tp_thu_cung.UseVisualStyleBackColor = true;
             // 
             // flp_thu_cung
             // 
@@ -322,30 +322,30 @@
             this.flp_thu_cung.Size = new System.Drawing.Size(954, 566);
             this.flp_thu_cung.TabIndex = 1;
             // 
-            // tabPage4
+            // tp_vat_pham
             // 
-            this.tabPage4.Location = new System.Drawing.Point(4, 25);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(954, 569);
-            this.tabPage4.TabIndex = 1;
-            this.tabPage4.Text = "tabPage4";
-            this.tabPage4.UseVisualStyleBackColor = true;
+            this.tp_vat_pham.Location = new System.Drawing.Point(4, 25);
+            this.tp_vat_pham.Name = "tp_vat_pham";
+            this.tp_vat_pham.Padding = new System.Windows.Forms.Padding(3);
+            this.tp_vat_pham.Size = new System.Drawing.Size(954, 569);
+            this.tp_vat_pham.TabIndex = 1;
+            this.tp_vat_pham.Text = "Vật phẩm";
+            this.tp_vat_pham.UseVisualStyleBackColor = true;
             // 
-            // tabPage2
+            // tp_dich_vu
             // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 25);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(954, 569);
-            this.tabPage2.TabIndex = 2;
-            this.tabPage2.Text = "tabPage2";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.tp_dich_vu.Location = new System.Drawing.Point(4, 25);
+            this.tp_dich_vu.Name = "tp_dich_vu";
+            this.tp_dich_vu.Padding = new System.Windows.Forms.Padding(3);
+            this.tp_dich_vu.Size = new System.Drawing.Size(954, 569);
+            this.tp_dich_vu.TabIndex = 2;
+            this.tp_dich_vu.Text = "Dịch vụ";
+            this.tp_dich_vu.UseVisualStyleBackColor = true;
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.textBox2);
-            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.txt_gia_ket_thuc);
+            this.panel1.Controls.Add(this.txt_gia_bat_dau);
             this.panel1.Controls.Add(this.btn_chon_khoang_gia);
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.label6);
@@ -360,6 +360,20 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(958, 114);
             this.panel1.TabIndex = 0;
+            // 
+            // txt_gia_ket_thuc
+            // 
+            this.txt_gia_ket_thuc.Location = new System.Drawing.Point(578, 40);
+            this.txt_gia_ket_thuc.Name = "txt_gia_ket_thuc";
+            this.txt_gia_ket_thuc.Size = new System.Drawing.Size(180, 22);
+            this.txt_gia_ket_thuc.TabIndex = 32;
+            // 
+            // txt_gia_bat_dau
+            // 
+            this.txt_gia_bat_dau.Location = new System.Drawing.Point(578, 12);
+            this.txt_gia_bat_dau.Name = "txt_gia_bat_dau";
+            this.txt_gia_bat_dau.Size = new System.Drawing.Size(180, 22);
+            this.txt_gia_bat_dau.TabIndex = 31;
             // 
             // btn_chon_khoang_gia
             // 
@@ -446,17 +460,27 @@
             this.txt_tim_kiem.TabIndex = 5;
             this.txt_tim_kiem.Text = "Tìm kiếm";
             // 
-            // tabPage5
+            // tp_hoa_don
             // 
-            this.tabPage5.Controls.Add(this.gv_hoadon_chuathanhtoan);
-            this.tabPage5.Controls.Add(this.panel4);
-            this.tabPage5.Location = new System.Drawing.Point(4, 25);
-            this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(1492, 721);
-            this.tabPage5.TabIndex = 2;
-            this.tabPage5.Text = "tabPage5";
-            this.tabPage5.UseVisualStyleBackColor = true;
+            this.tp_hoa_don.Controls.Add(this.gv_hoadon_chuathanhtoan);
+            this.tp_hoa_don.Controls.Add(this.panel4);
+            this.tp_hoa_don.Location = new System.Drawing.Point(4, 25);
+            this.tp_hoa_don.Name = "tp_hoa_don";
+            this.tp_hoa_don.Padding = new System.Windows.Forms.Padding(3);
+            this.tp_hoa_don.Size = new System.Drawing.Size(1492, 721);
+            this.tp_hoa_don.TabIndex = 2;
+            this.tp_hoa_don.Text = "Hóa đơn";
+            this.tp_hoa_don.UseVisualStyleBackColor = true;
+            // 
+            // gv_hoadon_chuathanhtoan
+            // 
+            this.gv_hoadon_chuathanhtoan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gv_hoadon_chuathanhtoan.Location = new System.Drawing.Point(3, 62);
+            this.gv_hoadon_chuathanhtoan.Name = "gv_hoadon_chuathanhtoan";
+            this.gv_hoadon_chuathanhtoan.RowHeadersWidth = 51;
+            this.gv_hoadon_chuathanhtoan.RowTemplate.Height = 24;
+            this.gv_hoadon_chuathanhtoan.Size = new System.Drawing.Size(1486, 656);
+            this.gv_hoadon_chuathanhtoan.TabIndex = 12;
             // 
             // panel4
             // 
@@ -468,18 +492,6 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(1486, 56);
             this.panel4.TabIndex = 0;
-            // 
-            // tabPage8
-            // 
-            this.tabPage8.Controls.Add(this.gv_thanh_vien);
-            this.tabPage8.Controls.Add(this.panel3);
-            this.tabPage8.Location = new System.Drawing.Point(4, 25);
-            this.tabPage8.Name = "tabPage8";
-            this.tabPage8.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage8.Size = new System.Drawing.Size(1492, 721);
-            this.tabPage8.TabIndex = 3;
-            this.tabPage8.Text = "tabPage8";
-            this.tabPage8.UseVisualStyleBackColor = true;
             // 
             // btn_chinh_sua_hoadon
             // 
@@ -508,15 +520,27 @@
             this.dtp.TabIndex = 9;
             this.dtp.Visible = false;
             // 
-            // gv_hoadon_chuathanhtoan
+            // tp_thanh_vien
             // 
-            this.gv_hoadon_chuathanhtoan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gv_hoadon_chuathanhtoan.Location = new System.Drawing.Point(3, 62);
-            this.gv_hoadon_chuathanhtoan.Name = "gv_hoadon_chuathanhtoan";
-            this.gv_hoadon_chuathanhtoan.RowHeadersWidth = 51;
-            this.gv_hoadon_chuathanhtoan.RowTemplate.Height = 24;
-            this.gv_hoadon_chuathanhtoan.Size = new System.Drawing.Size(1486, 656);
-            this.gv_hoadon_chuathanhtoan.TabIndex = 12;
+            this.tp_thanh_vien.Controls.Add(this.gv_thanh_vien);
+            this.tp_thanh_vien.Controls.Add(this.panel3);
+            this.tp_thanh_vien.Location = new System.Drawing.Point(4, 25);
+            this.tp_thanh_vien.Name = "tp_thanh_vien";
+            this.tp_thanh_vien.Padding = new System.Windows.Forms.Padding(3);
+            this.tp_thanh_vien.Size = new System.Drawing.Size(1492, 721);
+            this.tp_thanh_vien.TabIndex = 3;
+            this.tp_thanh_vien.Text = "Thành viên";
+            this.tp_thanh_vien.UseVisualStyleBackColor = true;
+            // 
+            // gv_thanh_vien
+            // 
+            this.gv_thanh_vien.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gv_thanh_vien.Location = new System.Drawing.Point(3, 62);
+            this.gv_thanh_vien.Name = "gv_thanh_vien";
+            this.gv_thanh_vien.RowHeadersWidth = 51;
+            this.gv_thanh_vien.RowTemplate.Height = 24;
+            this.gv_thanh_vien.Size = new System.Drawing.Size(1486, 656);
+            this.gv_thanh_vien.TabIndex = 14;
             // 
             // panel3
             // 
@@ -528,15 +552,6 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1486, 56);
             this.panel3.TabIndex = 13;
-            // 
-            // btn_them_thanh_vien
-            // 
-            this.btn_them_thanh_vien.Location = new System.Drawing.Point(1383, 11);
-            this.btn_them_thanh_vien.Name = "btn_them_thanh_vien";
-            this.btn_them_thanh_vien.Size = new System.Drawing.Size(90, 34);
-            this.btn_them_thanh_vien.TabIndex = 12;
-            this.btn_them_thanh_vien.Text = "Thêm";
-            this.btn_them_thanh_vien.UseVisualStyleBackColor = true;
             // 
             // btn_tim_kiem_thanh_vien
             // 
@@ -554,57 +569,42 @@
             this.txt_tim_kiem_thanh_vien.TabIndex = 13;
             this.txt_tim_kiem_thanh_vien.Text = "Tìm kiếm";
             // 
-            // gv_thanh_vien
+            // btn_them_thanh_vien
             // 
-            this.gv_thanh_vien.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gv_thanh_vien.Location = new System.Drawing.Point(3, 62);
-            this.gv_thanh_vien.Name = "gv_thanh_vien";
-            this.gv_thanh_vien.RowHeadersWidth = 51;
-            this.gv_thanh_vien.RowTemplate.Height = 24;
-            this.gv_thanh_vien.Size = new System.Drawing.Size(1486, 656);
-            this.gv_thanh_vien.TabIndex = 14;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(578, 12);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(180, 22);
-            this.textBox1.TabIndex = 31;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(578, 40);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(180, 22);
-            this.textBox2.TabIndex = 32;
+            this.btn_them_thanh_vien.Location = new System.Drawing.Point(1383, 11);
+            this.btn_them_thanh_vien.Name = "btn_them_thanh_vien";
+            this.btn_them_thanh_vien.Size = new System.Drawing.Size(90, 34);
+            this.btn_them_thanh_vien.TabIndex = 12;
+            this.btn_them_thanh_vien.Text = "Thêm";
+            this.btn_them_thanh_vien.UseVisualStyleBackColor = true;
             // 
             // UC_BanHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.tc_ban_hang);
             this.Controls.Add(this.flowLayoutPanel2);
             this.Name = "UC_BanHang";
             this.Size = new System.Drawing.Size(1500, 800);
             this.flowLayoutPanel2.ResumeLayout(false);
-            this.tabControl1.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
+            this.tc_ban_hang.ResumeLayout(false);
+            this.tp_spdv.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
-            this.tabControl2.ResumeLayout(false);
-            this.tabPage3.ResumeLayout(false);
+            this.tb_types.ResumeLayout(false);
+            this.tp_thu_cung.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.tabPage5.ResumeLayout(false);
+            this.tp_hoa_don.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gv_hoadon_chuathanhtoan)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            this.tabPage8.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gv_hoadon_chuathanhtoan)).EndInit();
+            this.tp_thanh_vien.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gv_thanh_vien)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gv_thanh_vien)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -613,8 +613,8 @@
 
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabControl tc_ban_hang;
+        private System.Windows.Forms.TabPage tp_spdv;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Button btn_huy_bo;
@@ -631,11 +631,11 @@
         private System.Windows.Forms.Label lbl_title_giam_gia;
         private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TabControl tabControl2;
-        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.TabControl tb_types;
+        private System.Windows.Forms.TabPage tp_thu_cung;
         private System.Windows.Forms.FlowLayoutPanel flp_thu_cung;
-        private System.Windows.Forms.TabPage tabPage4;
-        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TabPage tp_vat_pham;
+        private System.Windows.Forms.TabPage tp_dich_vu;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btn_chon_khoang_gia;
         private System.Windows.Forms.Label label7;
@@ -646,9 +646,9 @@
         private System.Windows.Forms.ComboBox cb_gia;
         private System.Windows.Forms.Button btn_tim_kiem;
         private System.Windows.Forms.TextBox txt_tim_kiem;
-        private System.Windows.Forms.TabPage tabPage5;
+        private System.Windows.Forms.TabPage tp_hoa_don;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.TabPage tabPage8;
+        private System.Windows.Forms.TabPage tp_thanh_vien;
         private System.Windows.Forms.Button btn_chinh_sua_hoadon;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DateTimePicker dtp;
@@ -658,7 +658,7 @@
         private System.Windows.Forms.Button btn_tim_kiem_thanh_vien;
         private System.Windows.Forms.TextBox txt_tim_kiem_thanh_vien;
         private System.Windows.Forms.Button btn_them_thanh_vien;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txt_gia_ket_thuc;
+        private System.Windows.Forms.TextBox txt_gia_bat_dau;
     }
 }

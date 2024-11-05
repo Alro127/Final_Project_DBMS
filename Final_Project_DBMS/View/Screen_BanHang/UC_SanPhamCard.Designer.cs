@@ -28,23 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.picture_spdv = new System.Windows.Forms.PictureBox();
             this.grbTen = new System.Windows.Forms.GroupBox();
-            this.lblGiaGoc = new System.Windows.Forms.Label();
             this.lblGiaKhuyenMai = new System.Windows.Forms.Label();
+            this.lblGiaGoc = new System.Windows.Forms.Label();
             this.btnThem = new System.Windows.Forms.Button();
             this.btnChiTiet = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picture_spdv)).BeginInit();
             this.grbTen.SuspendLayout();
             this.SuspendLayout();
             // 
-            // pictureBox1
+            // picture_spdv
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(194, 190);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.picture_spdv.Location = new System.Drawing.Point(3, 3);
+            this.picture_spdv.Name = "picture_spdv";
+            this.picture_spdv.Size = new System.Drawing.Size(194, 190);
+            this.picture_spdv.TabIndex = 0;
+            this.picture_spdv.TabStop = false;
             // 
             // grbTen
             // 
@@ -57,16 +57,7 @@
             this.grbTen.TabIndex = 1;
             this.grbTen.TabStop = false;
             this.grbTen.Text = "Tên sản phẩm";
-            // 
-            // lblGiaGoc
-            // 
-            this.lblGiaGoc.AutoSize = true;
-            this.lblGiaGoc.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGiaGoc.Location = new System.Drawing.Point(6, 29);
-            this.lblGiaGoc.Name = "lblGiaGoc";
-            this.lblGiaGoc.Size = new System.Drawing.Size(64, 18);
-            this.lblGiaGoc.TabIndex = 0;
-            this.lblGiaGoc.Text = "Giá Gốc";
+            this.grbTen.Enter += new System.EventHandler(this.grbTen_Enter);
             // 
             // lblGiaKhuyenMai
             // 
@@ -77,6 +68,16 @@
             this.lblGiaKhuyenMai.Size = new System.Drawing.Size(112, 18);
             this.lblGiaKhuyenMai.TabIndex = 1;
             this.lblGiaKhuyenMai.Text = "Giá Khuyến Mãi";
+            // 
+            // lblGiaGoc
+            // 
+            this.lblGiaGoc.AutoSize = true;
+            this.lblGiaGoc.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGiaGoc.Location = new System.Drawing.Point(6, 29);
+            this.lblGiaGoc.Name = "lblGiaGoc";
+            this.lblGiaGoc.Size = new System.Drawing.Size(64, 18);
+            this.lblGiaGoc.TabIndex = 0;
+            this.lblGiaGoc.Text = "Giá Gốc";
             // 
             // btnThem
             // 
@@ -96,17 +97,17 @@
             this.btnChiTiet.Text = "Chi tiết";
             this.btnChiTiet.UseVisualStyleBackColor = true;
             // 
-            // itemCard
+            // UC_SanPhamCard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.btnChiTiet);
             this.Controls.Add(this.btnThem);
             this.Controls.Add(this.grbTen);
-            this.Controls.Add(this.pictureBox1);
-            this.Name = "itemCard";
+            this.Controls.Add(this.picture_spdv);
+            this.Name = "UC_SanPhamCard";
             this.Size = new System.Drawing.Size(200, 350);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picture_spdv)).EndInit();
             this.grbTen.ResumeLayout(false);
             this.grbTen.PerformLayout();
             this.ResumeLayout(false);
@@ -115,7 +116,7 @@
 
         #endregion
 
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox picture_spdv;
         private System.Windows.Forms.GroupBox grbTen;
         private System.Windows.Forms.Label lblGiaKhuyenMai;
         private System.Windows.Forms.Label lblGiaGoc;
