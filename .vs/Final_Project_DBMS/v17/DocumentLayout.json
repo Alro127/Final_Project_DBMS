@@ -7,12 +7,12 @@
       "RelativeMoniker": "D:0:0:{DD894CC0-988B-4F32-9E7D-4E451580DFFE}|Final_Project_DBMS\\Final_Project_DBMS.csproj|solutionrelative:final_project_dbms\\view\\screen_quanly\\uc_quanly.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DD894CC0-988B-4F32-9E7D-4E451580DFFE}|Final_Project_DBMS\\Final_Project_DBMS.csproj|D:\\HQTCSDL\\PetShop\\Final_Project_DBMS\\final_project_dbms\\dataaccess\\da_quanly.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DD894CC0-988B-4F32-9E7D-4E451580DFFE}|Final_Project_DBMS\\Final_Project_DBMS.csproj|solutionrelative:final_project_dbms\\dataaccess\\da_quanly.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{DD894CC0-988B-4F32-9E7D-4E451580DFFE}|Final_Project_DBMS\\Final_Project_DBMS.csproj|D:\\HQTCSDL\\PetShop\\Final_Project_DBMS\\final_project_dbms\\view\\screen_quanly\\uc_quanly.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{DD894CC0-988B-4F32-9E7D-4E451580DFFE}|Final_Project_DBMS\\Final_Project_DBMS.csproj|solutionrelative:final_project_dbms\\view\\screen_quanly\\uc_quanly.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DD894CC0-988B-4F32-9E7D-4E451580DFFE}|Final_Project_DBMS\\Final_Project_DBMS.csproj|D:\\HQTCSDL\\PetShop\\Final_Project_DBMS\\final_project_dbms\\dataaccess\\da_quanly.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DD894CC0-988B-4F32-9E7D-4E451580DFFE}|Final_Project_DBMS\\Final_Project_DBMS.csproj|solutionrelative:final_project_dbms\\dataaccess\\da_quanly.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{DD894CC0-988B-4F32-9E7D-4E451580DFFE}|Final_Project_DBMS\\Final_Project_DBMS.csproj|D:\\HQTCSDL\\PetShop\\Final_Project_DBMS\\final_project_dbms\\dataaccess\\da_phanca.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -31,7 +31,7 @@
       "RelativeMoniker": "D:0:0:{DD894CC0-988B-4F32-9E7D-4E451580DFFE}|Final_Project_DBMS\\Final_Project_DBMS.csproj|solutionrelative:final_project_dbms\\dataaccess\\database.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DD894CC0-988B-4F32-9E7D-4E451580DFFE}|Final_Project_DBMS\\Final_Project_DBMS.csproj|d:\\hqtcsdl\\petshop\\final_project_dbms\\final_project_dbms\\control\\converter\\imagelinkconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{DD894CC0-988B-4F32-9E7D-4E451580DFFE}|Final_Project_DBMS\\Final_Project_DBMS.csproj|D:\\HQTCSDL\\PetShop\\Final_Project_DBMS\\final_project_dbms\\control\\converter\\imagelinkconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DD894CC0-988B-4F32-9E7D-4E451580DFFE}|Final_Project_DBMS\\Final_Project_DBMS.csproj|solutionrelative:final_project_dbms\\control\\converter\\imagelinkconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -125,8 +125,7 @@
               "RelativeToolTip": "Final_Project_DBMS\\DataAccess\\DA_TinhLuong.cs",
               "ViewState": "AgIAACQAAAAAAAAAAAAowCgAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-01T02:35:30.569Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-01T02:35:30.569Z"
             },
             {
               "$type": "Document",
@@ -138,12 +137,11 @@
               "RelativeToolTip": "Final_Project_DBMS\\DataAccess\\DA_PhanCa.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-01T02:35:30.566Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-01T02:35:30.566Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "DA_QuanLy.cs",
               "DocumentMoniker": "D:\\HQTCSDL\\PetShop\\Final_Project_DBMS\\Final_Project_DBMS\\DataAccess\\DA_QuanLy.cs",
               "RelativeDocumentMoniker": "Final_Project_DBMS\\DataAccess\\DA_QuanLy.cs",
@@ -151,12 +149,11 @@
               "RelativeToolTip": "Final_Project_DBMS\\DataAccess\\DA_QuanLy.cs",
               "ViewState": "AgIAAJUAAAAAAAAAAIA6wKYAAABOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-01T02:35:30.568Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-01T02:35:30.568Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "UC_QuanLy.cs [Design]",
               "DocumentMoniker": "D:\\HQTCSDL\\PetShop\\Final_Project_DBMS\\Final_Project_DBMS\\View\\Screen_QuanLy\\UC_QuanLy.cs",
               "RelativeDocumentMoniker": "Final_Project_DBMS\\View\\Screen_QuanLy\\UC_QuanLy.cs",
@@ -174,7 +171,7 @@
               "RelativeDocumentMoniker": "Final_Project_DBMS\\View\\Screen_QuanLy\\UC_QuanLy.cs",
               "ToolTip": "D:\\HQTCSDL\\PetShop\\Final_Project_DBMS\\Final_Project_DBMS\\View\\Screen_QuanLy\\UC_QuanLy.cs",
               "RelativeToolTip": "Final_Project_DBMS\\View\\Screen_QuanLy\\UC_QuanLy.cs",
-              "ViewState": "AgIAAN0BAAAAAAAAAAA5wOoBAAAyAAAAAAAAAA==",
+              "ViewState": "AgIAABICAAAAAAAAAAAAACECAABxAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-01T02:35:30.652Z",
               "EditorCaption": ""
@@ -189,8 +186,7 @@
               "RelativeToolTip": "Final_Project_DBMS\\DataAccess\\DA_DoanhThu.cs",
               "ViewState": "AgIAAAkAAAAAAAAAAAAAABUAAABLAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-01T02:35:30.567Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-01T02:35:30.567Z"
             },
             {
               "$type": "Document",
@@ -202,8 +198,7 @@
               "RelativeToolTip": "Final_Project_DBMS\\DataAccess\\Database.cs",
               "ViewState": "AgIAACEAAAAAAAAAAAAowDMAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-01T02:35:30.57Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-01T02:35:30.57Z"
             },
             {
               "$type": "Document",
@@ -215,8 +210,7 @@
               "RelativeToolTip": "Final_Project_DBMS\\control\\converter\\imageLinkConverter.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-05T19:31:35.43Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-05T19:31:35.43Z"
             },
             {
               "$type": "Document",
@@ -227,8 +221,7 @@
               "ToolTip": "D:\\HQTCSDL\\PetShop\\Final_Project_DBMS\\Final_Project_DBMS\\View\\Screen_BanHang\\Form_ChiTietSPDV.cs [Design]",
               "RelativeToolTip": "Final_Project_DBMS\\View\\Screen_BanHang\\Form_ChiTietSPDV.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-01T02:35:30.565Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2024-11-01T02:35:30.565Z"
             },
             {
               "$type": "Document",
@@ -239,8 +232,7 @@
               "ToolTip": "D:\\HQTCSDL\\PetShop\\Final_Project_DBMS\\Final_Project_DBMS\\View\\MainPage.cs [Design]",
               "RelativeToolTip": "Final_Project_DBMS\\View\\MainPage.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-01T02:44:03.793Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2024-11-01T02:44:03.793Z"
             },
             {
               "$type": "Document",
@@ -251,8 +243,7 @@
               "ToolTip": "D:\\HQTCSDL\\PetShop\\Final_Project_DBMS\\Final_Project_DBMS\\View\\Screen_PhanCa\\Form_ThemCaLam.cs [Design]",
               "RelativeToolTip": "Final_Project_DBMS\\View\\Screen_PhanCa\\Form_ThemCaLam.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-01T02:35:30.649Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2024-11-01T02:35:30.649Z"
             },
             {
               "$type": "Document",
@@ -367,8 +358,7 @@
               "RelativeToolTip": "Final_Project_DBMS\\View\\MainPage.cs",
               "ViewState": "AgIAAB4AAAAAAAAAAAAowBwAAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-01T02:35:30.654Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-01T02:35:30.654Z"
             },
             {
               "$type": "Document",
@@ -413,8 +403,7 @@
               "RelativeToolTip": "Final_Project_DBMS\\View\\Screen_BanHang\\Form_ChiTietSPDV.cs",
               "ViewState": "AgIAAAQAAAAAAAAAAAArwBUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-01T02:35:30.653Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-01T02:35:30.653Z"
             }
           ]
         }

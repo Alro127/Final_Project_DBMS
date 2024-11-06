@@ -496,5 +496,71 @@ namespace Final_Project_DBMS.View.Screen_QuanLy
                 LoadImages("dichvu");
             }
         }
+
+        private void btn_ThemAnhTC_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void btnThemAnh_Click(object sender, EventArgs e)
+        {
+            Button clickedButton = sender as Button;
+
+            // Lấy Mã Thú Cưng từ Tag của nút
+            if (clickedButton?.Tag == null)
+            {
+                MessageBox.Show("Mã sản phẩm và dịch vụ không hợp lệ.");
+                return;
+            }
+
+            int maSPDV = Convert.ToInt32(clickedButton.Tag);
+
+            // Tiến hành xử lý thêm ảnh
+            using (OpenFileDialog openFileDialog = new OpenFileDialog())
+            {
+                openFileDialog.InitialDirectory = "C:\\";
+                openFileDialog.Filter = "Image files (*.jpg;*.jpeg;*.png;*.bmp)|*.jpg;*.jpeg;*.png;*.bmp";
+                openFileDialog.Title = "Chọn Hình Ảnh";
+
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    string selectedImagePath = openFileDialog.FileName;
+
+                    // Đường dẫn lưu hình ảnh
+                    string imagePath = $"D:\\HQTCSDL\\PetShop\\DBMS_FinalProject\\assets\\images\\{maSPDV}\\" + Path.GetFileName(selectedImagePath);
+
+                    // Tạo thư mục nếu chưa tồn tại
+                    string directoryPath = $"D:\\HQTCSDL\\PetShop\\DBMS_FinalProject\\assets\\images\\{maSPDV}";
+                    if (!Directory.Exists(directoryPath))
+                    {
+                        Directory.CreateDirectory(directoryPath);
+                    }
+
+                    // Sao chép hình ảnh vào thư mục
+                    try
+                    {
+                        File.Copy(selectedImagePath, imagePath, true);
+                        // Gọi procedure để lưu thông tin hình ảnh vào cơ sở dữ liệu
+                        string[] paramNames = { "@Ma_SPDV", "@Duong_Dan" };
+                        object[] paramValues = { maSPDV, imagePath };
+
+                        //object result = db.getResultFromProc("sp_ThemHinhAnh", paramValues, paramNames, false);
+
+                        if (result != null)
+                        {
+                            MessageBox.Show(result.ToString()); // Hiển thị thông báo từ stored procedure // Tải lại hình ảnh để cập nhật giao diện
+                        }
+                        else
+                        {
+                            MessageBox.Show("Đã xảy ra lỗi khi thêm hình ảnh.");
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Lỗi khi sao chép hình ảnh: {ex.Message}");
+                        return; // Kết thúc hàm nếu sao chép không thành công
+                    }
+                }
+            }
+        }
     }
 }
