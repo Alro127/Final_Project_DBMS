@@ -526,7 +526,7 @@ namespace Final_Project_DBMS.View.Screen_QuanLy
                     string selectedImagePath = openFileDialog.FileName;
 
                     // Đường dẫn lưu hình ảnh
-                    string imagePath = $"D:\\HQTCSDL\\PetShop\\DBMS_FinalProject\\assets\\images\\{maSPDV}\\" + Path.GetFileName(selectedImagePath);
+                    string imagePath = $"D:\\HQTCSDL\\PetShop\\DBMS_FinalProject\\DBMS_\\assets\\images\\{maSPDV}\\" + Path.GetFileName(selectedImagePath);
 
                     // Tạo thư mục nếu chưa tồn tại
                     string directoryPath = $"D:\\HQTCSDL\\PetShop\\DBMS_FinalProject\\assets\\images\\{maSPDV}";
@@ -534,7 +534,6 @@ namespace Final_Project_DBMS.View.Screen_QuanLy
                     {
                         Directory.CreateDirectory(directoryPath);
                     }
-
                     // Sao chép hình ảnh vào thư mục
                     try
                     {
@@ -545,14 +544,14 @@ namespace Final_Project_DBMS.View.Screen_QuanLy
 
                         //object result = db.getResultFromProc("sp_ThemHinhAnh", paramValues, paramNames, false);
 
-                        if (result != null)
-                        {
-                            MessageBox.Show(result.ToString()); // Hiển thị thông báo từ stored procedure // Tải lại hình ảnh để cập nhật giao diện
-                        }
-                        else
-                        {
-                            MessageBox.Show("Đã xảy ra lỗi khi thêm hình ảnh.");
-                        }
+                    //    if (result != null)
+                    //    {
+                    //        MessageBox.Show(result.ToString()); // Hiển thị thông báo từ stored procedure // Tải lại hình ảnh để cập nhật giao diện
+                    //    }
+                    //    else
+                    //    {
+                    //        MessageBox.Show("Đã xảy ra lỗi khi thêm hình ảnh.");
+                    //    }
                     }
                     catch (Exception ex)
                     {
