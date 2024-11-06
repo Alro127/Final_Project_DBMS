@@ -47,14 +47,6 @@ namespace Final_Project_DBMS.View.Screen_BanHang
         {
 
         }
-        private void btn_them_Click(object sender, EventArgs e)
-        {
-            if (addHoaDon != null)
-            {
-                addHoaDon(this, e);
-            }
-        }
-
         private void btn_chi_tiet_Click(object sender, EventArgs e)
         {
             
@@ -71,6 +63,14 @@ namespace Final_Project_DBMS.View.Screen_BanHang
         private void lblGiaKhuyenMai_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnThem_Click(object sender, EventArgs e)
+        {
+            if (addHoaDon != null)
+            {
+                addHoaDon(this, e);
+            }
         }
     }
 }

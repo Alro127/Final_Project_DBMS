@@ -62,13 +62,23 @@ namespace Final_Project_DBMS.DataAccess
         {
             DataTable data = new DataTable();
             conn = getConnection;
+            openConnection();
             SqlCommand command = new SqlCommand(query, conn);
             if (parameter != null)
             {
                 command.Parameters.AddRange(parameter);
             }
             SqlDataAdapter adapter = new SqlDataAdapter(command);
-            adapter.Fill(data);
+            try
+            {
+                adapter.Fill(data);
+            }
+            catch (Exception e)
+            {
+
+                MessageBox.Show(e.Message, "Warning");
+            }
+            
             closeConnection();
             return data;
         }
@@ -79,13 +89,17 @@ namespace Final_Project_DBMS.DataAccess
         /// <param name="parametervalue">Mảng các giá trị tham số</param>
         /// <param name="paramName">Mảng tên các giá trị tham số</param>
         /// <param name="isExecReader">xác định xem output là datatable hay 1 giá trị object</param>
+        /// <param name="isText">Xác định xemm kiểu câu lệnh là text hay stored procedure, mặc định là storedProcedure</param>
         /// <returns></returns>
-        public object getResultFromProc(string query, object[] parametervalue = null, string[] paramName = null, bool isExecReader = false)
+        public object getResultFromProc(string query, object[] parametervalue = null, string[] paramName = null, bool isExecReader = false, bool isText = false)
         {
             conn = getConnection;
             openConnection();
             SqlCommand sqlCommand = new SqlCommand(query, conn);
-            sqlCommand.CommandType = CommandType.StoredProcedure;
+            if (isText)
+                sqlCommand.CommandType = CommandType.Text;
+            else
+                sqlCommand.CommandType = CommandType.StoredProcedure;
 
             // Nếu có tham số, gán cho SqlCommand
             if (parametervalue != null && paramName != null)

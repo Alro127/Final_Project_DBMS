@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Final_Project_DBMS.DataAccess;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +13,7 @@ namespace Final_Project_DBMS.View.Screen_BanHang
 {
     public partial class UC_DichVuCard : UserControl
     {
+        DA_ChiTietSPDV dA = new DA_ChiTietSPDV();
         public EventHandler addHoaDon;
         public EventHandler chitietvatpham;
         private int id;
@@ -36,7 +38,23 @@ namespace Final_Project_DBMS.View.Screen_BanHang
             lbl_ten.TextAlign = ContentAlignment.MiddleCenter;
             picture_spdv.ImageLocation = link;
             picture_spdv.SizeMode = PictureBoxSizeMode.StretchImage;
+            
+            // Kiểm tra xem số lượng phòng trống có thỏa mãn để đặt không.
+            canBeBought();
         }
+
+        private void canBeBought()
+        {
+            if (dA.coKhaNangDatPhong(Id))
+            {
+                btnThem.Enabled = true;
+            }
+            else
+            {
+                btnThem.Enabled = false;
+            }
+        }
+
         private void btn_them_Click(object sender, EventArgs e)
         {
             if (addHoaDon != null)

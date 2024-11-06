@@ -40,3 +40,4 @@ D:\University\Năm 3\Kỳ 1\DBMS\Project\Final_Project_DBMS\Final_Project_DBMS\o
 D:\University\Năm 3\Kỳ 1\DBMS\Project\Final_Project_DBMS\Final_Project_DBMS\obj\Debug\Final_Project_DBMS.csproj.CoreCompileInputs.cache
 D:\University\Năm 3\Kỳ 1\DBMS\Project\Final_Project_DBMS\Final_Project_DBMS\obj\Debug\Final_Project_DBMS.exe
 D:\University\Năm 3\Kỳ 1\DBMS\Project\Final_Project_DBMS\Final_Project_DBMS\obj\Debug\Final_Project_DBMS.pdb
+D:\University\Năm 3\Kỳ 1\DBMS\Project\Final_Project_DBMS\Final_Project_DBMS\obj\Debug\Final_Project_DBMS.View.Screen_BanHang.Form_ChiTietDichVu.resources

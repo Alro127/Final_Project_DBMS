@@ -146,6 +146,7 @@
             this.Controls.Add(this.pb_main);
             this.Name = "Form_ChiTietSPDV";
             this.Text = "FormChiTietSPDV";
+            this.Load += new System.EventHandler(this.Form_ChiTietSPDV_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pb_main)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

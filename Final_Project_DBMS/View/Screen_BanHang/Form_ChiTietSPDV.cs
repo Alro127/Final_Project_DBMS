@@ -28,57 +28,15 @@ namespace Final_Project_DBMS.View.Screen_BanHang
             {
                 load_giao_dien_vat_pham(idSPDV);
             }
-            else
-            {
-                load_giao_dien_dich_vu(idSPDV);
-            }
         }
 
-        private void load_giao_dien_dich_vu(int idSPDV)
-        {
-            DataTable dt = dA_ChiTiet.getChiTietDichVu(idSPDV);
-            DataTable hinhanh = dA_ChiTiet.getHinhAnh(idSPDV);
-            foreach (DataRow row in dt.Rows)
-            {
-                rtxt_detail.Clear();
-                lbl_ten_spdv.Text = row["Ten"].ToString();
-                lbl_gia_ban_goc.Text = Convert.ToDecimal(row["Gia_Ban_Goc"]).ToString("#,0") + "VND";
-                lbl_gia_khuyen_mai.Text = Convert.ToDecimal(row["Gia_Khuyen_Mai"]).ToString("#,0") + "VND";
-                rtxt_detail.Text += "Mô tả: " + row["Mo_Ta"].ToString() + "\n"; 
-                /* lbl_ten_spdv.Text = row["Ten"].ToString();
-                 lbl_mo_ta.Text = row["Mo_Ta"].ToString();
-                 lbl_gia_ban_goc.Text = Convert.ToDecimal(row["Gia_Ban_Goc"]).ToString("#,0") + "VND";
-                 lbl_gia_khuyen_mai.Text = Convert.ToDecimal(row["Gia_Khuyen_Mai"]).ToString("#,0") + "VND";
-                 lbl_thuonghieu.Text = row["Thuong_Hieu"].ToString();
-                 lbl_hsd.Text = Convert.ToDateTime(row["Han_Su_Dung"]).ToString("dd/MM/yyyy");
-                 lbl_tonkho.Text = row["So_Luong_Ton_Kho"].ToString();*/
-            }
-            ObservableCollection<string> listImg = new ObservableCollection<string>();
-            foreach (DataRow item in hinhanh.Rows)
-            {
-                string link = item["Duong_Dan"].ToString();
-                link = imageLinkConverter.Convert(link).ToString();
-                listImg.Add(link);
-
-            }
-            pb_main.ImageLocation = listImg[0];
-            pb_main.SizeMode = PictureBoxSizeMode.StretchImage;
-            foreach (string item in listImg)
-            {
-                PictureBox pictureBox = new PictureBox();
-                pictureBox.ImageLocation = item;
-                pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
-                pictureBox.Click += PictureBox_Click;
-                flp_hinhanh.Controls.Add(pictureBox);
-            }
-        }
-
+      
         private void load_giao_dien_vat_pham(int idSPDV)
         {
             /* panel_thu_cung.Visible = false;
              panel_vatpham.Visible = true;*/
-            DataTable dt = dA_ChiTiet.getChiTietVatPham(idSPDV);
-            DataTable hinhanh = dA_ChiTiet.getHinhAnh(idSPDV);
+            DataTable dt = dA_ChiTiet.layChiTietVatPham(idSPDV);
+            DataTable hinhanh = dA_ChiTiet.layHinhanh(idSPDV);
             foreach (DataRow row in dt.Rows)
             {
                 rtxt_detail.Clear();
@@ -125,8 +83,8 @@ namespace Final_Project_DBMS.View.Screen_BanHang
         }
         private void load_giao_dien_thu_cung(int idSPDV)
         {
-            DataTable dt = dA_ChiTiet.getChiTietThuCung(idSPDV);
-            DataTable hinhanh = dA_ChiTiet.getHinhAnh(idSPDV);
+            DataTable dt = dA_ChiTiet.layChiTietThuCung(idSPDV);
+            DataTable hinhanh = dA_ChiTiet.layHinhanh(idSPDV);
             /*panel_thu_cung.Visible = true;
             panel_vatpham.Visible = false;*/
             foreach (DataRow row in dt.Rows)
@@ -197,6 +155,11 @@ namespace Final_Project_DBMS.View.Screen_BanHang
         }
 
         private void lbl_gia_khuyen_mai_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form_ChiTietSPDV_Load(object sender, EventArgs e)
         {
 
         }

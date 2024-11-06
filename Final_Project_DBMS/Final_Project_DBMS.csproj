@@ -64,6 +64,12 @@
     <Compile Include="View\MainPage.Designer.cs">
       <DependentUpon>MainPage.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Screen_BanHang\Form_ChiTietDichVu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Screen_BanHang\Form_ChiTietDichVu.Designer.cs">
+      <DependentUpon>Form_ChiTietDichVu.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Screen_BanHang\Form_ChiTietSPDV.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -141,6 +147,9 @@
     </Compile>
     <EmbeddedResource Include="View\MainPage.resx">
       <DependentUpon>MainPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Screen_BanHang\Form_ChiTietDichVu.resx">
+      <DependentUpon>Form_ChiTietDichVu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Screen_BanHang\Form_ChiTietSPDV.resx">
       <DependentUpon>Form_ChiTietSPDV.cs</DependentUpon>

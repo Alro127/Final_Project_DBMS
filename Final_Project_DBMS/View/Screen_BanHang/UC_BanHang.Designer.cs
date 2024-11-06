@@ -55,6 +55,7 @@
             this.tp_vat_pham = new System.Windows.Forms.TabPage();
             this.flp_vatpham = new System.Windows.Forms.FlowLayoutPanel();
             this.tp_dich_vu = new System.Windows.Forms.TabPage();
+            this.flp_dichvu = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.txt_gia_ket_thuc = new System.Windows.Forms.TextBox();
             this.txt_gia_bat_dau = new System.Windows.Forms.TextBox();
@@ -68,7 +69,7 @@
             this.btn_tim_kiem = new System.Windows.Forms.Button();
             this.txt_tim_kiem = new System.Windows.Forms.TextBox();
             this.tp_hoa_don = new System.Windows.Forms.TabPage();
-            this.gv_hoadon_chuathanhtoan = new System.Windows.Forms.DataGridView();
+            this.gv_hoadon = new System.Windows.Forms.DataGridView();
             this.panel4 = new System.Windows.Forms.Panel();
             this.btn_chinh_sua_hoadon = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
@@ -80,7 +81,6 @@
             this.txt_tim_kiem_thanh_vien = new System.Windows.Forms.TextBox();
             this.btn_them_thanh_vien = new System.Windows.Forms.Button();
             this.imageList = new System.Windows.Forms.ImageList(this.components);
-            this.flp_dichvu = new System.Windows.Forms.FlowLayoutPanel();
             this.flowLayoutPanel2.SuspendLayout();
             this.tc_ban_hang.SuspendLayout();
             this.tp_spdv.SuspendLayout();
@@ -92,7 +92,7 @@
             this.tp_dich_vu.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tp_hoa_don.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gv_hoadon_chuathanhtoan)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gv_hoadon)).BeginInit();
             this.panel4.SuspendLayout();
             this.tp_thanh_vien.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gv_thanh_vien)).BeginInit();
@@ -109,7 +109,6 @@
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
             this.flowLayoutPanel2.Size = new System.Drawing.Size(1501, 50);
             this.flowLayoutPanel2.TabIndex = 4;
-            this.flowLayoutPanel2.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel2_Paint);
             // 
             // label12
             // 
@@ -134,6 +133,7 @@
             this.tc_ban_hang.SelectedIndex = 0;
             this.tc_ban_hang.Size = new System.Drawing.Size(1500, 750);
             this.tc_ban_hang.TabIndex = 7;
+            this.tc_ban_hang.SelectedIndexChanged += new System.EventHandler(this.tc_ban_hang_SelectedIndexChanged);
             // 
             // tp_spdv
             // 
@@ -186,6 +186,7 @@
             this.btn_huy_bo.TabIndex = 22;
             this.btn_huy_bo.Text = "Hủy bỏ";
             this.btn_huy_bo.UseVisualStyleBackColor = true;
+            this.btn_huy_bo.Click += new System.EventHandler(this.btn_huy_bo_Click);
             // 
             // btn_xac_nhan_id_khachhang
             // 
@@ -195,6 +196,7 @@
             this.btn_xac_nhan_id_khachhang.TabIndex = 29;
             this.btn_xac_nhan_id_khachhang.Text = "Xác nhận";
             this.btn_xac_nhan_id_khachhang.UseVisualStyleBackColor = true;
+            this.btn_xac_nhan_id_khachhang.Click += new System.EventHandler(this.btn_xac_nhan_id_khachhang_Click);
             // 
             // btn_xac_nhan
             // 
@@ -204,6 +206,7 @@
             this.btn_xac_nhan.TabIndex = 23;
             this.btn_xac_nhan.Text = "Xác nhận";
             this.btn_xac_nhan.UseVisualStyleBackColor = true;
+            this.btn_xac_nhan.Click += new System.EventHandler(this.btn_xac_nhan_Click);
             // 
             // btn_xoa
             // 
@@ -213,6 +216,7 @@
             this.btn_xoa.TabIndex = 24;
             this.btn_xoa.Text = "Xóa";
             this.btn_xoa.UseVisualStyleBackColor = true;
+            this.btn_xoa.Click += new System.EventHandler(this.btn_xoa_Click);
             // 
             // lbl_tong_tien
             // 
@@ -360,6 +364,13 @@
             this.tp_dich_vu.Text = "Dịch vụ";
             this.tp_dich_vu.UseVisualStyleBackColor = true;
             // 
+            // flp_dichvu
+            // 
+            this.flp_dichvu.Location = new System.Drawing.Point(3, 3);
+            this.flp_dichvu.Name = "flp_dichvu";
+            this.flp_dichvu.Size = new System.Drawing.Size(951, 563);
+            this.flp_dichvu.TabIndex = 0;
+            // 
             // panel1
             // 
             this.panel1.Controls.Add(this.txt_gia_ket_thuc);
@@ -385,6 +396,8 @@
             this.txt_gia_ket_thuc.Name = "txt_gia_ket_thuc";
             this.txt_gia_ket_thuc.Size = new System.Drawing.Size(180, 22);
             this.txt_gia_ket_thuc.TabIndex = 32;
+            this.txt_gia_ket_thuc.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txt_gia_ket_thuc_MouseClick);
+            this.txt_gia_ket_thuc.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.txt_gia_ket_thuc_MouseDoubleClick);
             // 
             // txt_gia_bat_dau
             // 
@@ -392,6 +405,7 @@
             this.txt_gia_bat_dau.Name = "txt_gia_bat_dau";
             this.txt_gia_bat_dau.Size = new System.Drawing.Size(180, 22);
             this.txt_gia_bat_dau.TabIndex = 31;
+            this.txt_gia_bat_dau.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.txt_gia_bat_dau_MouseDoubleClick);
             // 
             // btn_chon_khoang_gia
             // 
@@ -484,7 +498,7 @@
             // 
             // tp_hoa_don
             // 
-            this.tp_hoa_don.Controls.Add(this.gv_hoadon_chuathanhtoan);
+            this.tp_hoa_don.Controls.Add(this.gv_hoadon);
             this.tp_hoa_don.Controls.Add(this.panel4);
             this.tp_hoa_don.Location = new System.Drawing.Point(4, 25);
             this.tp_hoa_don.Name = "tp_hoa_don";
@@ -494,15 +508,15 @@
             this.tp_hoa_don.Text = "Hóa đơn";
             this.tp_hoa_don.UseVisualStyleBackColor = true;
             // 
-            // gv_hoadon_chuathanhtoan
+            // gv_hoadon
             // 
-            this.gv_hoadon_chuathanhtoan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gv_hoadon_chuathanhtoan.Location = new System.Drawing.Point(3, 62);
-            this.gv_hoadon_chuathanhtoan.Name = "gv_hoadon_chuathanhtoan";
-            this.gv_hoadon_chuathanhtoan.RowHeadersWidth = 51;
-            this.gv_hoadon_chuathanhtoan.RowTemplate.Height = 24;
-            this.gv_hoadon_chuathanhtoan.Size = new System.Drawing.Size(1486, 656);
-            this.gv_hoadon_chuathanhtoan.TabIndex = 12;
+            this.gv_hoadon.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gv_hoadon.Location = new System.Drawing.Point(3, 62);
+            this.gv_hoadon.Name = "gv_hoadon";
+            this.gv_hoadon.RowHeadersWidth = 51;
+            this.gv_hoadon.RowTemplate.Height = 24;
+            this.gv_hoadon.Size = new System.Drawing.Size(1486, 656);
+            this.gv_hoadon.TabIndex = 12;
             // 
             // panel4
             // 
@@ -523,6 +537,7 @@
             this.btn_chinh_sua_hoadon.TabIndex = 11;
             this.btn_chinh_sua_hoadon.Text = "Chỉnh sửa";
             this.btn_chinh_sua_hoadon.UseVisualStyleBackColor = true;
+            this.btn_chinh_sua_hoadon.Click += new System.EventHandler(this.btn_chinh_sua_hoadon_Click);
             // 
             // label2
             // 
@@ -582,6 +597,7 @@
             this.btn_tim_kiem_thanh_vien.Size = new System.Drawing.Size(29, 24);
             this.btn_tim_kiem_thanh_vien.TabIndex = 14;
             this.btn_tim_kiem_thanh_vien.UseVisualStyleBackColor = true;
+            this.btn_tim_kiem_thanh_vien.Click += new System.EventHandler(this.btn_tim_kiem_thanh_vien_Click);
             // 
             // txt_tim_kiem_thanh_vien
             // 
@@ -590,6 +606,7 @@
             this.txt_tim_kiem_thanh_vien.Size = new System.Drawing.Size(273, 22);
             this.txt_tim_kiem_thanh_vien.TabIndex = 13;
             this.txt_tim_kiem_thanh_vien.Text = "Tìm kiếm";
+            this.txt_tim_kiem_thanh_vien.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.txt_tim_kiem_thanh_vien_MouseDoubleClick);
             // 
             // btn_them_thanh_vien
             // 
@@ -599,19 +616,13 @@
             this.btn_them_thanh_vien.TabIndex = 12;
             this.btn_them_thanh_vien.Text = "Thêm";
             this.btn_them_thanh_vien.UseVisualStyleBackColor = true;
+            this.btn_them_thanh_vien.Click += new System.EventHandler(this.btn_them_thanh_vien_Click);
             // 
             // imageList
             // 
             this.imageList.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
             this.imageList.ImageSize = new System.Drawing.Size(16, 16);
             this.imageList.TransparentColor = System.Drawing.Color.Transparent;
-            // 
-            // flp_dichvu
-            // 
-            this.flp_dichvu.Location = new System.Drawing.Point(3, 3);
-            this.flp_dichvu.Name = "flp_dichvu";
-            this.flp_dichvu.Size = new System.Drawing.Size(951, 563);
-            this.flp_dichvu.TabIndex = 0;
             // 
             // UC_BanHang
             // 
@@ -636,7 +647,7 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.tp_hoa_don.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gv_hoadon_chuathanhtoan)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gv_hoadon)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.tp_thanh_vien.ResumeLayout(false);
@@ -689,7 +700,7 @@
         private System.Windows.Forms.Button btn_chinh_sua_hoadon;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DateTimePicker dtp;
-        private System.Windows.Forms.DataGridView gv_hoadon_chuathanhtoan;
+        private System.Windows.Forms.DataGridView gv_hoadon;
         private System.Windows.Forms.DataGridView gv_thanh_vien;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button btn_tim_kiem_thanh_vien;

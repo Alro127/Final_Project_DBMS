@@ -7,13 +7,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Final_Project_DBMS.control.converter;
+using Final_Project_DBMS.View.Screen_BanHang;
+using System.Data.SqlTypes;
+using System.Xml.Linq;
 
 namespace Final_Project_DBMS.DataAccess
 {
     public class DA_BanHang
     {
         Database db = new Database();
-        public string getSearchBTNIcon()
+        public string layIconBtnTimKiem()
         {
             string img_link = @"assets\images\chucnangbanhang\icon\Search_Icon.png";
             img_link = imageLinkConverter.Convert(img_link).ToString();
@@ -21,11 +24,11 @@ namespace Final_Project_DBMS.DataAccess
             string filePath = uri.LocalPath;
             return filePath;
         }
-        public DataTable getView(string viewName)
+        public DataTable layView(string viewName)
         {
             return db.ExecuteQuery("SELECT * FROM " + viewName);
         }
-        public DataTable getHinhAnhSPDV(int idSPDV)
+        public DataTable layHinhAnhSPDV(int idSPDV)
         {
             string sqlcmd = "proc_HinhAnhSPDV";
             string[] paramName = { "@idSPDV" };
@@ -70,6 +73,74 @@ namespace Final_Project_DBMS.DataAccess
                 "@SortColumnGiaTien", "@SortOrderGiaTien", "@SortColumnTen", "@SortOrderTen" };
             DataTable dt = (DataTable)db.getResultFromProc(cmd, paramValues, paramNames, true);
             return dt;
+        }
+        public void capNhatThongTinKhachHangLenHoaDon(string idkhachhang, string IDHoaDonHienTai)
+        {
+            string sqlcmd = "Update HoaDon Set Ma_Khach_Hang = " + idkhachhang + " where Ma_Hoa_Don = " + IDHoaDonHienTai;
+            db.ExecuteQuery(sqlcmd);
+
+            sqlcmd = "EXEC proc_CapNhatTongTien @Ma_Khach_Hang = " + idkhachhang + ", @Ma_Hoa_Don = " + IDHoaDonHienTai;
+            db.ExecuteQuery(sqlcmd);
+        }
+        public DataTable layThongTinKhachHang(string idkhachhang)
+        {
+            return db.ExecuteQuery("select * from KhachHang where Ma_Khach_Hang = " + idkhachhang);
+        }
+        public DataTable layTongTienHoaDonHienTai(string IDHoaDonHienTai)
+        {
+            string sqlcmd = "select Tong_Tien from HoaDon where Ma_Hoa_Don = " + IDHoaDonHienTai;
+            return db.ExecuteQuery(sqlcmd);
+        }
+        public int taoHoaDonMoi()
+        {
+            string cmd = "proc_TaoHoaDonMoi";
+            return Convert.ToInt16(db.getResultFromProc(cmd));
+        }
+        public decimal themChiTietHoaDon(string IDHoaDonHienTai, UC_SanPhamCard item)
+        {
+            object[] parameterValues = { IDHoaDonHienTai, item.Id, item.Ten, item.GiaUudai };
+            string[] parameterNames = { "@id_hoadon", "@id_vatpham", "@ten", "@dongia" };
+            string SQLcmd = "proc_ThemChiTietHoaDon";
+            return Convert.ToDecimal(db.getResultFromProc(SQLcmd, parameterValues, parameterNames));
+
+        }
+        public void xoaSPDVKhoiHoaDonDangLap(string IDHoaDonHienTai, string idVatPham)
+        {
+            string sqlcmd = "delete from ChiTietHoaDon where Ma_Hoa_Don = " + IDHoaDonHienTai + " and Ma_SPDV = " + idVatPham;
+            db.ExecuteQuery(sqlcmd);
+        }
+        public void xoaHoaDonDangLap(string sqlcmd, object[] paramValues, string[] paramNames)
+        {
+            db.getResultFromProc(sqlcmd, paramValues, paramNames);
+        }
+        public void datTrangThaiThanhToan(string IDHoaDonHienTai)
+        {
+            string sqlcmd = "update HoaDon set Trang_thai = N'Đã thanh toán' where Ma_Hoa_Don = " + IDHoaDonHienTai;
+            db.ExecuteQuery(sqlcmd);
+        }
+        public DataTable taiHoaDon()
+        {
+            return db.ExecuteQuery("select * from HoaDon");
+        }
+        public DataTable xemChiTietHoaDon(int IDHoaDonHienTai)
+        {
+            string query = "SELECT * FROM func_XemChiTietHoaDon(" + IDHoaDonHienTai.ToString() + ")";
+            return (DataTable)db.ExecuteQuery(query);
+        }
+        public DataTable layThongTinKhachHang()
+        {
+             return db.ExecuteQuery("select * from KhachHang");
+        }
+        public void ThemThanhVien(string name, string sdt, string dtl)
+        {
+            if (name == null || name == "")
+            {
+                return;
+            }
+            string sqlcmd = "proc_ThemThanhVien";
+            string[] paramNames = { "@ten", "@sdt", "@dtl" };
+            object[] paramValues = { name, sdt, dtl };
+            db.getResultFromProc(sqlcmd, paramValues, paramNames);
         }
     }
 }
