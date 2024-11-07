@@ -47,6 +47,7 @@
             this.btn_huy_bo.TabIndex = 17;
             this.btn_huy_bo.Text = "Hủy bỏ";
             this.btn_huy_bo.UseVisualStyleBackColor = true;
+            this.btn_huy_bo.Click += new System.EventHandler(this.btn_huy_bo_Click);
             // 
             // btn_xac_nhan
             // 
@@ -56,6 +57,7 @@
             this.btn_xac_nhan.TabIndex = 16;
             this.btn_xac_nhan.Text = "Xác nhận";
             this.btn_xac_nhan.UseVisualStyleBackColor = true;
+            this.btn_xac_nhan.Click += new System.EventHandler(this.btn_xac_nhan_Click);
             // 
             // txt_dtl
             // 

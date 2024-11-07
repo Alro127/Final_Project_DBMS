@@ -140,6 +140,7 @@
             this.Controls.Add(this.flpScreen);
             this.Name = "MainPage";
             this.Text = "MainPage";
+            this.Load += new System.EventHandler(this.MainPage_Load);
             this.flowLayoutPanel4.ResumeLayout(false);
             this.ResumeLayout(false);
 

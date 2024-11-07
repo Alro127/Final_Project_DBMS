@@ -33,6 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="PresentationCore" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -46,8 +47,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="control\converter\imageLinkConverter.cs" />
     <Compile Include="DataAccess\Database.cs" />
     <Compile Include="DataAccess\DA_BanHang.cs" />
+    <Compile Include="DataAccess\DA_ChiTietSPDV.cs" />
     <Compile Include="DataAccess\DA_DoanhThu.cs" />
     <Compile Include="DataAccess\DA_PhanCa.cs" />
     <Compile Include="DataAccess\DA_QuanLy.cs" />
@@ -60,6 +63,12 @@
     </Compile>
     <Compile Include="View\MainPage.Designer.cs">
       <DependentUpon>MainPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Screen_BanHang\Form_ChiTietDichVu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Screen_BanHang\Form_ChiTietDichVu.Designer.cs">
+      <DependentUpon>Form_ChiTietDichVu.cs</DependentUpon>
     </Compile>
     <Compile Include="View\Screen_BanHang\Form_ChiTietSPDV.cs">
       <SubType>Form</SubType>
@@ -139,6 +148,9 @@
     <EmbeddedResource Include="View\MainPage.resx">
       <DependentUpon>MainPage.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\Screen_BanHang\Form_ChiTietDichVu.resx">
+      <DependentUpon>Form_ChiTietDichVu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\Screen_BanHang\Form_ChiTietSPDV.resx">
       <DependentUpon>Form_ChiTietSPDV.cs</DependentUpon>
     </EmbeddedResource>
@@ -191,6 +203,53 @@
   <ItemGroup>
     <Folder Include="bin\Debug\" />
     <Folder Include="obj\Debug\TempPE\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="assets\images\10\z5625614256150_cc8dc907e1c6c2d3b2797b14f099e1f2.jpg" />
+    <Content Include="assets\images\11\anh-cho-phu-quoc-9229297788.jpg" />
+    <Content Include="assets\images\12\cho-boxer.jpg" />
+    <Content Include="assets\images\13\ezgif-3-ba043b5167.jpg" />
+    <Content Include="assets\images\14\Sua-cho-Esbilac-2.jpg" />
+    <Content Include="assets\images\15\60-sua-bot-DrKyan-cho-cho-110g-50k-1.jpg" />
+    <Content Include="assets\images\15\60-sua-bot-DrKyan-cho-cho-110g-50k-2.jpg" />
+    <Content Include="assets\images\15\60-sua-bot-DrKyan-cho-cho-110g-50k-3.jpg" />
+    <Content Include="assets\images\16\16-luoc-chai-long-cho-meo-PetGrooming-tang-kem-luoc-nho-1.jpg" />
+    <Content Include="assets\images\16\16-luoc-chai-long-cho-meo-PetGrooming-tang-kem-luoc-nho-2-2048x1536.jpg" />
+    <Content Include="assets\images\17\3-xuong-gam-thit-ga-Taotaopet-100-gram-1.jpg" />
+    <Content Include="assets\images\17\3-xuong-gam-thit-ga-Taotaopet-100-gram-2-2048x1536.jpg" />
+    <Content Include="assets\images\18\Nuoc-hoa-freshy-luu-huong-7-ngay-160k-1.jpg" />
+    <Content Include="assets\images\18\Nuoc-hoa-freshy-luu-huong-7-ngay-160k-2.jpg" />
+    <Content Include="assets\images\18\Nuoc-hoa-freshy-luu-huong-7-ngay-160k-3.jpg" />
+    <Content Include="assets\images\18\Nuoc-hoa-freshy-luu-huong-7-ngay-160k-4.jpg" />
+    <Content Include="assets\images\19\trong-giu-cho-meo_1612248539.jpg" />
+    <Content Include="assets\images\1\1878-phoc-soc-trang-mat-gau-truong-thanh-size-mini-duc-10th2m-16tr-1.jpg" />
+    <Content Include="assets\images\1\1878-phoc-soc-trang-mat-gau-truong-thanh-size-mini-duc-10th2m-16tr-2.jpg" />
+    <Content Include="assets\images\1\1878-phoc-soc-trang-mat-gau-truong-thanh-size-mini-duc-10th2m-16tr-3.jpg" />
+    <Content Include="assets\images\20\cham-soc-thu-cung_1612248557.jpg" />
+    <Content Include="assets\images\21\cuu-ho-thu-cung_1612248570.jpg" />
+    <Content Include="assets\images\22\khach-san-cho-meo_1612242262.jpg" />
+    <Content Include="assets\images\23\dich-vu-spa-cho-cho-meo_1612248623.jpg" />
+    <Content Include="assets\images\24\tam-cho-cho-meo_1612248603.jpg" />
+    <Content Include="assets\images\25\cat-tia-long-cho-meo_1612248645.jpg" />
+    <Content Include="assets\images\26\thoi-trang-thu-cung_1612249248.jpg" />
+    <Content Include="assets\images\2\5fcc8c5bfede23807acf.jpg" />
+    <Content Include="assets\images\2\abb6f64b84ce599000df.jpg" />
+    <Content Include="assets\images\2\cloudfront-test-image.png" />
+    <Content Include="assets\images\3\98E8BBC1-FC87-45F0-98B7-00F8C4B425A8.jpeg" />
+    <Content Include="assets\images\3\BCCA86C2-F468-4D93-B0F9-E1C1F3386790.jpeg" />
+    <Content Include="assets\images\4\meo-aln-mau-xx-2th1m-duc-va-cai-35-6m-1.jpg" />
+    <Content Include="assets\images\4\meo-aln-mau-xx-2th1m-duc-va-cai-35-6m-2.jpg" />
+    <Content Include="assets\images\5\d.jpg" />
+    <Content Include="assets\images\5\f.jpg" />
+    <Content Include="assets\images\5\g.jpg" />
+    <Content Include="assets\images\6\2-bengal-1252-2048x1366.jpg" />
+    <Content Include="assets\images\7\1863-corgi-mat-xanh-duc-1.jpg" />
+    <Content Include="assets\images\7\1863-corgi-mat-xanh-duc-2-2048x1838.jpg" />
+    <Content Include="assets\images\7\1863-corgi-mat-xanh-duc-3-2014x2048.jpg" />
+    <Content Include="assets\images\8\1773-2048x1365.jpg" />
+    <Content Include="assets\images\9\anh-meo-ba-tu-292929.jpg" />
+    <Content Include="assets\images\9\anh-meo-ba-tu-29292988977.jpg" />
+    <Content Include="assets\images\chucnangbanhang\icon\Search_Icon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -36,7 +36,6 @@ namespace Final_Project_DBMS.View.Screen_PhanCa
                 DateTime currentDay = startDate.AddDays(i);
                 daysOfWeek[currentDay] = i.ToString();
             }
-
             return daysOfWeek;
         }
 
