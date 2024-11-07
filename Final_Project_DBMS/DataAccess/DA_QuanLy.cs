@@ -19,6 +19,32 @@ namespace Final_Project_DBMS.DataAccess
             DataTable dataTable = db.getDataTable("SELECT * FROM view_DanhSachNhanVien");
             return dataTable;
         }
+        public DataTable TimKiemNhanVienTheoTen(string ten)
+        {
+            string query = "SELECT * FROM view_DanhSachNhanVien WHERE Ho_Ten COLLATE SQL_Latin1_General_CP1_CI_AI LIKE '%" + ten + "%'";
+            MessageBox.Show(query);
+            return db.getDataTable(query);
+        }
+        public DataTable TimKiemThuCungTheoTen(string ten)
+        {
+            string query = "SELECT * FROM view_DanhSachThuCung WHERE Ten COLLATE SQL_Latin1_General_CP1_CI_AI LIKE '%" + ten + "%'";
+            return db.getDataTable(query);
+        }
+        public DataTable TimKiemVatPhamTheoTen(string ten)
+        {
+            string query = "SELECT * FROM view_DanhSachVatPham WHERE Ten_San_Pham COLLATE SQL_Latin1_General_CP1_CI_AI LIKE '%" + ten + "%'";
+            return db.getDataTable(query);
+        }
+        public DataTable TimKiemDichVuTheoTen(string ten)
+        {
+            string query = "SELECT * FROM view_DanhSachDichVu WHERE Ten_Dich_Vu COLLATE SQL_Latin1_General_CP1_CI_AI LIKE '%" + ten + "%'";
+            return db.getDataTable(query);
+        }
+        public DataTable TimKiemKhachHangTheoTen(string ten)
+        {
+            string query = "SELECT * FROM view_DanhSachKhachHang WHERE Ten COLLATE SQL_Latin1_General_CP1_CI_AI LIKE '%" + ten + "%'";
+            return db.getDataTable(query);
+        }
         public void ExecProcedure(string procedureName , object[] parameters, string[] parameterNames)
         {
             conn = db.getConnection;
@@ -35,9 +61,9 @@ namespace Final_Project_DBMS.DataAccess
             {
                 db.openConnection();
                 int rowsAffected = cmd.ExecuteNonQuery();
-
+                MessageBox.Show(rowsAffected + "");
                 // Hiển thị thông báo sau khi thực hiện
-                if (rowsAffected > 0)
+                if (rowsAffected != 0)
                 {
                     if (procedureName == "proc_ThemNhanVien")
                     {
@@ -47,11 +73,11 @@ namespace Final_Project_DBMS.DataAccess
                     {
                         MessageBox.Show("Thông tin nhân viên đã được sửa thành công.");
                     }
-                    else if(procedureName == "proc_XoaNhanVien")
+                    else if (procedureName == "proc_XoaNhanVien")
                     {
                         MessageBox.Show("Thông tin nhân viên đã được xóa thành công.");
                     }
-                    else if(procedureName == "proc_SuaKhachHang")
+                    else if (procedureName == "proc_SuaKhachHang")
                     {
                         MessageBox.Show("Thông tin khách hàng đã được sửa thành công");
                     }
@@ -59,10 +85,27 @@ namespace Final_Project_DBMS.DataAccess
                     {
                         MessageBox.Show("Thông tin khách hàng đã được xóa thành công");
                     }
-                    else if(procedureName == "proc_XoaHinhAnh")
+                    else if (procedureName == "proc_XoaHinhAnh")
                     {
                         MessageBox.Show("Hình ảnh đã được xóa thành công");
-                    }    
+                    }
+                    else if (procedureName == "proc_ThemHinhAnh")
+                    {
+                        MessageBox.Show("Hình ảnh đã được xóa thành công");
+                    }
+                    else if (procedureName == "proc_SuaVatPham")
+                    {
+                        MessageBox.Show("Hình ảnh đã được xóa thành công");
+                    }
+                    else if (procedureName == "proc_SuaDichVu")
+                    {
+                        MessageBox.Show("Hình ảnh đã được xóa thành công");
+                    }
+                    else if (procedureName == "proc_SuaThuCung")
+                    {
+                        MessageBox.Show("Hình ảnh đã được xóa thành công");
+                    }
+
                 }
                 else
                 {
@@ -104,17 +147,17 @@ namespace Final_Project_DBMS.DataAccess
                 // Kiểm tra kết quả sau khi thực hiện
                 if (rowsAffected > 0)
                 {
-                    if (procedureName == "proc_ThemNhanVien")
+                    if (procedureName == "proc_ThemVatPham")
                     {
-                        MessageBox.Show("Thông tin nhân viên đã được thêm thành công.");
+                        MessageBox.Show("Thông tin vật phẩm đã được thêm thành công.");
                     }
-                    else if (procedureName == "proc_SuaNhanVien")
+                    else if (procedureName == "proc_ThemDichVu")
                     {
-                        MessageBox.Show("Thông tin nhân viên đã được sửa thành công.");
+                        MessageBox.Show("Thông tin dịch vụ đã được sửa thành công.");
                     }
-                    else if (procedureName == "proc_XoaNhanVien")
+                    else if (procedureName == "proc_ThemThuCung")
                     {
-                        MessageBox.Show("Thông tin nhân viên đã được xóa thành công.");
+                        MessageBox.Show("Thông tin thú cưng đã được xóa thành công.");
                     }
                     // Lấy giá trị từ tham số đầu ra @Ma_SPDV
                     maspdv = (int)maSpdvParam.Value;
