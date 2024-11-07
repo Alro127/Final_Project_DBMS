@@ -17,9 +17,13 @@ namespace Final_Project_DBMS.View.Screen_BanHang
         private int id;
         private decimal giaUudai;
         private string ten;
+        private decimal giaGoc;
+        private string link;
         public int Id { get => id; set => id = value; }
         public decimal GiaUudai { get => giaUudai; set => giaUudai = value; }
         public string Ten { get => ten; set => ten = value; }
+        public decimal GiaGoc { get => giaGoc; set => giaGoc = value; }
+        public string Link { get => link; set => link = value; }
 
         public UC_SanPhamCard(int id, string name, decimal giagoc, decimal giauudai, string link)
         {
@@ -27,6 +31,8 @@ namespace Final_Project_DBMS.View.Screen_BanHang
             this.Id = id;
             this.GiaUudai = giauudai;
             this.Ten = name;
+            this.GiaGoc = giaGoc;
+            this.Link = link;
             lbl_gia_goc.Text = giagoc.ToString("#,0") + "VND";
             lbl_gia_uu_dai.Text = giauudai.ToString("#,0") + "VND";
             lbl_ten.Text = name;         

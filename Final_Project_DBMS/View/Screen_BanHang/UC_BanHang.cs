@@ -109,11 +109,32 @@ namespace Final_Project_DBMS.View.Screen_BanHang
                 link = imageLinkConverter.Convert(link).ToString();
                 int sophongtrong = Convert.ToInt16(row["So_Luong_Phong_Trong"]);
                 UC_DichVuCard cardvatpham = new UC_DichVuCard(id, name, giagoc, giauudai, link, sophongtrong);
-                /*cardvatpham.addHoaDon += AddHoaDon;*/
+                cardvatpham.addHoaDon += AddHoaDonDV;
                 cardvatpham.chitietvatpham += ChiTietVatPham;
                 flp_dichvu.Controls.Add(cardvatpham);
             }
         }
+
+        private void AddHoaDonDV(object sender, EventArgs e)
+        {
+            UC_DichVuCard _DichVuCard = (UC_DichVuCard)sender;
+            Form_DanhSachPhongDV form_DanhSachPhongDV = new Form_DanhSachPhongDV(_DichVuCard.Id);
+            form_DanhSachPhongDV.ShowDialog();
+            string inititalState = "";
+            string eventualState = "";
+            form_DanhSachPhongDV.layGiaTriTrangThai(ref inititalState, ref eventualState);
+            if (dA_BanHang.laDatPhong(inititalState, eventualState))
+            {
+                UC_SanPhamCard uC_SanPhamCard = new UC_SanPhamCard(_DichVuCard.Id, _DichVuCard.Ten, _DichVuCard.GiaGoc, _DichVuCard.GiaUudai, _DichVuCard.Link);
+                AddHoaDon(uC_SanPhamCard, e);
+            }
+            else
+            {
+                MessageBox.Show("Đặt phòng không hợp lệ, giao dịch bị hủy bỏ!", "Warning");;
+            }
+            dich_vu_Load();
+        }
+
         private void vat_pham_load(DataTable vatpham = null)
         {
             if (vatpham == null)
@@ -267,6 +288,9 @@ namespace Final_Project_DBMS.View.Screen_BanHang
         {
             txt_tim_kiem.Clear();
         }
+        /// <summary>
+        /// Lấy hết tất cả thông tin để tìm kiếm
+        /// </summary>
         private void getAllInfoSearching()
         {
             // Kiểm tra xem là tab thú cưng hay vật phẩm để có tên view
@@ -472,20 +496,27 @@ namespace Final_Project_DBMS.View.Screen_BanHang
 
         private void btn_xac_nhan_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Bạn có muốn thanh toán ngay?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-            if (result == DialogResult.Yes)
+            if (dA_BanHang.coTheThemHoaDon(IDHoaDonHienTai.ToString()))
             {
-                // Người dùng nhấn nút Yes
-                MessageBox.Show("Bạn đã chọn Yes, hóa đơn có trạng thái đã thanh toán", "Notice");
-                dA_BanHang.datTrangThaiThanhToan(IDHoaDonHienTai.ToString());
+                DialogResult result = MessageBox.Show("Bạn có muốn thanh toán ngay?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                {
+                    // Người dùng nhấn nút Yes
+                    MessageBox.Show("Bạn đã chọn Yes, hóa đơn có trạng thái đã thanh toán", "Notice");
+                    dA_BanHang.datTrangThaiThanhToan(IDHoaDonHienTai.ToString());
+                }
+                else if (result == DialogResult.No)
+                {
+                    // Người dùng nhấn nút No
+                    MessageBox.Show("Bạn đã chọn No, hóa đơn sẽ đưa vào danh sách chờ", "Notice");
+                }
+                XoaGiaoDichHienTai();
             }
-            else if (result == DialogResult.No)
+            else
             {
-                // Người dùng nhấn nút No
-                MessageBox.Show("Bạn đã chọn No, hóa đơn sẽ đưa vào danh sách chờ", "Notice");
+                MessageBox.Show("Hóa đơn không hợp lệ!", "Warning");
+                XoaGiaoDichHienTai();
             }
-            XoaGiaoDichHienTai();
         }
 
         private void btn_chinh_sua_hoadon_Click(object sender, EventArgs e)

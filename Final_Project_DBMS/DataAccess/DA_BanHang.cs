@@ -52,15 +52,6 @@ namespace Final_Project_DBMS.DataAccess
         public DataTable TimKiem(string tenView = null, string tenCot = null, string tukhoa = null, string startingValue = null,
             string endingValue = null, string orderColumnGiaTien = null, string orderColumnTen = null, string Gia_Khuyen_Mai = "Gia_Khuyen_Mai")
         {
-            /*string tukhoa = "";
-            if (txt_tim_kiem.Text.Length == 0 || txt_tim_kiem.Text.Equals("Tìm kiếm"))
-            {
-                tukhoa = "";
-            }
-            else
-            {
-                tukhoa = txt_tim_kiem.Text;
-            }*/
             if (tenView == null && tenCot == null && tukhoa == null && startingValue == null 
                 && endingValue == null && orderColumnGiaTien == null && orderColumnTen == null)
             {
@@ -141,6 +132,21 @@ namespace Final_Project_DBMS.DataAccess
             string[] paramNames = { "@ten", "@sdt", "@dtl" };
             object[] paramValues = { name, sdt, dtl };
             db.getResultFromProc(sqlcmd, paramValues, paramNames);
+        }
+        public bool coTheThemHoaDon(string @idHD)
+        {
+            string sqlcmd = "select dbo.func_KiemTraThemHoaDon(@idHD)";
+            string[] paramName = { "@idHD" };
+            object[] paramValue = { @idHD };
+            return (bool)(db.getResultFromProc(sqlcmd,parametervalue:paramValue, paramName:paramName, isText:true));
+        }
+        
+        public bool laDatPhong(string @dtrangthai, string @itrangthai)
+        {
+            string sqlcmd = "select dbo.func_KiemTraDatPhong(@dtrangthai, @itrangthai)";
+            string[] paramNames = { "@dtrangthai", "@itrangthai" };
+            object[] paramValues = { @dtrangthai, @itrangthai };
+            return (bool)(db.getResultFromProc(sqlcmd, paramValues, paramNames, isText:true));
         }
     }
 }

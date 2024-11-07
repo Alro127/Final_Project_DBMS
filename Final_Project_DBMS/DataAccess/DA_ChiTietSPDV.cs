@@ -41,10 +41,17 @@ namespace Final_Project_DBMS.DataAccess
         }
         public bool coKhaNangDatPhong(int idSPDV)
         {
-            string cmd = "SELECT dbo.KiemTraSoLuongPhongTrong(@idSPDV)";
+            string cmd = "SELECT dbo.func_KiemTraSoLuongPhongTrong(@idSPDV)";
             string[] paramName = { "@idSPDV" };
             object[] paramValue = { idSPDV };
             return (bool)db.getResultFromProc(cmd, parametervalue:paramValue, paramName:paramName, isText: true);
+        }
+        public DataTable taiPhongDichVu(int iDDV)
+        {
+            string sqlcmd = "SELECT * FROM dbo.func_XemPhongDichVuSanSang(@idDV)";
+            string[] paramNames = { "@idDV" };
+            object[] paramValues = { iDDV };
+            return (DataTable)db.getResultFromProc(sqlcmd, paramValues, paramNames, isText: true, isExecReader:true);
         }
     }
 }

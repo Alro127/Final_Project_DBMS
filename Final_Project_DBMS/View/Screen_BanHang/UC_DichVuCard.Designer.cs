@@ -30,13 +30,13 @@
         {
             this.btnThem = new System.Windows.Forms.Button();
             this.grbTen = new System.Windows.Forms.GroupBox();
+            this.lbl_so_phong = new System.Windows.Forms.Label();
+            this.lbl_ten = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.lbl_gia_uu_dai = new System.Windows.Forms.Label();
             this.lbl_gia_goc = new System.Windows.Forms.Label();
             this.picture_spdv = new System.Windows.Forms.PictureBox();
             this.btnChiTiet = new System.Windows.Forms.Button();
-            this.lbl_ten = new System.Windows.Forms.Label();
-            this.lbl_so_phong = new System.Windows.Forms.Label();
             this.grbTen.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picture_spdv)).BeginInit();
             this.SuspendLayout();
@@ -49,6 +49,7 @@
             this.btnThem.TabIndex = 6;
             this.btnThem.Text = "Thêm";
             this.btnThem.UseVisualStyleBackColor = true;
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // grbTen
             // 
@@ -63,6 +64,27 @@
             this.grbTen.Size = new System.Drawing.Size(194, 117);
             this.grbTen.TabIndex = 5;
             this.grbTen.TabStop = false;
+            // 
+            // lbl_so_phong
+            // 
+            this.lbl_so_phong.AutoSize = true;
+            this.lbl_so_phong.Location = new System.Drawing.Point(129, 87);
+            this.lbl_so_phong.Name = "lbl_so_phong";
+            this.lbl_so_phong.Size = new System.Drawing.Size(59, 20);
+            this.lbl_so_phong.TabIndex = 6;
+            this.lbl_so_phong.Text = "label2";
+            // 
+            // lbl_ten
+            // 
+            this.lbl_ten.AutoEllipsis = true;
+            this.lbl_ten.Font = new System.Drawing.Font("Yu Gothic UI", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_ten.Location = new System.Drawing.Point(1, 0);
+            this.lbl_ten.Margin = new System.Windows.Forms.Padding(0);
+            this.lbl_ten.Name = "lbl_ten";
+            this.lbl_ten.Size = new System.Drawing.Size(196, 29);
+            this.lbl_ten.TabIndex = 5;
+            this.lbl_ten.Text = "label1";
+            this.lbl_ten.Click += new System.EventHandler(this.lbl_ten_Click);
             // 
             // label1
             // 
@@ -112,27 +134,6 @@
             this.btnChiTiet.UseVisualStyleBackColor = true;
             this.btnChiTiet.Click += new System.EventHandler(this.btnChiTiet_Click);
             // 
-            // lbl_ten
-            // 
-            this.lbl_ten.AutoEllipsis = true;
-            this.lbl_ten.Font = new System.Drawing.Font("Yu Gothic UI", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_ten.Location = new System.Drawing.Point(1, 0);
-            this.lbl_ten.Margin = new System.Windows.Forms.Padding(0);
-            this.lbl_ten.Name = "lbl_ten";
-            this.lbl_ten.Size = new System.Drawing.Size(196, 29);
-            this.lbl_ten.TabIndex = 5;
-            this.lbl_ten.Text = "label1";
-            this.lbl_ten.Click += new System.EventHandler(this.lbl_ten_Click);
-            // 
-            // lbl_so_phong
-            // 
-            this.lbl_so_phong.AutoSize = true;
-            this.lbl_so_phong.Location = new System.Drawing.Point(129, 87);
-            this.lbl_so_phong.Name = "lbl_so_phong";
-            this.lbl_so_phong.Size = new System.Drawing.Size(59, 20);
-            this.lbl_so_phong.TabIndex = 6;
-            this.lbl_so_phong.Text = "label2";
-            // 
             // UC_DichVuCard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -143,6 +144,7 @@
             this.Controls.Add(this.btnChiTiet);
             this.Name = "UC_DichVuCard";
             this.Size = new System.Drawing.Size(200, 370);
+            this.Load += new System.EventHandler(this.UC_DichVuCard_Load);
             this.grbTen.ResumeLayout(false);
             this.grbTen.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picture_spdv)).EndInit();
