@@ -3,19 +3,23 @@
   "WorkspaceRootPath": "D:\\University\\N\u0103m 3\\K\u1EF3 1\\DBMS\\Project\\Final_Project_DBMS\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{DD894CC0-988B-4F32-9E7D-4E451580DFFE}|Final_Project_DBMS\\Final_Project_DBMS.csproj|d:\\university\\n\u0103m 3\\k\u1EF3 1\\dbms\\project\\final_project_dbms\\final_project_dbms\\dataaccess\\database.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DD894CC0-988B-4F32-9E7D-4E451580DFFE}|Final_Project_DBMS\\Final_Project_DBMS.csproj|solutionrelative:final_project_dbms\\dataaccess\\database.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{DD894CC0-988B-4F32-9E7D-4E451580DFFE}|Final_Project_DBMS\\Final_Project_DBMS.csproj|d:\\university\\n\u0103m 3\\k\u1EF3 1\\dbms\\project\\final_project_dbms\\final_project_dbms\\dataaccess\\da_banhang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DD894CC0-988B-4F32-9E7D-4E451580DFFE}|Final_Project_DBMS\\Final_Project_DBMS.csproj|solutionrelative:final_project_dbms\\dataaccess\\da_banhang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DD894CC0-988B-4F32-9E7D-4E451580DFFE}|Final_Project_DBMS\\Final_Project_DBMS.csproj|d:\\university\\n\u0103m 3\\k\u1EF3 1\\dbms\\project\\final_project_dbms\\final_project_dbms\\view\\screen_banhang\\uc_banhang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{DD894CC0-988B-4F32-9E7D-4E451580DFFE}|Final_Project_DBMS\\Final_Project_DBMS.csproj|D:\\University\\N\u0103m 3\\K\u1EF3 1\\DBMS\\Project\\Final_Project_DBMS\\final_project_dbms\\view\\screen_banhang\\uc_banhang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DD894CC0-988B-4F32-9E7D-4E451580DFFE}|Final_Project_DBMS\\Final_Project_DBMS.csproj|solutionrelative:final_project_dbms\\view\\screen_banhang\\uc_banhang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DD894CC0-988B-4F32-9E7D-4E451580DFFE}|Final_Project_DBMS\\Final_Project_DBMS.csproj|d:\\university\\n\u0103m 3\\k\u1EF3 1\\dbms\\project\\final_project_dbms\\final_project_dbms\\view\\screen_banhang\\uc_banhang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{DD894CC0-988B-4F32-9E7D-4E451580DFFE}|Final_Project_DBMS\\Final_Project_DBMS.csproj|D:\\University\\N\u0103m 3\\K\u1EF3 1\\DBMS\\Project\\Final_Project_DBMS\\final_project_dbms\\view\\screen_banhang\\uc_banhang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{DD894CC0-988B-4F32-9E7D-4E451580DFFE}|Final_Project_DBMS\\Final_Project_DBMS.csproj|solutionrelative:final_project_dbms\\view\\screen_banhang\\uc_banhang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DD894CC0-988B-4F32-9E7D-4E451580DFFE}|Final_Project_DBMS\\Final_Project_DBMS.csproj|d:\\university\\n\u0103m 3\\k\u1EF3 1\\dbms\\project\\final_project_dbms\\final_project_dbms\\dataaccess\\da_chitietspdv.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{DD894CC0-988B-4F32-9E7D-4E451580DFFE}|Final_Project_DBMS\\Final_Project_DBMS.csproj|D:\\University\\N\u0103m 3\\K\u1EF3 1\\DBMS\\Project\\Final_Project_DBMS\\final_project_dbms\\dataaccess\\da_chitietspdv.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DD894CC0-988B-4F32-9E7D-4E451580DFFE}|Final_Project_DBMS\\Final_Project_DBMS.csproj|solutionrelative:final_project_dbms\\dataaccess\\da_chitietspdv.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -32,44 +36,6 @@
           "SelectedChildIndex": 2,
           "Children": [
             {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "UC_BanHang.cs",
-              "DocumentMoniker": "D:\\University\\N\u0103m 3\\K\u1EF3 1\\DBMS\\Project\\Final_Project_DBMS\\Final_Project_DBMS\\View\\Screen_BanHang\\UC_BanHang.cs",
-              "RelativeDocumentMoniker": "Final_Project_DBMS\\View\\Screen_BanHang\\UC_BanHang.cs",
-              "ToolTip": "D:\\University\\N\u0103m 3\\K\u1EF3 1\\DBMS\\Project\\Final_Project_DBMS\\Final_Project_DBMS\\View\\Screen_BanHang\\UC_BanHang.cs",
-              "RelativeToolTip": "Final_Project_DBMS\\View\\Screen_BanHang\\UC_BanHang.cs",
-              "ViewState": "AQIAAFQBAAAAAAAAAAAYwGEBAAAzAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-07T08:55:57.247Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "UC_BanHang.cs [Design]",
-              "DocumentMoniker": "D:\\University\\N\u0103m 3\\K\u1EF3 1\\DBMS\\Project\\Final_Project_DBMS\\Final_Project_DBMS\\View\\Screen_BanHang\\UC_BanHang.cs",
-              "RelativeDocumentMoniker": "Final_Project_DBMS\\View\\Screen_BanHang\\UC_BanHang.cs",
-              "ToolTip": "D:\\University\\N\u0103m 3\\K\u1EF3 1\\DBMS\\Project\\Final_Project_DBMS\\Final_Project_DBMS\\View\\Screen_BanHang\\UC_BanHang.cs [Design]",
-              "RelativeToolTip": "Final_Project_DBMS\\View\\Screen_BanHang\\UC_BanHang.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-07T08:55:56.213Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "DA_BanHang.cs",
-              "DocumentMoniker": "D:\\University\\N\u0103m 3\\K\u1EF3 1\\DBMS\\Project\\Final_Project_DBMS\\Final_Project_DBMS\\DataAccess\\DA_BanHang.cs",
-              "RelativeDocumentMoniker": "Final_Project_DBMS\\DataAccess\\DA_BanHang.cs",
-              "ToolTip": "D:\\University\\N\u0103m 3\\K\u1EF3 1\\DBMS\\Project\\Final_Project_DBMS\\Final_Project_DBMS\\DataAccess\\DA_BanHang.cs",
-              "RelativeToolTip": "Final_Project_DBMS\\DataAccess\\DA_BanHang.cs",
-              "ViewState": "AQIAAB0AAAAAAAAAAAAQwDQAAAAvAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-07T08:55:30.748Z",
-              "EditorCaption": ""
-            },
-            {
               "$type": "Bookmark",
               "Name": "ST:130:0:{13b12e3e-c1b4-4539-9371-4fe9a0d523fc}"
             },
@@ -79,7 +45,56 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Database.cs",
+              "DocumentMoniker": "D:\\University\\N\u0103m 3\\K\u1EF3 1\\DBMS\\Project\\Final_Project_DBMS\\Final_Project_DBMS\\DataAccess\\Database.cs",
+              "RelativeDocumentMoniker": "Final_Project_DBMS\\DataAccess\\Database.cs",
+              "ToolTip": "D:\\University\\N\u0103m 3\\K\u1EF3 1\\DBMS\\Project\\Final_Project_DBMS\\Final_Project_DBMS\\DataAccess\\Database.cs",
+              "RelativeToolTip": "Final_Project_DBMS\\DataAccess\\Database.cs",
+              "ViewState": "AQIAACAAAAAAAAAAAAAAwDEAAAAsAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-07T14:25:36.694Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "UC_BanHang.cs",
+              "DocumentMoniker": "D:\\University\\N\u0103m 3\\K\u1EF3 1\\DBMS\\Project\\Final_Project_DBMS\\Final_Project_DBMS\\View\\Screen_BanHang\\UC_BanHang.cs",
+              "RelativeDocumentMoniker": "Final_Project_DBMS\\View\\Screen_BanHang\\UC_BanHang.cs",
+              "ToolTip": "D:\\University\\N\u0103m 3\\K\u1EF3 1\\DBMS\\Project\\Final_Project_DBMS\\Final_Project_DBMS\\View\\Screen_BanHang\\UC_BanHang.cs",
+              "RelativeToolTip": "Final_Project_DBMS\\View\\Screen_BanHang\\UC_BanHang.cs",
+              "ViewState": "AQIAAFQBAAAAAAAAAAAYwGEBAAAzAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-07T08:55:57.247Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 3,
+              "Title": "UC_BanHang.cs [Design]",
+              "DocumentMoniker": "D:\\University\\N\u0103m 3\\K\u1EF3 1\\DBMS\\Project\\Final_Project_DBMS\\Final_Project_DBMS\\View\\Screen_BanHang\\UC_BanHang.cs",
+              "RelativeDocumentMoniker": "Final_Project_DBMS\\View\\Screen_BanHang\\UC_BanHang.cs",
+              "ToolTip": "D:\\University\\N\u0103m 3\\K\u1EF3 1\\DBMS\\Project\\Final_Project_DBMS\\Final_Project_DBMS\\View\\Screen_BanHang\\UC_BanHang.cs [Design]",
+              "RelativeToolTip": "Final_Project_DBMS\\View\\Screen_BanHang\\UC_BanHang.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-07T08:55:56.213Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "DA_BanHang.cs",
+              "DocumentMoniker": "D:\\University\\N\u0103m 3\\K\u1EF3 1\\DBMS\\Project\\Final_Project_DBMS\\Final_Project_DBMS\\DataAccess\\DA_BanHang.cs",
+              "RelativeDocumentMoniker": "Final_Project_DBMS\\DataAccess\\DA_BanHang.cs",
+              "ToolTip": "D:\\University\\N\u0103m 3\\K\u1EF3 1\\DBMS\\Project\\Final_Project_DBMS\\Final_Project_DBMS\\DataAccess\\DA_BanHang.cs",
+              "RelativeToolTip": "Final_Project_DBMS\\DataAccess\\DA_BanHang.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAADQAAAAvAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-07T08:55:30.748Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "DA_ChiTietSPDV.cs",
               "DocumentMoniker": "D:\\University\\N\u0103m 3\\K\u1EF3 1\\DBMS\\Project\\Final_Project_DBMS\\Final_Project_DBMS\\DataAccess\\DA_ChiTietSPDV.cs",
               "RelativeDocumentMoniker": "Final_Project_DBMS\\DataAccess\\DA_ChiTietSPDV.cs",
@@ -87,18 +102,16 @@
               "RelativeToolTip": "Final_Project_DBMS\\DataAccess\\DA_ChiTietSPDV.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-07T08:55:40.028Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-07T08:55:40.028Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "dbo.HoaDon [Data]",
               "DocumentMoniker": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/PetShop/True/SqlTable/dbo.HoaDon.sql",
               "ToolTip": "dbo.HoaDon [Data]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
-              "WhenOpened": "2024-11-07T08:43:15.01Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-07T08:43:15.01Z"
             }
           ]
         },
