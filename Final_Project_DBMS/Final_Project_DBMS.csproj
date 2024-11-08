@@ -106,6 +106,18 @@
     <Compile Include="View\Screen_BanHang\UC_DichVuCard.Designer.cs">
       <DependentUpon>UC_DichVuCard.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Screen_DangKyDangNhap\Form_DangKy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Screen_DangKyDangNhap\Form_DangKy.Designer.cs">
+      <DependentUpon>Form_DangKy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Screen_DangKyDangNhap\Form_DangNhap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Screen_DangKyDangNhap\Form_DangNhap.Designer.cs">
+      <DependentUpon>Form_DangNhap.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Screen_DoanhThu\UC_DoanhThu.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -168,6 +180,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\Screen_BanHang\UC_BanHang.resx">
       <DependentUpon>UC_BanHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Screen_DangKyDangNhap\Form_DangKy.resx">
+      <DependentUpon>Form_DangKy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Screen_DangKyDangNhap\Form_DangNhap.resx">
+      <DependentUpon>Form_DangNhap.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Screen_DoanhThu\UC_DoanhThu.resx">
       <DependentUpon>UC_DoanhThu.cs</DependentUpon>
@@ -235,8 +253,17 @@
     <Content Include="assets\images\2\5fcc8c5bfede23807acf.jpg" />
     <Content Include="assets\images\2\abb6f64b84ce599000df.jpg" />
     <Content Include="assets\images\2\cloudfront-test-image.png" />
+    <Content Include="assets\images\32\logo-doitac1.png" />
+    <Content Include="assets\images\32\logo-doitac1_1.png" />
     <Content Include="assets\images\3\98E8BBC1-FC87-45F0-98B7-00F8C4B425A8.jpeg" />
     <Content Include="assets\images\3\BCCA86C2-F468-4D93-B0F9-E1C1F3386790.jpeg" />
+    <Content Include="assets\images\40\crm-getfly-1.png" />
+    <Content Include="assets\images\41\crm-getfly.png" />
+    <Content Include="assets\images\41\logo-doitac1.png" />
+    <Content Include="assets\images\43\cloudfront-test-image.png" />
+    <Content Include="assets\images\43\logo-doitac1.png" />
+    <Content Include="assets\images\46\crm-getfly_2.png" />
+    <Content Include="assets\images\47\crm-getfly-1_3.png" />
     <Content Include="assets\images\4\meo-aln-mau-xx-2th1m-duc-va-cai-35-6m-1.jpg" />
     <Content Include="assets\images\4\meo-aln-mau-xx-2th1m-duc-va-cai-35-6m-2.jpg" />
     <Content Include="assets\images\5\d.jpg" />

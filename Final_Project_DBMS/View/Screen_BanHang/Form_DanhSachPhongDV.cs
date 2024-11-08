@@ -88,10 +88,11 @@ namespace Final_Project_DBMS.View.Screen_BanHang
                
             }
         }
-        public void layGiaTriTrangThai(ref string inititalState, ref string eventualState)
+        public void layGiaTriTrangThai(ref string inititalState, ref string eventualState, ref int MaPhong)
         {
             inititalState = this.inititalState;
             eventualState = this.eventualState;
+            MaPhong = currentRoomID;
         }
     }
 }

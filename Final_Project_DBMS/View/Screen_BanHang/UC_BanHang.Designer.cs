@@ -28,9 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
-            this.label12 = new System.Windows.Forms.Label();
             this.tc_ban_hang = new System.Windows.Forms.TabControl();
             this.tp_spdv = new System.Windows.Forms.TabPage();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -80,8 +77,8 @@
             this.btn_tim_kiem_thanh_vien = new System.Windows.Forms.Button();
             this.txt_tim_kiem_thanh_vien = new System.Windows.Forms.TextBox();
             this.btn_them_thanh_vien = new System.Windows.Forms.Button();
-            this.imageList = new System.Windows.Forms.ImageList(this.components);
-            this.flowLayoutPanel2.SuspendLayout();
+            this.label12 = new System.Windows.Forms.Label();
+            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.tc_ban_hang.SuspendLayout();
             this.tp_spdv.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -97,30 +94,8 @@
             this.tp_thanh_vien.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gv_thanh_vien)).BeginInit();
             this.panel3.SuspendLayout();
+            this.flowLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // flowLayoutPanel2
-            // 
-            this.flowLayoutPanel2.BackColor = System.Drawing.Color.Black;
-            this.flowLayoutPanel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.flowLayoutPanel2.Controls.Add(this.label12);
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 0);
-            this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
-            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(1501, 50);
-            this.flowLayoutPanel2.TabIndex = 4;
-            // 
-            // label12
-            // 
-            this.label12.Font = new System.Drawing.Font("Calibri", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.Color.White;
-            this.label12.Location = new System.Drawing.Point(3, 3);
-            this.label12.Margin = new System.Windows.Forms.Padding(3);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(362, 50);
-            this.label12.TabIndex = 1;
-            this.label12.Text = "Bán hàng";
-            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // tc_ban_hang
             // 
@@ -482,17 +457,18 @@
             this.btn_tim_kiem.Location = new System.Drawing.Point(7, 10);
             this.btn_tim_kiem.Margin = new System.Windows.Forms.Padding(10, 10, 3, 3);
             this.btn_tim_kiem.Name = "btn_tim_kiem";
-            this.btn_tim_kiem.Size = new System.Drawing.Size(29, 24);
+            this.btn_tim_kiem.Size = new System.Drawing.Size(52, 24);
             this.btn_tim_kiem.TabIndex = 6;
+            this.btn_tim_kiem.Text = "Tìm";
             this.btn_tim_kiem.UseVisualStyleBackColor = true;
             this.btn_tim_kiem.Click += new System.EventHandler(this.btn_tim_kiem_Click);
             // 
             // txt_tim_kiem
             // 
-            this.txt_tim_kiem.Location = new System.Drawing.Point(42, 10);
+            this.txt_tim_kiem.Location = new System.Drawing.Point(65, 10);
             this.txt_tim_kiem.Multiline = true;
             this.txt_tim_kiem.Name = "txt_tim_kiem";
-            this.txt_tim_kiem.Size = new System.Drawing.Size(472, 24);
+            this.txt_tim_kiem.Size = new System.Drawing.Size(449, 24);
             this.txt_tim_kiem.TabIndex = 5;
             this.txt_tim_kiem.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.txt_tim_kiem_MouseDoubleClick);
             // 
@@ -618,22 +594,39 @@
             this.btn_them_thanh_vien.UseVisualStyleBackColor = true;
             this.btn_them_thanh_vien.Click += new System.EventHandler(this.btn_them_thanh_vien_Click);
             // 
-            // imageList
+            // label12
             // 
-            this.imageList.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
-            this.imageList.ImageSize = new System.Drawing.Size(16, 16);
-            this.imageList.TransparentColor = System.Drawing.Color.Transparent;
+            this.label12.Font = new System.Drawing.Font("Calibri", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.Color.White;
+            this.label12.Location = new System.Drawing.Point(3, 3);
+            this.label12.Margin = new System.Windows.Forms.Padding(3);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(362, 50);
+            this.label12.TabIndex = 1;
+            this.label12.Text = "Bán hàng";
+            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // flowLayoutPanel2
+            // 
+            this.flowLayoutPanel2.BackColor = System.Drawing.Color.Black;
+            this.flowLayoutPanel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.flowLayoutPanel2.Controls.Add(this.label12);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(4, 0);
+            this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
+            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(1501, 50);
+            this.flowLayoutPanel2.TabIndex = 4;
             // 
             // UC_BanHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.Controls.Add(this.tc_ban_hang);
             this.Controls.Add(this.flowLayoutPanel2);
             this.Name = "UC_BanHang";
             this.Size = new System.Drawing.Size(1500, 800);
             this.Load += new System.EventHandler(this.UC_BanHang_Load);
-            this.flowLayoutPanel2.ResumeLayout(false);
             this.tc_ban_hang.ResumeLayout(false);
             this.tp_spdv.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
@@ -654,14 +647,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.gv_thanh_vien)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            this.flowLayoutPanel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
-        private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TabControl tc_ban_hang;
         private System.Windows.Forms.TabPage tp_spdv;
         private System.Windows.Forms.Panel panel2;
@@ -708,9 +699,10 @@
         private System.Windows.Forms.Button btn_them_thanh_vien;
         private System.Windows.Forms.TextBox txt_gia_ket_thuc;
         private System.Windows.Forms.TextBox txt_gia_bat_dau;
-        private System.Windows.Forms.ImageList imageList;
         private System.Windows.Forms.TabPage tp_vat_pham;
         private System.Windows.Forms.FlowLayoutPanel flp_vatpham;
         private System.Windows.Forms.FlowLayoutPanel flp_dichvu;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
     }
 }

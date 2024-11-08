@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using Final_Project_DBMS.View.Screen_PhanCa;
 using Final_Project_DBMS.View.Screen_TinhLuong;
 using Final_Project_DBMS.View.Screen_DoanhThu;
+using Final_Project_DBMS.View.Screen_QuanLy;
 using Final_Project_DBMS.View.Screen_BanHang;
 
 namespace Final_Project_DBMS.View
@@ -23,14 +24,16 @@ namespace Final_Project_DBMS.View
 
         private void btnBanHang_Click(object sender, EventArgs e)
         {
-            UC_BanHang uC_BanHang = new UC_BanHang();
+            UC_BanHang ucBH = new UC_BanHang();
             flpScreen.Controls.Clear();
-            flpScreen.Controls.Add(uC_BanHang);
+            flpScreen.Controls.Add(ucBH);
         }
 
         private void btnQuanLy_Click(object sender, EventArgs e)
         {
-
+            UC_QuanLy ucQL = new UC_QuanLy();
+            flpScreen.Controls.Clear();
+            flpScreen.Controls.Add(ucQL);
         }
 
         private void btnPhanCa_Click(object sender, EventArgs e)
