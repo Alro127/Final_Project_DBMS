@@ -30,9 +30,8 @@
         {
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.label12 = new System.Windows.Forms.Label();
-            this.Dgv = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.btn_LamSach = new System.Windows.Forms.Button();
+            this.tabControl = new System.Windows.Forms.TabControl();
+            this.tp_NV = new System.Windows.Forms.TabPage();
             this.btn_XoaNV = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.lb_maNV = new System.Windows.Forms.Label();
@@ -58,7 +57,7 @@
             this.btn_TimKiemNV = new System.Windows.Forms.Button();
             this.btn_ThemNhanVien = new System.Windows.Forms.Button();
             this.dgv_NhanVien = new System.Windows.Forms.DataGridView();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tp_TC = new System.Windows.Forms.TabPage();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lb_maTC = new System.Windows.Forms.Label();
             this.btn_okTC = new System.Windows.Forms.Button();
@@ -96,7 +95,7 @@
             this.btn_TimKiemTC = new System.Windows.Forms.Button();
             this.btn_ThemThuCung = new System.Windows.Forms.Button();
             this.dgv_ThuCung = new System.Windows.Forms.DataGridView();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.tp_VP = new System.Windows.Forms.TabPage();
             this.panel2 = new System.Windows.Forms.Panel();
             this.lb_maVP = new System.Windows.Forms.Label();
             this.btn_okVP = new System.Windows.Forms.Button();
@@ -122,7 +121,7 @@
             this.btn_TimKiemVP = new System.Windows.Forms.Button();
             this.btn_ThemVP = new System.Windows.Forms.Button();
             this.dgv_VatPham = new System.Windows.Forms.DataGridView();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.tp_DV = new System.Windows.Forms.TabPage();
             this.panel4 = new System.Windows.Forms.Panel();
             this.lb_maDV = new System.Windows.Forms.Label();
             this.rtb_motaDV = new System.Windows.Forms.RichTextBox();
@@ -146,7 +145,7 @@
             this.btn_TimKiemDV = new System.Windows.Forms.Button();
             this.btn_ThemDV = new System.Windows.Forms.Button();
             this.dgv_DichVu = new System.Windows.Forms.DataGridView();
-            this.tabpage5 = new System.Windows.Forms.TabPage();
+            this.tp_KH = new System.Windows.Forms.TabPage();
             this.btn_XoaKH = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
             this.lbl_maKH = new System.Windows.Forms.Label();
@@ -162,20 +161,20 @@
             this.btn_TimKiemKH = new System.Windows.Forms.Button();
             this.dgv_KhachHang = new System.Windows.Forms.DataGridView();
             this.flowLayoutPanel2.SuspendLayout();
-            this.Dgv.SuspendLayout();
-            this.tabPage1.SuspendLayout();
+            this.tabControl.SuspendLayout();
+            this.tp_NV.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_NhanVien)).BeginInit();
-            this.tabPage2.SuspendLayout();
+            this.tp_TC.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_ThuCung)).BeginInit();
-            this.tabPage3.SuspendLayout();
+            this.tp_VP.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_VatPham)).BeginInit();
-            this.tabPage4.SuspendLayout();
+            this.tp_DV.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_DichVu)).BeginInit();
-            this.tabpage5.SuspendLayout();
+            this.tp_KH.SuspendLayout();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_KhachHang)).BeginInit();
             this.SuspendLayout();
@@ -203,49 +202,37 @@
             this.label12.Text = "Quản lý";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // Dgv
+            // tabControl
             // 
-            this.Dgv.Controls.Add(this.tabPage1);
-            this.Dgv.Controls.Add(this.tabPage2);
-            this.Dgv.Controls.Add(this.tabPage3);
-            this.Dgv.Controls.Add(this.tabPage4);
-            this.Dgv.Controls.Add(this.tabpage5);
-            this.Dgv.Location = new System.Drawing.Point(0, 50);
-            this.Dgv.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Dgv.Name = "Dgv";
-            this.Dgv.SelectedIndex = 0;
-            this.Dgv.Size = new System.Drawing.Size(1501, 750);
-            this.Dgv.TabIndex = 6;
+            this.tabControl.Controls.Add(this.tp_NV);
+            this.tabControl.Controls.Add(this.tp_TC);
+            this.tabControl.Controls.Add(this.tp_VP);
+            this.tabControl.Controls.Add(this.tp_DV);
+            this.tabControl.Controls.Add(this.tp_KH);
+            this.tabControl.Location = new System.Drawing.Point(0, 50);
+            this.tabControl.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabControl.Name = "tabControl";
+            this.tabControl.SelectedIndex = 0;
+            this.tabControl.Size = new System.Drawing.Size(1501, 750);
+            this.tabControl.TabIndex = 6;
+            this.tabControl.SelectedIndexChanged += new System.EventHandler(this.tabControl_SelectedIndexChanged);
             // 
-            // tabPage1
+            // tp_NV
             // 
-            this.tabPage1.Controls.Add(this.btn_LamSach);
-            this.tabPage1.Controls.Add(this.btn_XoaNV);
-            this.tabPage1.Controls.Add(this.panel3);
-            this.tabPage1.Controls.Add(this.txb_TenNVTK);
-            this.tabPage1.Controls.Add(this.btn_TimKiemNV);
-            this.tabPage1.Controls.Add(this.btn_ThemNhanVien);
-            this.tabPage1.Controls.Add(this.dgv_NhanVien);
-            this.tabPage1.Location = new System.Drawing.Point(4, 25);
-            this.tabPage1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage1.Size = new System.Drawing.Size(1493, 721);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Nhân viên";
-            this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // btn_LamSach
-            // 
-            this.btn_LamSach.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_LamSach.Location = new System.Drawing.Point(1267, 12);
-            this.btn_LamSach.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_LamSach.Name = "btn_LamSach";
-            this.btn_LamSach.Size = new System.Drawing.Size(104, 36);
-            this.btn_LamSach.TabIndex = 58;
-            this.btn_LamSach.Text = "Làm sạch";
-            this.btn_LamSach.UseVisualStyleBackColor = true;
-            this.btn_LamSach.Click += new System.EventHandler(this.btn_LamSach_Click);
+            this.tp_NV.Controls.Add(this.btn_XoaNV);
+            this.tp_NV.Controls.Add(this.panel3);
+            this.tp_NV.Controls.Add(this.txb_TenNVTK);
+            this.tp_NV.Controls.Add(this.btn_TimKiemNV);
+            this.tp_NV.Controls.Add(this.btn_ThemNhanVien);
+            this.tp_NV.Controls.Add(this.dgv_NhanVien);
+            this.tp_NV.Location = new System.Drawing.Point(4, 25);
+            this.tp_NV.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tp_NV.Name = "tp_NV";
+            this.tp_NV.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tp_NV.Size = new System.Drawing.Size(1493, 721);
+            this.tp_NV.TabIndex = 0;
+            this.tp_NV.Text = "Nhân viên";
+            this.tp_NV.UseVisualStyleBackColor = true;
             // 
             // btn_XoaNV
             // 
@@ -492,6 +479,7 @@
             this.btn_TimKiemNV.TabIndex = 54;
             this.btn_TimKiemNV.Text = "Tìm kiếm";
             this.btn_TimKiemNV.UseVisualStyleBackColor = true;
+            this.btn_TimKiemNV.Click += new System.EventHandler(this.btn_TimKiemNV_Click);
             // 
             // btn_ThemNhanVien
             // 
@@ -517,21 +505,21 @@
             this.dgv_NhanVien.TabIndex = 1;
             this.dgv_NhanVien.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_NhanVien_CellClick);
             // 
-            // tabPage2
+            // tp_TC
             // 
-            this.tabPage2.Controls.Add(this.panel1);
-            this.tabPage2.Controls.Add(this.txb_TenTCTK);
-            this.tabPage2.Controls.Add(this.btn_TimKiemTC);
-            this.tabPage2.Controls.Add(this.btn_ThemThuCung);
-            this.tabPage2.Controls.Add(this.dgv_ThuCung);
-            this.tabPage2.Location = new System.Drawing.Point(4, 25);
-            this.tabPage2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage2.Size = new System.Drawing.Size(1493, 721);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Thú cưng";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.tp_TC.Controls.Add(this.panel1);
+            this.tp_TC.Controls.Add(this.txb_TenTCTK);
+            this.tp_TC.Controls.Add(this.btn_TimKiemTC);
+            this.tp_TC.Controls.Add(this.btn_ThemThuCung);
+            this.tp_TC.Controls.Add(this.dgv_ThuCung);
+            this.tp_TC.Location = new System.Drawing.Point(4, 25);
+            this.tp_TC.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tp_TC.Name = "tp_TC";
+            this.tp_TC.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tp_TC.Size = new System.Drawing.Size(1493, 721);
+            this.tp_TC.TabIndex = 1;
+            this.tp_TC.Text = "Thú cưng";
+            this.tp_TC.UseVisualStyleBackColor = true;
             // 
             // panel1
             // 
@@ -915,6 +903,7 @@
             this.btn_TimKiemTC.TabIndex = 77;
             this.btn_TimKiemTC.Text = "Tìm kiếm";
             this.btn_TimKiemTC.UseVisualStyleBackColor = true;
+            this.btn_TimKiemTC.Click += new System.EventHandler(this.btn_TimKiemTC_Click);
             // 
             // btn_ThemThuCung
             // 
@@ -940,21 +929,21 @@
             this.dgv_ThuCung.TabIndex = 67;
             this.dgv_ThuCung.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_ThuCung_CellClick);
             // 
-            // tabPage3
+            // tp_VP
             // 
-            this.tabPage3.Controls.Add(this.panel2);
-            this.tabPage3.Controls.Add(this.txb_TenVPTK);
-            this.tabPage3.Controls.Add(this.btn_TimKiemVP);
-            this.tabPage3.Controls.Add(this.btn_ThemVP);
-            this.tabPage3.Controls.Add(this.dgv_VatPham);
-            this.tabPage3.Location = new System.Drawing.Point(4, 25);
-            this.tabPage3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage3.Size = new System.Drawing.Size(1493, 721);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Vật phẩm";
-            this.tabPage3.UseVisualStyleBackColor = true;
+            this.tp_VP.Controls.Add(this.panel2);
+            this.tp_VP.Controls.Add(this.txb_TenVPTK);
+            this.tp_VP.Controls.Add(this.btn_TimKiemVP);
+            this.tp_VP.Controls.Add(this.btn_ThemVP);
+            this.tp_VP.Controls.Add(this.dgv_VatPham);
+            this.tp_VP.Location = new System.Drawing.Point(4, 25);
+            this.tp_VP.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tp_VP.Name = "tp_VP";
+            this.tp_VP.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tp_VP.Size = new System.Drawing.Size(1493, 721);
+            this.tp_VP.TabIndex = 2;
+            this.tp_VP.Text = "Vật phẩm";
+            this.tp_VP.UseVisualStyleBackColor = true;
             // 
             // panel2
             // 
@@ -1200,6 +1189,7 @@
             this.btn_TimKiemVP.TabIndex = 84;
             this.btn_TimKiemVP.Text = "Tìm kiếm";
             this.btn_TimKiemVP.UseVisualStyleBackColor = true;
+            this.btn_TimKiemVP.Click += new System.EventHandler(this.btn_TimKiemVP_Click);
             // 
             // btn_ThemVP
             // 
@@ -1225,21 +1215,21 @@
             this.dgv_VatPham.TabIndex = 80;
             this.dgv_VatPham.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_VatPham_CellClick);
             // 
-            // tabPage4
+            // tp_DV
             // 
-            this.tabPage4.Controls.Add(this.panel4);
-            this.tabPage4.Controls.Add(this.txb_TenDVTK);
-            this.tabPage4.Controls.Add(this.btn_TimKiemDV);
-            this.tabPage4.Controls.Add(this.btn_ThemDV);
-            this.tabPage4.Controls.Add(this.dgv_DichVu);
-            this.tabPage4.Location = new System.Drawing.Point(4, 25);
-            this.tabPage4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage4.Size = new System.Drawing.Size(1493, 721);
-            this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "Dịch vụ";
-            this.tabPage4.UseVisualStyleBackColor = true;
+            this.tp_DV.Controls.Add(this.panel4);
+            this.tp_DV.Controls.Add(this.txb_TenDVTK);
+            this.tp_DV.Controls.Add(this.btn_TimKiemDV);
+            this.tp_DV.Controls.Add(this.btn_ThemDV);
+            this.tp_DV.Controls.Add(this.dgv_DichVu);
+            this.tp_DV.Location = new System.Drawing.Point(4, 25);
+            this.tp_DV.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tp_DV.Name = "tp_DV";
+            this.tp_DV.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tp_DV.Size = new System.Drawing.Size(1493, 721);
+            this.tp_DV.TabIndex = 3;
+            this.tp_DV.Text = "Dịch vụ";
+            this.tp_DV.UseVisualStyleBackColor = true;
             // 
             // panel4
             // 
@@ -1464,6 +1454,7 @@
             this.btn_TimKiemDV.TabIndex = 91;
             this.btn_TimKiemDV.Text = "Tìm kiếm";
             this.btn_TimKiemDV.UseVisualStyleBackColor = true;
+            this.btn_TimKiemDV.Click += new System.EventHandler(this.btn_TimKiemDV_Click);
             // 
             // btn_ThemDV
             // 
@@ -1489,21 +1480,21 @@
             this.dgv_DichVu.TabIndex = 87;
             this.dgv_DichVu.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_DichVu_CellClick);
             // 
-            // tabpage5
+            // tp_KH
             // 
-            this.tabpage5.Controls.Add(this.btn_XoaKH);
-            this.tabpage5.Controls.Add(this.panel5);
-            this.tabpage5.Controls.Add(this.txb_TenKHTK);
-            this.tabpage5.Controls.Add(this.btn_TimKiemKH);
-            this.tabpage5.Controls.Add(this.dgv_KhachHang);
-            this.tabpage5.Location = new System.Drawing.Point(4, 25);
-            this.tabpage5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabpage5.Name = "tabpage5";
-            this.tabpage5.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabpage5.Size = new System.Drawing.Size(1493, 721);
-            this.tabpage5.TabIndex = 4;
-            this.tabpage5.Text = "Khách hàng";
-            this.tabpage5.UseVisualStyleBackColor = true;
+            this.tp_KH.Controls.Add(this.btn_XoaKH);
+            this.tp_KH.Controls.Add(this.panel5);
+            this.tp_KH.Controls.Add(this.txb_TenKHTK);
+            this.tp_KH.Controls.Add(this.btn_TimKiemKH);
+            this.tp_KH.Controls.Add(this.dgv_KhachHang);
+            this.tp_KH.Location = new System.Drawing.Point(4, 25);
+            this.tp_KH.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tp_KH.Name = "tp_KH";
+            this.tp_KH.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tp_KH.Size = new System.Drawing.Size(1493, 721);
+            this.tp_KH.TabIndex = 4;
+            this.tp_KH.Text = "Khách hàng";
+            this.tp_KH.UseVisualStyleBackColor = true;
             // 
             // btn_XoaKH
             // 
@@ -1643,6 +1634,7 @@
             this.btn_TimKiemKH.TabIndex = 98;
             this.btn_TimKiemKH.Text = "Tìm kiếm";
             this.btn_TimKiemKH.UseVisualStyleBackColor = true;
+            this.btn_TimKiemKH.Click += new System.EventHandler(this.btn_TimKiemKH_Click);
             // 
             // dgv_KhachHang
             // 
@@ -1660,36 +1652,36 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.Dgv);
+            this.Controls.Add(this.tabControl);
             this.Controls.Add(this.flowLayoutPanel2);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "UC_QuanLy";
             this.Size = new System.Drawing.Size(1500, 800);
             this.Load += new System.EventHandler(this.UC_QuanLy_Load);
             this.flowLayoutPanel2.ResumeLayout(false);
-            this.Dgv.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
-            this.tabPage1.PerformLayout();
+            this.tabControl.ResumeLayout(false);
+            this.tp_NV.ResumeLayout(false);
+            this.tp_NV.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_NhanVien)).EndInit();
-            this.tabPage2.ResumeLayout(false);
-            this.tabPage2.PerformLayout();
+            this.tp_TC.ResumeLayout(false);
+            this.tp_TC.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_ThuCung)).EndInit();
-            this.tabPage3.ResumeLayout(false);
-            this.tabPage3.PerformLayout();
+            this.tp_VP.ResumeLayout(false);
+            this.tp_VP.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_VatPham)).EndInit();
-            this.tabPage4.ResumeLayout(false);
-            this.tabPage4.PerformLayout();
+            this.tp_DV.ResumeLayout(false);
+            this.tp_DV.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_DichVu)).EndInit();
-            this.tabpage5.ResumeLayout(false);
-            this.tabpage5.PerformLayout();
+            this.tp_KH.ResumeLayout(false);
+            this.tp_KH.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_KhachHang)).EndInit();
@@ -1701,8 +1693,8 @@
 
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TabControl Dgv;
-        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabControl tabControl;
+        private System.Windows.Forms.TabPage tp_NV;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.TextBox txb_CongViec;
         private System.Windows.Forms.Label label36;
@@ -1726,7 +1718,7 @@
         private System.Windows.Forms.Button btn_OK;
         private System.Windows.Forms.Button btn_ThemNhanVien;
         private System.Windows.Forms.DataGridView dgv_NhanVien;
-        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TabPage tp_TC;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btn_ThemAnhTC;
         private System.Windows.Forms.TextBox txb_GiaKMTC;
@@ -1759,7 +1751,7 @@
         private System.Windows.Forms.Button btn_TimKiemTC;
         private System.Windows.Forms.Button btn_ThemThuCung;
         private System.Windows.Forms.DataGridView dgv_ThuCung;
-        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.TabPage tp_VP;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btn_ThemAnhVP;
         private System.Windows.Forms.TextBox txb_GiaKMVP;
@@ -1782,7 +1774,7 @@
         private System.Windows.Forms.Button btn_TimKiemVP;
         private System.Windows.Forms.Button btn_ThemVP;
         private System.Windows.Forms.DataGridView dgv_VatPham;
-        private System.Windows.Forms.TabPage tabPage4;
+        private System.Windows.Forms.TabPage tp_DV;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Button btn_ThemAnhDV;
         private System.Windows.Forms.TextBox txb_SoPhong;
@@ -1803,7 +1795,7 @@
         private System.Windows.Forms.Button btn_TimKiemDV;
         private System.Windows.Forms.Button btn_ThemDV;
         private System.Windows.Forms.DataGridView dgv_DichVu;
-        private System.Windows.Forms.TabPage tabpage5;
+        private System.Windows.Forms.TabPage tp_KH;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.TextBox txb_DiemTichLuy;
         private System.Windows.Forms.Label label43;
@@ -1831,6 +1823,5 @@
         private System.Windows.Forms.Label lb_maVP;
         private System.Windows.Forms.Label lb_maDV;
         private System.Windows.Forms.Label lbl_maKH;
-        private System.Windows.Forms.Button btn_LamSach;
     }
 }

@@ -45,43 +45,6 @@ namespace Final_Project_DBMS.View.Screen_QuanLy
         {
             LoadData();
         }
-        private void MenuItemXoa_Click(object sender, EventArgs e)
-        {
-            string imageLocation = contextMenuStrip.Tag as string;
-            string filePath = imageLocation.Replace("file:///", "");
-            if (string.IsNullOrEmpty(filePath))
-            {
-                MessageBox.Show("Không tìm thấy hình ảnh để xóa.");
-                return;
-            }
-
-
-            if (MessageBox.Show("Bạn có chắc chắn muốn xóa hình ảnh này?", "Xóa Ảnh", MessageBoxButtons.YesNo) == DialogResult.Yes)
-            {
-                if (!File.Exists(filePath))
-                {
-                    MessageBox.Show("File không tồn tại: " + filePath);
-                    return;
-                }
-                try
-                {
-                    File.Delete(filePath);
-                    string a = "";
-                    filePath = filePath.Replace("D:/HQTCSDL/PetShop/Final_Project_DBMS/Final_Project_DBMS/", "");
-                    // Gọi procedure để xóa thông tin hình ảnh khỏi cơ sở dữ liệu
-                    filePath = filePath.Replace("/",@"\").Trim();
-                    string[] paramNames = { "@Ma_SPDV", "@Duong_Dan" };
-                    object[] paramValues = { ma, filePath };
-                    dA_QuanLy.ExecProcedure("proc_XoaHinhAnh",paramValues,paramNames);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"Lỗi khi xóa hình ảnh: {ex.Message}");
-                    return;
-                }
-
-            }
-        }
         private void dgv_NhanVien_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0 && !dgv_NhanVien.Rows[e.RowIndex].IsNewRow)
@@ -106,7 +69,37 @@ namespace Final_Project_DBMS.View.Screen_QuanLy
         {
             if(lb_maNV.Text == "")
             {
-                MessageBox.Show("Vui lòng chọn nhân viên bạn muốn sửa");
+                try
+                {
+                    // Lấy dữ liệu từ các TextBox
+                    string hoTen = txb_TenNV.Text.Trim();
+                    DateTime ngaySinh = dtp_NgaySinhNV.Value;
+                    string gioiTinh = cb_GioiTinh.Text.Trim();
+                    string diaChi = txb_DiaChiNV.Text.Trim();
+                    string sdt = txb_sdtNV.Text.Trim();
+                    decimal luong = decimal.Parse(txb_LuongNV.Text);
+                    string congViec = txb_CongViec.Text.Trim();
+                    int maNQL = Convert.ToInt32(txb_MaQL.Text.Trim());
+
+                    // Nếu tất cả các kiểm tra đều hợp lệ, tiến hành gọi Stored Procedure
+                    string[] parameterNames = { "@Ho_Ten", "@Ngay_Sinh", "@Gioi_Tinh", "@Dia_Chi", "@SDT", "@Luong", "@Cong_Viec", "@Ma_NQL" };
+                    object[] parameters = { hoTen, ngaySinh, gioiTinh, diaChi, sdt, luong, congViec, maNQL };
+                    dA_QuanLy.ExecProcedure("proc_ThemNhanVien", parameters, parameterNames);
+                }
+                catch (FormatException ex)
+                {
+                    // Bắt lỗi định dạng dữ liệu (ví dụ: số điện thoại không hợp lệ)
+                    MessageBox.Show("Lỗi định dạng: " + ex.Message);
+                }
+                catch (Exception ex)
+                {
+                    // Bắt lỗi chung khác
+                    MessageBox.Show("Đã xảy ra lỗi: " + ex.Message);
+                }
+                finally
+                {
+                    LoadData();
+                }
             }
             else
             {
@@ -147,48 +140,6 @@ namespace Final_Project_DBMS.View.Screen_QuanLy
 
         private void btn_ThemNhanVien_Click(object sender, EventArgs e)
         {
-            if(lb_maNV.Text != "")
-            {
-                MessageBox.Show("Vui lòng làm sạch để bắt đầu nhập thông tin thêm!");
-            }
-            else
-            {
-                try
-                {
-                    // Lấy dữ liệu từ các TextBox
-                    string hoTen = txb_TenNV.Text.Trim();
-                    DateTime ngaySinh = dtp_NgaySinhNV.Value;
-                    string gioiTinh = cb_GioiTinh.Text.Trim();
-                    string diaChi = txb_DiaChiNV.Text.Trim();   
-                    string sdt = txb_sdtNV.Text.Trim();
-                    decimal luong = decimal.Parse(txb_LuongNV.Text);
-                    string congViec = txb_CongViec.Text.Trim();
-                    int maNQL = Convert.ToInt32(txb_MaQL.Text.Trim());
-
-                    // Nếu tất cả các kiểm tra đều hợp lệ, tiến hành gọi Stored Procedure
-                    string[] parameterNames = {"@Ho_Ten", "@Ngay_Sinh", "@Gioi_Tinh", "@Dia_Chi", "@SDT", "@Luong", "@Cong_Viec", "@Ma_NQL" };
-                    object[] parameters = { hoTen, ngaySinh, gioiTinh, diaChi, sdt, luong, congViec, maNQL };
-                    dA_QuanLy.ExecProcedure("proc_ThemNhanVien",parameters, parameterNames);
-                }
-                catch (FormatException ex)
-                {
-                    // Bắt lỗi định dạng dữ liệu (ví dụ: số điện thoại không hợp lệ)
-                    MessageBox.Show("Lỗi định dạng: " + ex.Message);
-                }
-                catch (Exception ex)
-                {
-                    // Bắt lỗi chung khác
-                    MessageBox.Show("Đã xảy ra lỗi: " + ex.Message);
-                }
-                finally
-                {
-                    LoadData();
-                }
-            }    
-        }
-
-        private void btn_LamSach_Click(object sender, EventArgs e)
-        {
             lb_maNV.Text = "";
             txb_TenNV.Text = "";
             txb_sdtNV.Text = "";
@@ -198,6 +149,11 @@ namespace Final_Project_DBMS.View.Screen_QuanLy
             txb_CongViec.Text = "";
             txb_LuongNV.Text = "";
             txb_MaQL.Text = "";
+        }
+
+        private void btn_LamSach_Click(object sender, EventArgs e)
+        {
+
         }
 
         private void btn_XoaNV_Click(object sender, EventArgs e)
@@ -360,24 +316,23 @@ namespace Final_Project_DBMS.View.Screen_QuanLy
                 DataGridViewRow row = dgv_ThuCung.Rows[e.RowIndex];
 
                 // Đổ dữ liệu vào các TextBox
-                lb_maTC.Text = row.Cells["Mã Thú Cưng"].Value.ToString();
-                txb_TenTC.Text = row.Cells["Tên Thú Cưng"].Value.ToString();
-                txb_Loai.Text = row.Cells["Loài"].Value.ToString();
-                txb_GiongTC.Text = row.Cells["Giống"].Value.ToString();
-                dtp_NgaySinhTC.Value = Convert.ToDateTime(row.Cells["Ngày Sinh"].Value);
-                txb_MauSacTC.Text = row.Cells["Màu Sắc"].Value.ToString();
-                txb_CanNangTC.Text = row.Cells["Cân Nặng (kg)"].Value.ToString();
-                cb_sucKhoeTC.Text = row.Cells["Tình Trạng Sức Khỏe"].Value.ToString();
-                cb_trangThaiTC.Text = row.Cells["Trạng Thái"].Value.ToString();
-                txb_SoMuiTiemTC.Text = row.Cells["Số Lần Tiêm"].Value.ToString();
-                cb_GioiTinhTC.Text = row.Cells["Giới Tính"].Value.ToString();
-                txb_GiaGocTC.Text = row.Cells["Giá Bán Gốc"].Value.ToString();
-                txb_GiaKMTC.Text = row.Cells["Giá Khuyến Mại"].Value.ToString();
-                rtb_motaTC.Text = row.Cells["Mô tả"].Value.ToString();
+                lb_maTC.Text = row.Cells["Ma_Thu_Cung"].Value.ToString();
+                txb_TenTC.Text = row.Cells["Ten"].Value.ToString();
+                txb_Loai.Text = row.Cells["Loai"].Value.ToString();
+                txb_GiongTC.Text = row.Cells["Giong"].Value.ToString();
+                dtp_NgaySinhTC.Value = Convert.ToDateTime(row.Cells["Ngay_Sinh"].Value);
+                txb_MauSacTC.Text = row.Cells["Mau_Sac"].Value.ToString();
+                txb_CanNangTC.Text = row.Cells["Can_Nang"].Value.ToString();
+                cb_sucKhoeTC.Text = row.Cells["Tinh_Trang_Suc_Khoe"].Value.ToString();
+                cb_trangThaiTC.Text = row.Cells["Trang_Thai"].Value.ToString();
+                txb_SoMuiTiemTC.Text = row.Cells["So_Lan_Tiem"].Value.ToString();
+                cb_GioiTinhTC.Text = row.Cells["Gioi_Tinh"].Value.ToString();
+                txb_GiaGocTC.Text = row.Cells["Gia_Ban_Goc"].Value.ToString();
+                txb_GiaKMTC.Text = row.Cells["Gia_Khuyen_Mai"].Value.ToString();
+                rtb_motaTC.Text = row.Cells["Mo_Ta"].Value.ToString();
                 flp_HinhAnhTC.Controls.Clear();
                 btn_ThemAnhTC.Tag = lb_maTC.Text;
                 ma = Convert.ToInt32(lb_maTC.Text);
-                loai = "thucung";
                 LoadImages();
             }
         }
@@ -402,27 +357,132 @@ namespace Final_Project_DBMS.View.Screen_QuanLy
                 // Lấy đường dẫn hình ảnh từ cột "Duong_Dan" của bảng
                 string link = rowHA["Duong_Dan"].ToString();
 
-                // Chuyển đổi đường dẫn
-                link = imageLinkConverter.Convert(link).ToString();
-
-                // Tạo PictureBox mới cho mỗi hình ảnh
+                // Tạo PictureBox mới cho mỗi hình ảnh với bản sao ảnh
                 PictureBox pictureBox = CreatePictureBox(link);
-                pictureBox.Tag = rowHA["Ma_SPDV"]; // Lưu trữ ID hình ảnh (nếu cần)
 
                 // Thêm PictureBox vào FlowLayoutPanel tương ứng
                 AddPictureBoxToPanel(pictureBox);
             }
         }
 
-        private PictureBox CreatePictureBox(string link)
+        private PictureBox CreatePictureBox(string path)
         {
-            return new PictureBox
+            PictureBox pictureBox = new PictureBox
             {
                 Width = 100,
                 Height = 100,
-                SizeMode = PictureBoxSizeMode.StretchImage,
-                ImageLocation = link
+                SizeMode = PictureBoxSizeMode.StretchImage
             };
+            path = imageLinkConverter.Convert(path).ToString();
+            path = path.Replace("file:///", "");
+            pictureBox.Tag = path; // Lưu trữ ID hình ảnh (nếu cần)
+            // Tạo FileStream để mở ảnh và tạo bản sao ảnh
+            using (var fs = new FileStream(path, FileMode.Open, FileAccess.Read))
+            {
+                pictureBox.Image = new Bitmap(fs); // Tạo bản sao ảnh
+            }
+
+            return pictureBox;
+        }
+        private void PictureBox_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                PictureBox pictureBox = sender as PictureBox;
+
+                if (pictureBox != null)
+                {
+                    // Lưu đường dẫn ảnh vào Tag của menu item
+                    contextMenuStrip.Tag = pictureBox.Tag;
+                    // Hiển thị menu ngữ cảnh
+                    contextMenuStrip.Show(pictureBox, e.Location);
+                }
+            }
+        }
+
+        private void MenuItemXoa_Click(object sender, EventArgs e)
+        {
+            string filePath = contextMenuStrip.Tag as string;
+
+            if (MessageBox.Show("Bạn có chắc chắn muốn xóa hình ảnh này?", "Xóa Ảnh", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                if (!File.Exists(filePath))
+                {
+                    MessageBox.Show("File không tồn tại: " + filePath);
+                    return;
+                }
+                string checkAnhroot = filePath.Replace("/","\\");
+                for(int i = 0; i < anhRoot.Count; i++)
+                {
+                    if(checkAnhroot == anhRoot[i])
+                    {
+                        GiaiPhongTaiNguyen(filePath);
+                        return;
+                    }
+                }    
+                try
+                {
+                    GiaiPhongTaiNguyen(filePath);
+                    // Xóa thông tin hình ảnh khỏi cơ sở dữ liệu
+                    string duongdan = filePath.Replace("D:/HQTCSDL/PetShop/Final_Project_DBMS/Final_Project_DBMS/", "").Replace("/", "\\").Trim();
+                    string[] paramNames = { "@Ma_SPDV", "@Duong_Dan" };
+                    object[] paramValues = { ma, duongdan };
+                    dA_QuanLy.ExecProcedure("proc_XoaHinhAnh", paramValues, paramNames);
+
+                    // Xóa file ảnh
+                    File.Delete(filePath);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Lỗi khi xóa hình ảnh: {ex.Message}");
+                }
+            }
+        }
+
+        private void GiaiPhongTaiNguyen(string filePath)
+        {
+            if (loai == "thucung")
+            {
+                // Giải phóng tài nguyên ảnh trước khi xóa
+                foreach (Control control in flp_HinhAnhTC.Controls)
+                {
+                    if (control is PictureBox pb && pb.Tag.ToString() == filePath)
+                    {
+                        pb.Image?.Dispose();
+                        pb.Image = null;
+                        flp_HinhAnhTC.Controls.Remove(pb);
+                        break;
+                    }
+                }
+            }
+            else if (loai == "vatpham")
+            {
+                // Giải phóng tài nguyên ảnh trước khi xóa
+                foreach (Control control in flp_HinhAnhVP.Controls)
+                {
+                    if (control is PictureBox pb && pb.Tag.ToString() == filePath)
+                    {
+                        pb.Image?.Dispose();
+                        pb.Image = null;
+                        flp_HinhAnhVP.Controls.Remove(pb);
+                        break;
+                    }
+                }
+            }
+            else if (loai == "dichvu")
+            {
+                // Giải phóng tài nguyên ảnh trước khi xóa
+                foreach (Control control in flp_HinhAnhDV.Controls)
+                {
+                    if (control is PictureBox pb && pb.Tag.ToString() == filePath)
+                    {
+                        pb.Image?.Dispose();
+                        pb.Image = null;
+                        flp_HinhAnhDV.Controls.Remove(pb);
+                        break;
+                    }
+                }
+            }
         }
 
         private void AddPictureBoxToPanel(PictureBox pictureBox)
@@ -441,21 +501,6 @@ namespace Final_Project_DBMS.View.Screen_QuanLy
             }
 
             pictureBox.MouseDown += PictureBox_MouseDown;
-        }
-        private void PictureBox_MouseDown(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Right)
-            {
-                PictureBox pictureBox = sender as PictureBox;
-
-                if (pictureBox != null)
-                {
-                    //Lưu đường dẫn ảnh vào Tag của menu item
-                    contextMenuStrip.Tag = pictureBox.ImageLocation;
-                    // Hiển thị menu ngữ cảnh
-                    contextMenuStrip.Show(pictureBox, e.Location);
-                }
-            }
         }
 
         private void dgv_VatPham_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -477,7 +522,6 @@ namespace Final_Project_DBMS.View.Screen_QuanLy
                 flp_HinhAnhVP.Controls.Clear();
                 btn_ThemAnhVP.Tag = lb_maVP.Text;
                 ma = Convert.ToInt32(lb_maVP.Text);
-                loai = "vatpham";
                 LoadImages();
             }
         }
@@ -500,113 +544,56 @@ namespace Final_Project_DBMS.View.Screen_QuanLy
                 flp_HinhAnhDV.Controls.Clear();
                 btn_ThemAnhDV.Tag = lb_maDV.Text;
                 ma = Convert.ToInt32(lb_maDV.Text);
-                loai = "dichvu";
                 LoadImages();
-
             }
         }
 
         private void btn_ThemAnhTC_Click(object sender, EventArgs e)
         {
-            loai = "thucung";
             btnThemAnh_Click(sender, e);
         }
         private void btnThemAnh_Click(object sender, EventArgs e)
         {
             Button clickedButton = sender as Button;
-
-            // Lấy Mã Thú Cưng từ Tag của nút
-            if (lb_maTC.Text == "")
+            using (OpenFileDialog openFileDialog = new OpenFileDialog())
             {
-                MessageBox.Show("");
-                using (OpenFileDialog openFileDialog = new OpenFileDialog())
+                openFileDialog.InitialDirectory = "C:\\";
+                openFileDialog.Filter = "Image files (*.jpg;*.jpeg;*.png;*.bmp)|*.jpg;*.jpeg;*.png;*.bmp";
+                openFileDialog.Title = "Chọn Hình Ảnh";
+
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
-                    openFileDialog.InitialDirectory = "C:\\";
-                    openFileDialog.Filter = "Image files (*.jpg;*.jpeg;*.png;*.bmp)|*.jpg;*.jpeg;*.png;*.bmp";
-                    openFileDialog.Title = "Chọn Hình Ảnh";
+                    string selectedImagePath = openFileDialog.FileName;
+                    anhRoot.Add(selectedImagePath);
+                    // Tạo PictureBox mới cho mỗi hình ảnh
+                    PictureBox pictureBox = CreatePictureBox(selectedImagePath);
+                    // Thêm PictureBox vào FlowLayoutPanel tương ứng
+                    AddPictureBoxToPanel(pictureBox);
+                    // Đường dẫn lưu hình ảnh vào thư mục
+                    string directoryPath = $"D:\\HQTCSDL\\PetShop\\Final_Project_DBMS\\Final_Project_DBMS\\assets\\images\\";
+                    string fileName = Path.GetFileNameWithoutExtension(selectedImagePath);
+                    string extension = Path.GetExtension(selectedImagePath);
+                    string imagePath = Path.Combine(directoryPath, $"{fileName}{extension}");
 
-                    if (openFileDialog.ShowDialog() == DialogResult.OK)
+                    // Tạo thư mục nếu chưa tồn tại
+                    if (!Directory.Exists(directoryPath))
                     {
-                        string selectedImagePath = openFileDialog.FileName;
-                        anhRoot.Add(selectedImagePath);
-                        // Tạo PictureBox mới cho mỗi hình ảnh
-                        PictureBox pictureBox = CreatePictureBox(selectedImagePath);
-                        // Thêm PictureBox vào FlowLayoutPanel tương ứng
-                        AddPictureBoxToPanel(pictureBox);
-                        // Đường dẫn lưu hình ảnh vào thư mục
-                        string directoryPath = $"D:\\HQTCSDL\\PetShop\\Final_Project_DBMS\\Final_Project_DBMS\\assets\\images\\";
-                        string fileName = Path.GetFileNameWithoutExtension(selectedImagePath);
-                        string extension = Path.GetExtension(selectedImagePath);
-                        string imagePath = Path.Combine(directoryPath, $"{fileName}{extension}");
-
-                        // Tạo thư mục nếu chưa tồn tại
-                        if (!Directory.Exists(directoryPath))
-                        {
-                            Directory.CreateDirectory(directoryPath);
-                        }
-
-                        // Kiểm tra và thêm số vào tên nếu ảnh đã tồn tại 
-                        int counter = 1;
-                        while (File.Exists(imagePath) || anhTemp.Any(item => item == imagePath))
-                        {
-                            imagePath = Path.Combine(directoryPath, $"{fileName}_{counter}{extension}");
-
-                            counter++;
-                        }
-                        MessageBox.Show(imagePath);
-                        anhTemp.Add(imagePath);
+                        Directory.CreateDirectory(directoryPath);
                     }
+
+                    // Kiểm tra và thêm số vào tên nếu ảnh đã tồn tại 
+                    int counter = 1;
+                    while (File.Exists(imagePath) || anhTemp.Any(item => item == imagePath))
+                    {
+                        imagePath = Path.Combine(directoryPath, $"{fileName}_{counter}{extension}");
+
+                        counter++;
+                    }
+                    anhTemp.Add(imagePath);
                 }
             }
-            else
-            {
-                int maSPDV = Convert.ToInt32(clickedButton.Tag);
-                // Tiến hành xử lý thêm ảnh
-                using (OpenFileDialog openFileDialog = new OpenFileDialog())
-                {
-                    openFileDialog.InitialDirectory = "C:\\";
-                    openFileDialog.Filter = "Image files (*.jpg;*.jpeg;*.png;*.bmp)|*.jpg;*.jpeg;*.png;*.bmp";
-                    openFileDialog.Title = "Chọn Hình Ảnh";
-
-                    if (openFileDialog.ShowDialog() == DialogResult.OK)
-                    {
-                        string selectedImagePath = openFileDialog.FileName;
-                        anhRoot.Add(selectedImagePath);
-                        // Tạo PictureBox mới cho mỗi hình ảnh
-                        PictureBox pictureBox = CreatePictureBox(selectedImagePath);
-                        // Thêm PictureBox vào FlowLayoutPanel tương ứng
-                        AddPictureBoxToPanel(pictureBox);
-                        // Đường dẫn lưu hình ảnh vào thư mục
-                        string directoryPath = $"D:\\HQTCSDL\\PetShop\\Final_Project_DBMS\\Final_Project_DBMS\\assets\\images\\" + ma;
-                        string fileName = Path.GetFileNameWithoutExtension(selectedImagePath);
-                        string extension = Path.GetExtension(selectedImagePath);
-                        string imagePath = Path.Combine(directoryPath, $"{fileName}{extension}");
-
-                        // Tạo thư mục nếu chưa tồn tại
-                        if (!Directory.Exists(directoryPath))
-                        {
-                            Directory.CreateDirectory(directoryPath);
-                        }
-
-                        // Kiểm tra và thêm số vào tên nếu ảnh đã tồn tại 
-                        int counter = 1;
-                        while (File.Exists(imagePath) || anhTemp.Any(item => item == imagePath))
-                        {
-                            imagePath = Path.Combine(directoryPath, $"{fileName}_{counter}{extension}");
-
-                            counter++;
-                        }
-                        anhTemp.Add(imagePath);
-                    }
-                }
-            }    
-           
         }
 
-        private void btn_suaTC_Click(object sender, EventArgs e)
-        {
-
-        }
         private void btn_ThemThuCung_Click(object sender, EventArgs e)
         {
             lb_maTC.Text = "";
@@ -626,7 +613,6 @@ namespace Final_Project_DBMS.View.Screen_QuanLy
             txb_GiaKMTC.Text = "";
             anhTemp.Clear();
             anhRoot.Clear();
-            MessageBox.Show(anhTemp.Count.ToString());
         }
 
         private void btn_okVP_Click(object sender, EventArgs e)
@@ -654,7 +640,6 @@ namespace Final_Project_DBMS.View.Screen_QuanLy
 
                     // Tạo đường dẫn mới bằng cách thêm chuỗi vào thư mục
                     string newDirectory = Path.Combine(originalDirectory, ma.ToString());
-                    MessageBox.Show(newDirectory);
                     if (!Directory.Exists(newDirectory))
                     {
                         Directory.CreateDirectory(newDirectory);
@@ -784,7 +769,6 @@ namespace Final_Project_DBMS.View.Screen_QuanLy
 
                     // Tạo đường dẫn mới bằng cách thêm chuỗi vào thư mục
                     string newDirectory = Path.Combine(originalDirectory, ma.ToString());
-                    MessageBox.Show(newDirectory);
                     if (!Directory.Exists(newDirectory))
                     {
                         Directory.CreateDirectory(newDirectory);
@@ -880,7 +864,6 @@ namespace Final_Project_DBMS.View.Screen_QuanLy
 
         private void btn_ThemAnhDV_Click(object sender, EventArgs e)
         {
-            loai = "dichvu";
             btnThemAnh_Click(sender, e);
         }
 
@@ -933,7 +916,6 @@ namespace Final_Project_DBMS.View.Screen_QuanLy
 
                     // Tạo đường dẫn mới bằng cách thêm chuỗi vào thư mục
                     string newDirectory = Path.Combine(originalDirectory, ma.ToString());
-                    MessageBox.Show(newDirectory);
                     if (!Directory.Exists(newDirectory))
                     {
                         Directory.CreateDirectory(newDirectory);
@@ -1041,8 +1023,50 @@ namespace Final_Project_DBMS.View.Screen_QuanLy
 
         private void btn_ThemAnhVP_Click(object sender, EventArgs e)
         {
-            loai = "vatpham";
             btnThemAnh_Click(sender, e );
+        }
+
+        private void tabControl_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // Kiểm tra tab nào đang được chọn
+            if (tabControl.SelectedTab == tp_TC)
+            {
+                loai = "thucung";
+            }
+            else if (tabControl.SelectedTab == tp_VP)
+            {
+                loai = "vatpham";
+            }
+            else if (tabControl.SelectedTab == tp_DV)
+            {
+                loai = "dichvu";
+            }
+        }
+
+        private void btn_TimKiemNV_Click(object sender, EventArgs e)
+        {
+            dgv_NhanVien.DataSource = dA_QuanLy.TimKiemNhanVienTheoTen(txb_TenNVTK.Text.Trim());
+        }
+
+        private void btn_TimKiemTC_Click(object sender, EventArgs e)
+        {
+            dgv_ThuCung.DataSource = dA_QuanLy.TimKiemThuCungTheoTen(txb_TenTCTK.Text.Trim());
+        }
+
+        private void btn_TimKiemVP_Click(object sender, EventArgs e)
+        {
+            dgv_VatPham.DataSource = dA_QuanLy.TimKiemVatPhamTheoTen(txb_TenVPTK.Text.Trim());
+        }
+
+        private void btn_TimKiemDV_Click(object sender, EventArgs e)
+        {
+            dgv_DichVu.DataSource = dA_QuanLy.TimKiemDichVuTheoTen(txb_TenDVTK.Text.Trim());
+        }
+
+        private void btn_TimKiemKH_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(txb_TenKHTK.Text.Trim());
+            dgv_KhachHang.DataSource = dA_QuanLy.TimKiemKhachHangTheoTen(txb_TenKHTK.Text.Trim());
         }
     }
 }
