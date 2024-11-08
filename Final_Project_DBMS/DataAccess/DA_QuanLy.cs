@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Final_Project_DBMS.View.Screen_BanHang;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -13,6 +14,7 @@ namespace Final_Project_DBMS.DataAccess
     public class DA_QuanLy
     {
         Database db = new Database();
+        DA_BanHang dA_BanHang = new DA_BanHang();
         SqlConnection conn;
         public DataTable DanhSachNhanVien()
         {
@@ -21,9 +23,9 @@ namespace Final_Project_DBMS.DataAccess
         }
         public DataTable TimKiemNhanVienTheoTen(string ten)
         {
-            string query = "SELECT * FROM view_DanhSachNhanVien WHERE Ho_Ten COLLATE SQL_Latin1_General_CP1_CI_AI LIKE '%" + ten + "%'";
-            MessageBox.Show(query);
-            return db.getDataTable(query);
+            //string query = "SELECT * FROM view_DanhSachNhanVien WHERE Ho_Ten COLLATE SQL_Latin1_General_CP1_CI_AI LIKE '%" + ten + "%'";
+            //return db.getDataTable(query);
+            return dA_BanHang.TimKiem(tenView: "view_DanhSachNhanVien", tenCot: "Ho_Ten", tukhoa: ten);
         }
         public DataTable TimKiemThuCungTheoTen(string ten)
         {
