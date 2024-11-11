@@ -56,7 +56,7 @@
             this.grbTen.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grbTen.Location = new System.Drawing.Point(3, 200);
             this.grbTen.Name = "grbTen";
-            this.grbTen.Size = new System.Drawing.Size(198, 100);
+            this.grbTen.Size = new System.Drawing.Size(201, 112);
             this.grbTen.TabIndex = 1;
             this.grbTen.TabStop = false;
             this.grbTen.Enter += new System.EventHandler(this.grbTen_Enter);

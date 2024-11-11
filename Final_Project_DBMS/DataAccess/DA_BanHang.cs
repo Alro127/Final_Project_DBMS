@@ -16,6 +16,7 @@ namespace Final_Project_DBMS.DataAccess
     public class DA_BanHang
     {
         Database db = new Database();
+        DA_ChiTietSPDV dA = new DA_ChiTietSPDV();
         public string layIconBtnTimKiem()
         {
             string img_link = @"assets\images\chucnangbanhang\icon\Search_Icon.png";
@@ -95,10 +96,21 @@ namespace Final_Project_DBMS.DataAccess
             return Convert.ToDecimal(db.getResultFromProc(SQLcmd, parameterValues, parameterNames));
 
         }
-        public void xoaSPDVKhoiHoaDonDangLap(string IDHoaDonHienTai, string idVatPham)
+        public void xoaSPDVKhoiHoaDonDangLap(string IDHoaDonHienTai, string idVatPham, string tenVatPham)
         {
-            string sqlcmd = "delete from ChiTietHoaDon where Ma_Hoa_Don = " + IDHoaDonHienTai + " and Ma_SPDV = " + idVatPham;
+            string sqlcmd = "SELECT dbo.func_LayMaPhong(@input)";
+            string[] paramNames = { "@input" };
+            object[] paramValues = { tenVatPham };
+
+            int maPhong = (int)db.getResultFromProc(sqlcmd, paramValues, paramNames, isText:true);
+            string[] upDateParamNames = { "@idphongdv", "@trangthai" };
+            object[] upDateParamValues = { maPhong, "Sẵn sàng" };
+            sqlcmd = "proc_CapNhatTrangThaiPhongDichVu";
+            dA.capNhatTrangThaiPhongDichVu(sqlcmd, upDateParamNames, upDateParamValues);
+
+            sqlcmd = "delete from ChiTietHoaDon where Ma_Hoa_Don = " + IDHoaDonHienTai + " and Ma_SPDV = " + idVatPham;
             db.ExecuteQuery(sqlcmd);
+
         }
         public void xoaHoaDonDangLap(string sqlcmd, object[] paramValues, string[] paramNames)
         {

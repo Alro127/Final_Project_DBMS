@@ -117,10 +117,11 @@ namespace Final_Project_DBMS.View.Screen_BanHang
             form_DanhSachPhongDV.ShowDialog();
             string inititalState = "";
             string eventualState = "";
-            form_DanhSachPhongDV.layGiaTriTrangThai(ref inititalState, ref eventualState);
+            int maphong = 0;
+            form_DanhSachPhongDV.layGiaTriTrangThai(ref inititalState, ref eventualState, ref maphong);
             if (dA_BanHang.laDatPhong(inititalState, eventualState))
             {
-                UC_SanPhamCard uC_SanPhamCard = new UC_SanPhamCard(_DichVuCard.Id, _DichVuCard.Ten, _DichVuCard.GiaGoc, _DichVuCard.GiaUudai, _DichVuCard.Link);
+                UC_SanPhamCard uC_SanPhamCard = new UC_SanPhamCard(_DichVuCard.Id, _DichVuCard.Ten + " -- Mã phòng: " + maphong.ToString(), _DichVuCard.GiaGoc, _DichVuCard.GiaUudai, _DichVuCard.Link);
                 AddHoaDon(uC_SanPhamCard, e);
             }
             else
@@ -461,16 +462,18 @@ namespace Final_Project_DBMS.View.Screen_BanHang
             foreach (ListViewItem item in lv_hoa_don.SelectedItems)
             {
                 string idVatPham = item.SubItems[0].Text;
-                dA_BanHang.xoaSPDVKhoiHoaDonDangLap(IDHoaDonHienTai.ToString(), idVatPham);
+                string nameVatPham = item.SubItems[1].Text;
+                dA_BanHang.xoaSPDVKhoiHoaDonDangLap(IDHoaDonHienTai.ToString(), idVatPham, nameVatPham);
                 lv_hoa_don.Items.Remove((ListViewItem)item);
 
             }
             setTongTien(LayTongTienHoaDonHienTai());
+            dich_vu_Load();
         }
 
         private void btn_huy_bo_Click(object sender, EventArgs e)
         {
-            string sqlcmd = "proc_XoaHoaDonDangLap";
+            string sqlcmd = "proc_XoaHoaDon";
             object[] paramValues = { IDHoaDonHienTai.ToString() };
             string[] paramNames = { "@id_hoadon" };
             dA_BanHang.xoaHoaDonDangLap(sqlcmd, paramValues, paramNames);
