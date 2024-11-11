@@ -27,6 +27,7 @@ namespace Final_Project_DBMS.View.Screen_QuanLy
         List<String> anhTemp = new List<String>();
         List<String> anhRoot = new List<String>();
         string loai;
+        string projectDirectory = Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory).Parent.Parent.FullName;
         public UC_QuanLy()
         {
             InitializeComponent();
@@ -437,23 +438,27 @@ namespace Final_Project_DBMS.View.Screen_QuanLy
                     MessageBox.Show("File không tồn tại: " + filePath);
                     return;
                 }
-                string checkAnhroot = filePath.Replace("/","\\");
-                for(int i = 0; i < anhRoot.Count; i++)
+                string checkAnhroot = filePath.Replace("/", "\\");
+                for (int i = 0; i < anhRoot.Count; i++)
                 {
                     if(checkAnhroot == anhRoot[i])
                     {
                         GiaiPhongTaiNguyen(filePath);
                         return;
                     }
-                }    
+                }
                 try
                 {
                     GiaiPhongTaiNguyen(filePath);
                     // Xóa thông tin hình ảnh khỏi cơ sở dữ liệu
-                    string duongdan = filePath.Replace("D:/HQTCSDL/PetShop/Final_Project_DBMS/Final_Project_DBMS/", "").Replace("/", "\\").Trim();
+                    string duongdan = filePath.Replace("/", "\\");
+                    duongdan = duongdan.Replace(projectDirectory + $"\\", "").Trim();
                     object[] paramValues = { ma, duongdan };
-                    dA_QuanLy.XoaHinhAnh(paramValues);
-
+                    bool res = dA_QuanLy.XoaHinhAnh(paramValues);
+                    if(res)
+                    {
+                        MessageBox.Show("Ảnh đã được xóa thành công");
+                    }
                     // Xóa file ảnh
                     File.Delete(filePath);
                 }
@@ -508,6 +513,8 @@ namespace Final_Project_DBMS.View.Screen_QuanLy
                     }
                 }
             }
+            GC.Collect();
+            GC.WaitForPendingFinalizers();
         }
 
         private void AddPictureBoxToPanel(PictureBox pictureBox)
@@ -595,7 +602,7 @@ namespace Final_Project_DBMS.View.Screen_QuanLy
                     // Thêm PictureBox vào FlowLayoutPanel tương ứng
                     AddPictureBoxToPanel(pictureBox);
                     // Đường dẫn lưu hình ảnh vào thư mục
-                    string directoryPath = $"D:\\HQTCSDL\\PetShop\\Final_Project_DBMS\\Final_Project_DBMS\\assets\\images\\";
+                    string directoryPath = projectDirectory +  $"\\assets\\images\\";
                     string fileName = Path.GetFileNameWithoutExtension(selectedImagePath);
                     string extension = Path.GetExtension(selectedImagePath);
                     string imagePath = Path.Combine(directoryPath, $"{fileName}{extension}");
@@ -684,8 +691,8 @@ namespace Final_Project_DBMS.View.Screen_QuanLy
                             for (int i = 0; i < anhTemp.Count; i++)
                             {
                                 anhTemp[i] = anhTemp[i].Replace("images", "images\\" + ma);
-                                //
-                                duongdan = anhTemp[i].Replace("D:\\HQTCSDL\\PetShop\\Final_Project_DBMS\\Final_Project_DBMS\\", "");
+
+                                duongdan = anhTemp[i].Replace(projectDirectory + "\\", "");
                                 object[] paramValuesHA = { ma, duongdan };
                                 dA_QuanLy.ThemHinhAnh(paramValuesHA);
                                 File.Copy(anhRoot[i], anhTemp[i], true);
@@ -731,7 +738,7 @@ namespace Final_Project_DBMS.View.Screen_QuanLy
                         for (int i = 0; i < anhTemp.Count; i++)
                         {
                             duongdan = anhTemp[i];
-                            duongdan = duongdan.Replace("D:\\HQTCSDL\\PetShop\\Final_Project_DBMS\\Final_Project_DBMS\\", "");
+                            duongdan = duongdan.Replace(projectDirectory, "");
                             object[] paramValues = { maVatPham, ten, moTa, giaBanGoc, giaKhuyenMai, thuongHieu, hanSuDung, soLuongTonKho,duongdan };
                             dA_QuanLy.SuaVatPham(paramValues);
                             File.Copy(anhRoot[i], anhTemp[i], true);
@@ -830,7 +837,7 @@ namespace Final_Project_DBMS.View.Screen_QuanLy
                             {
                                 anhTemp[i] = anhTemp[i].Replace("images", "images\\" + ma);
                                 //
-                                duongdan = anhTemp[i].Replace("D:\\HQTCSDL\\PetShop\\Final_Project_DBMS\\Final_Project_DBMS\\", "");
+                                duongdan = anhTemp[i].Replace(projectDirectory + "\\", "");
                                 object[] paramValuesHA = { ma, duongdan};
                                 dA_QuanLy.ThemHinhAnh(paramValuesHA);
                                 File.Copy(anhRoot[i], anhTemp[i], true);
@@ -879,7 +886,7 @@ namespace Final_Project_DBMS.View.Screen_QuanLy
                         for (int i = 0; i < anhTemp.Count; i++)
                         {
                             duongdan = anhTemp[i];
-                            duongdan = duongdan.Replace("D:\\HQTCSDL\\PetShop\\Final_Project_DBMS\\Final_Project_DBMS\\", "");
+                            duongdan = duongdan.Replace(projectDirectory + "\\", "");
                             object[] paramValues = { maDichVu, tenDV, moTaDV, giaBanGoc, giaKhuyenMai, tgth, sophong ,duongdan};
                             dA_QuanLy.SuaDichVu(paramValues);
                             File.Copy(anhRoot[i], anhTemp[i], true);
@@ -981,7 +988,7 @@ namespace Final_Project_DBMS.View.Screen_QuanLy
                             {
                                 anhTemp[i] = anhTemp[i].Replace("images", "images\\" + ma);
                                 //
-                                duongdan = anhTemp[i].Replace("D:\\HQTCSDL\\PetShop\\Final_Project_DBMS\\Final_Project_DBMS\\", "");
+                                duongdan = anhTemp[i].Replace(projectDirectory +"\\" , "");
                                 object[] paramValuesHA = { ma, duongdan };
                                 dA_QuanLy.ThemHinhAnh(paramValuesHA);
                                 File.Copy(anhRoot[i], anhTemp[i], true);
@@ -1038,7 +1045,7 @@ namespace Final_Project_DBMS.View.Screen_QuanLy
                         for (int i = 0; i < anhTemp.Count; i++)
                         {
                             duongdan = anhTemp[i];
-                            duongdan = duongdan.Replace("D:\\HQTCSDL\\PetShop\\Final_Project_DBMS\\Final_Project_DBMS\\", "");
+                            duongdan = duongdan.Replace(projectDirectory, "");
                             object[] paramValues = {maTC,loai, giong, ngaySinhTC, gioiTinhTC, mauSac, canNang, sucKhoe, trangThai,
                                  soLanTiem, tenTC, motaTC, giaBanGoc, giaKhuyenMai,duongdan };
                             dA_QuanLy.SuaThuCung(paramValues);
