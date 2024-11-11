@@ -99,8 +99,14 @@ namespace Final_Project_DBMS.View.Screen_BanHang
                 decimal giagoc = Convert.ToDecimal(row["Gia_Ban_Goc"]);
                 decimal giauudai = Convert.ToDecimal(row["Gia_Khuyen_Mai"]);
                 DataTable temp = dA_BanHang.layHinhAnhSPDV(id);
-                DataRow dataRow = temp.Rows[0];
-                string link = dataRow["Duong_Dan"].ToString();
+                string link = null;
+
+                if (temp.Rows.Count > 0)
+                {
+                    DataRow dataRow = temp.Rows[0];
+                    link = dataRow["Duong_Dan"].ToString();
+                    link = imageLinkConverter.Convert(link).ToString();
+                }
                 link = imageLinkConverter.Convert(link).ToString();
                 int sophongtrong = Convert.ToInt16(row["So_Luong_Phong_Trong"]);
                 UC_DichVuCard cardvatpham = new UC_DichVuCard(id, name, giagoc, giauudai, link, sophongtrong);
@@ -149,9 +155,14 @@ namespace Final_Project_DBMS.View.Screen_BanHang
                 decimal giagoc = Convert.ToDecimal(row["Gia_Ban_Goc"]);
                 decimal giauudai = Convert.ToDecimal(row["Gia_Khuyen_Mai"]);
                 DataTable temp = dA_BanHang.layHinhAnhSPDV(id);
-                DataRow dataRow = temp.Rows[0];
-                string link = dataRow["Duong_Dan"].ToString();
-                link = imageLinkConverter.Convert(link).ToString();
+                string link = null;
+
+                if (temp.Rows.Count > 0)
+                {
+                    DataRow dataRow = temp.Rows[0];
+                    link = dataRow["Duong_Dan"].ToString();
+                    link = imageLinkConverter.Convert(link).ToString();
+                }
                 UC_SanPhamCard cardvatpham = new UC_SanPhamCard(id, name, giagoc, giauudai, link);
                 cardvatpham.addHoaDon += AddHoaDon;
                 cardvatpham.chitietvatpham += ChiTietVatPham;
@@ -172,14 +183,19 @@ namespace Final_Project_DBMS.View.Screen_BanHang
             flp_thu_cung.Controls.Clear();
             foreach (DataRow row in dt_thucung.Rows)
             {
-                int id = Convert.ToInt32(row["Mã Thú Cưng"]);
-                string name = row["Tên Thú Cưng"].ToString();
-                decimal giagoc = Convert.ToDecimal(row["Giá Bán Gốc"]);
-                decimal giauudai = Convert.ToDecimal(row["Giá Khuyến Mại"]);
+                int id = Convert.ToInt32(row["Ma_Thu_Cung"]);
+                string name = row["Ten"].ToString();
+                decimal giagoc = Convert.ToDecimal(row["Gia_Ban_Goc"]);
+                decimal giauudai = Convert.ToDecimal(row["Gia_Khuyen_Mai"]);
                 DataTable temp = dA_BanHang.layHinhAnhSPDV(id);
-                DataRow dataRow = temp.Rows[0];
-                string link = dataRow["Duong_Dan"].ToString();
-                link = imageLinkConverter.Convert(link).ToString();
+                string link = null;
+                
+                if (temp.Rows.Count >0 )
+                {
+                    DataRow dataRow = temp.Rows[0];
+                    link = dataRow["Duong_Dan"].ToString();
+                    link = imageLinkConverter.Convert(link).ToString();
+                }
 
                 UC_SanPhamCard cardvatpham = new UC_SanPhamCard(id, name, giagoc, giauudai, link);
                 cardvatpham.addHoaDon += AddHoaDon;
@@ -347,8 +363,8 @@ namespace Final_Project_DBMS.View.Screen_BanHang
             {
                 if (tb_types.SelectedIndex == 0)
                 {
-                    dt_thucung = dA_BanHang.TimKiem(tenView, "Tên Thú Cưng", tuKhoa, startingValue, endingValue,
-                    sortOrderGiaTien, sortOrderTen, "Giá Khuyến Mại");
+                    dt_thucung = dA_BanHang.TimKiem(tenView, "Ten", tuKhoa, startingValue, endingValue,
+                    sortOrderGiaTien, sortOrderTen, "Gia_Khuyen_Mai");
                     thu_cung_load(dt_thucung);
                 }
                 else if (tb_types.SelectedIndex == 1)
@@ -473,14 +489,18 @@ namespace Final_Project_DBMS.View.Screen_BanHang
 
         private void btn_huy_bo_Click(object sender, EventArgs e)
         {
-            string sqlcmd = "proc_XoaHoaDon";
-            object[] paramValues = { IDHoaDonHienTai.ToString() };
-            string[] paramNames = { "@id_hoadon" };
-            dA_BanHang.xoaHoaDonDangLap(sqlcmd, paramValues, paramNames);
+            foreach (ListViewItem item in lv_hoa_don.Items)
+            {
+                string idVatPham = item.SubItems[0].Text;
+                string nameVatPham = item.SubItems[1].Text;
+                dA_BanHang.xoaSPDVKhoiHoaDonDangLap(IDHoaDonHienTai.ToString(), idVatPham, nameVatPham);
+            }
+            dA_BanHang.xoaHoaDonDangLap(IDHoaDonHienTai.ToString());
             lv_hoa_don.Items.Clear();
             IDHoaDonHienTai = -1;
             XoaGiaoDichHienTai();
             setTongTien(0);
+            dich_vu_Load();
         }
         private void XoaGiaoDichHienTai()
         {
