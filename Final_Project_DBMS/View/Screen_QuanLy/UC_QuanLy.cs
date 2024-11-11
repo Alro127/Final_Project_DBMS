@@ -151,11 +151,6 @@ namespace Final_Project_DBMS.View.Screen_QuanLy
             txb_MaQL.Text = "";
         }
 
-        private void btn_LamSach_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btn_XoaNV_Click(object sender, EventArgs e)
         {
             if (lb_maNV.Text == "")

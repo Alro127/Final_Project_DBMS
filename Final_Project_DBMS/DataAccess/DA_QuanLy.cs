@@ -13,7 +13,6 @@ namespace Final_Project_DBMS.DataAccess
     public class DA_QuanLy
     {
         Database db = new Database();
-        DA_BanHang dA_BanHang = new DA_BanHang();
         SqlConnection conn;
         public DataTable DanhSachNhanVien()
         {
