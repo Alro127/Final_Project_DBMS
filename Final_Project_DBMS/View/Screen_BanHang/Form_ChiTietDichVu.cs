@@ -103,6 +103,7 @@ namespace Final_Project_DBMS.View.Screen_BanHang
             object[] paramValues = { idphong, trangthai };
             dA_ChiTiet.capNhatTrangThaiPhongDichVu(sqlcmd, paramNames, paramValues);
             load_giao_dien();
+
         }
 
         private void dg_dsPhong_CellContentClick(object sender, DataGridViewCellEventArgs e)

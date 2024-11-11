@@ -3,32 +3,40 @@
   "WorkspaceRootPath": "D:\\University\\N\u0103m 3\\K\u1EF3 1\\DBMS\\Project\\Final_Project_DBMS\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{DD894CC0-988B-4F32-9E7D-4E451580DFFE}|Final_Project_DBMS\\Final_Project_DBMS.csproj|D:\\University\\N\u0103m 3\\K\u1EF3 1\\DBMS\\Project\\Final_Project_DBMS\\final_project_dbms\\view\\screen_banhang\\uc_banhang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{DD894CC0-988B-4F32-9E7D-4E451580DFFE}|Final_Project_DBMS\\Final_Project_DBMS.csproj|D:\\University\\N\u0103m 3\\K\u1EF3 1\\DBMS\\Project\\Final_Project_DBMS\\final_project_dbms\\view\\screen_banhang\\uc_banhang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DD894CC0-988B-4F32-9E7D-4E451580DFFE}|Final_Project_DBMS\\Final_Project_DBMS.csproj|solutionrelative:final_project_dbms\\view\\screen_banhang\\uc_banhang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DD894CC0-988B-4F32-9E7D-4E451580DFFE}|Final_Project_DBMS\\Final_Project_DBMS.csproj|d:\\university\\n\u0103m 3\\k\u1EF3 1\\dbms\\project\\final_project_dbms\\final_project_dbms\\view\\screen_banhang\\uc_banhang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{DD894CC0-988B-4F32-9E7D-4E451580DFFE}|Final_Project_DBMS\\Final_Project_DBMS.csproj|solutionrelative:final_project_dbms\\view\\screen_banhang\\uc_banhang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DD894CC0-988B-4F32-9E7D-4E451580DFFE}|Final_Project_DBMS\\Final_Project_DBMS.csproj|d:\\university\\n\u0103m 3\\k\u1EF3 1\\dbms\\project\\final_project_dbms\\final_project_dbms\\view\\screen_banhang\\uc_dichvucard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{DD894CC0-988B-4F32-9E7D-4E451580DFFE}|Final_Project_DBMS\\Final_Project_DBMS.csproj|solutionrelative:final_project_dbms\\view\\screen_banhang\\uc_dichvucard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DD894CC0-988B-4F32-9E7D-4E451580DFFE}|Final_Project_DBMS\\Final_Project_DBMS.csproj|D:\\University\\N\u0103m 3\\K\u1EF3 1\\DBMS\\Project\\Final_Project_DBMS\\final_project_dbms\\view\\screen_banhang\\form_chitietdichvu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DD894CC0-988B-4F32-9E7D-4E451580DFFE}|Final_Project_DBMS\\Final_Project_DBMS.csproj|solutionrelative:final_project_dbms\\view\\screen_banhang\\form_chitietdichvu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{DD894CC0-988B-4F32-9E7D-4E451580DFFE}|Final_Project_DBMS\\Final_Project_DBMS.csproj|D:\\University\\N\u0103m 3\\K\u1EF3 1\\DBMS\\Project\\Final_Project_DBMS\\final_project_dbms\\dataaccess\\da_chitietspdv.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DD894CC0-988B-4F32-9E7D-4E451580DFFE}|Final_Project_DBMS\\Final_Project_DBMS.csproj|solutionrelative:final_project_dbms\\dataaccess\\da_chitietspdv.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DD894CC0-988B-4F32-9E7D-4E451580DFFE}|Final_Project_DBMS\\Final_Project_DBMS.csproj|D:\\University\\N\u0103m 3\\K\u1EF3 1\\DBMS\\Project\\Final_Project_DBMS\\final_project_dbms\\dataaccess\\da_banhang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DD894CC0-988B-4F32-9E7D-4E451580DFFE}|Final_Project_DBMS\\Final_Project_DBMS.csproj|solutionrelative:final_project_dbms\\dataaccess\\da_banhang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DD894CC0-988B-4F32-9E7D-4E451580DFFE}|Final_Project_DBMS\\Final_Project_DBMS.csproj|d:\\university\\n\u0103m 3\\k\u1EF3 1\\dbms\\project\\final_project_dbms\\final_project_dbms\\view\\screen_banhang\\form_danhsachphongdv.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{DD894CC0-988B-4F32-9E7D-4E451580DFFE}|Final_Project_DBMS\\Final_Project_DBMS.csproj|solutionrelative:final_project_dbms\\view\\screen_banhang\\form_danhsachphongdv.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DD894CC0-988B-4F32-9E7D-4E451580DFFE}|Final_Project_DBMS\\Final_Project_DBMS.csproj|d:\\university\\n\u0103m 3\\k\u1EF3 1\\dbms\\project\\final_project_dbms\\final_project_dbms\\view\\screen_banhang\\form_danhsachphongdv.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{DD894CC0-988B-4F32-9E7D-4E451580DFFE}|Final_Project_DBMS\\Final_Project_DBMS.csproj|D:\\University\\N\u0103m 3\\K\u1EF3 1\\DBMS\\Project\\Final_Project_DBMS\\final_project_dbms\\view\\screen_banhang\\form_danhsachphongdv.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DD894CC0-988B-4F32-9E7D-4E451580DFFE}|Final_Project_DBMS\\Final_Project_DBMS.csproj|solutionrelative:final_project_dbms\\view\\screen_banhang\\form_danhsachphongdv.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DD894CC0-988B-4F32-9E7D-4E451580DFFE}|Final_Project_DBMS\\Final_Project_DBMS.csproj|D:\\University\\N\u0103m 3\\K\u1EF3 1\\DBMS\\Project\\Final_Project_DBMS\\final_project_dbms\\view\\screen_banhang\\uc_banhang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DD894CC0-988B-4F32-9E7D-4E451580DFFE}|Final_Project_DBMS\\Final_Project_DBMS.csproj|solutionrelative:final_project_dbms\\view\\screen_banhang\\uc_banhang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{DD894CC0-988B-4F32-9E7D-4E451580DFFE}|Final_Project_DBMS\\Final_Project_DBMS.csproj|D:\\University\\N\u0103m 3\\K\u1EF3 1\\DBMS\\Project\\Final_Project_DBMS\\final_project_dbms\\view\\screen_banhang\\form_danhsachphongdv.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{DD894CC0-988B-4F32-9E7D-4E451580DFFE}|Final_Project_DBMS\\Final_Project_DBMS.csproj|solutionrelative:final_project_dbms\\view\\screen_banhang\\form_danhsachphongdv.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DD894CC0-988B-4F32-9E7D-4E451580DFFE}|Final_Project_DBMS\\Final_Project_DBMS.csproj|d:\\university\\n\u0103m 3\\k\u1EF3 1\\dbms\\project\\final_project_dbms\\final_project_dbms\\view\\screen_banhang\\form_chitietdichvu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DD894CC0-988B-4F32-9E7D-4E451580DFFE}|Final_Project_DBMS\\Final_Project_DBMS.csproj|solutionrelative:final_project_dbms\\view\\screen_banhang\\form_chitietdichvu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{DD894CC0-988B-4F32-9E7D-4E451580DFFE}|Final_Project_DBMS\\Final_Project_DBMS.csproj|d:\\university\\n\u0103m 3\\k\u1EF3 1\\dbms\\project\\final_project_dbms\\final_project_dbms\\view\\screen_banhang\\form_chitietdichvu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{DD894CC0-988B-4F32-9E7D-4E451580DFFE}|Final_Project_DBMS\\Final_Project_DBMS.csproj|solutionrelative:final_project_dbms\\view\\screen_banhang\\form_chitietdichvu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DD894CC0-988B-4F32-9E7D-4E451580DFFE}|Final_Project_DBMS\\Final_Project_DBMS.csproj|D:\\University\\N\u0103m 3\\K\u1EF3 1\\DBMS\\Project\\Final_Project_DBMS\\final_project_dbms\\dataaccess\\da_banhang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DD894CC0-988B-4F32-9E7D-4E451580DFFE}|Final_Project_DBMS\\Final_Project_DBMS.csproj|solutionrelative:final_project_dbms\\dataaccess\\da_banhang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,7 +46,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 76,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Bookmark",
@@ -50,7 +58,31 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
+              "Title": "UC_DichVuCard.cs [Design]",
+              "DocumentMoniker": "D:\\University\\N\u0103m 3\\K\u1EF3 1\\DBMS\\Project\\Final_Project_DBMS\\Final_Project_DBMS\\View\\Screen_BanHang\\UC_DichVuCard.cs",
+              "RelativeDocumentMoniker": "Final_Project_DBMS\\View\\Screen_BanHang\\UC_DichVuCard.cs",
+              "ToolTip": "D:\\University\\N\u0103m 3\\K\u1EF3 1\\DBMS\\Project\\Final_Project_DBMS\\Final_Project_DBMS\\View\\Screen_BanHang\\UC_DichVuCard.cs [Design]",
+              "RelativeToolTip": "Final_Project_DBMS\\View\\Screen_BanHang\\UC_DichVuCard.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-11T14:12:08.019Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Form_ChiTietDichVu.cs [Design]",
+              "DocumentMoniker": "D:\\University\\N\u0103m 3\\K\u1EF3 1\\DBMS\\Project\\Final_Project_DBMS\\Final_Project_DBMS\\View\\Screen_BanHang\\Form_ChiTietDichVu.cs",
+              "RelativeDocumentMoniker": "Final_Project_DBMS\\View\\Screen_BanHang\\Form_ChiTietDichVu.cs",
+              "ToolTip": "D:\\University\\N\u0103m 3\\K\u1EF3 1\\DBMS\\Project\\Final_Project_DBMS\\Final_Project_DBMS\\View\\Screen_BanHang\\Form_ChiTietDichVu.cs [Design]",
+              "RelativeToolTip": "Final_Project_DBMS\\View\\Screen_BanHang\\Form_ChiTietDichVu.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-11T13:48:30.797Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "Form_DanhSachPhongDV.cs [Design]",
               "DocumentMoniker": "D:\\University\\N\u0103m 3\\K\u1EF3 1\\DBMS\\Project\\Final_Project_DBMS\\Final_Project_DBMS\\View\\Screen_BanHang\\Form_DanhSachPhongDV.cs",
               "RelativeDocumentMoniker": "Final_Project_DBMS\\View\\Screen_BanHang\\Form_DanhSachPhongDV.cs",
@@ -62,7 +94,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "Form_DanhSachPhongDV.cs",
               "DocumentMoniker": "D:\\University\\N\u0103m 3\\K\u1EF3 1\\DBMS\\Project\\Final_Project_DBMS\\Final_Project_DBMS\\View\\Screen_BanHang\\Form_DanhSachPhongDV.cs",
               "RelativeDocumentMoniker": "Final_Project_DBMS\\View\\Screen_BanHang\\Form_DanhSachPhongDV.cs",
@@ -75,33 +107,33 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 3,
               "Title": "Form_ChiTietDichVu.cs",
               "DocumentMoniker": "D:\\University\\N\u0103m 3\\K\u1EF3 1\\DBMS\\Project\\Final_Project_DBMS\\Final_Project_DBMS\\View\\Screen_BanHang\\Form_ChiTietDichVu.cs",
               "RelativeDocumentMoniker": "Final_Project_DBMS\\View\\Screen_BanHang\\Form_ChiTietDichVu.cs",
               "ToolTip": "D:\\University\\N\u0103m 3\\K\u1EF3 1\\DBMS\\Project\\Final_Project_DBMS\\Final_Project_DBMS\\View\\Screen_BanHang\\Form_ChiTietDichVu.cs",
               "RelativeToolTip": "Final_Project_DBMS\\View\\Screen_BanHang\\Form_ChiTietDichVu.cs",
-              "ViewState": "AQIAAFgAAAAAAAAAAAArwGQAAAA/AAAA",
+              "ViewState": "AQIAABoAAAAAAAAAAAAowCYAAAArAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-08T01:42:49.6Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 0,
               "Title": "UC_BanHang.cs",
               "DocumentMoniker": "D:\\University\\N\u0103m 3\\K\u1EF3 1\\DBMS\\Project\\Final_Project_DBMS\\Final_Project_DBMS\\View\\Screen_BanHang\\UC_BanHang.cs",
               "RelativeDocumentMoniker": "Final_Project_DBMS\\View\\Screen_BanHang\\UC_BanHang.cs",
               "ToolTip": "D:\\University\\N\u0103m 3\\K\u1EF3 1\\DBMS\\Project\\Final_Project_DBMS\\Final_Project_DBMS\\View\\Screen_BanHang\\UC_BanHang.cs",
               "RelativeToolTip": "Final_Project_DBMS\\View\\Screen_BanHang\\UC_BanHang.cs",
-              "ViewState": "AQIAAD8CAAAAAAAAAAAmwN8AAAAAAAAA",
+              "ViewState": "AQIAAFoAAAAAAAAAAAAwwFMAAAAhAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-07T08:55:57.247Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "UC_BanHang.cs [Design]",
               "DocumentMoniker": "D:\\University\\N\u0103m 3\\K\u1EF3 1\\DBMS\\Project\\Final_Project_DBMS\\Final_Project_DBMS\\View\\Screen_BanHang\\UC_BanHang.cs",
               "RelativeDocumentMoniker": "Final_Project_DBMS\\View\\Screen_BanHang\\UC_BanHang.cs",
@@ -113,20 +145,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 8,
               "Title": "DA_BanHang.cs",
               "DocumentMoniker": "D:\\University\\N\u0103m 3\\K\u1EF3 1\\DBMS\\Project\\Final_Project_DBMS\\Final_Project_DBMS\\DataAccess\\DA_BanHang.cs",
               "RelativeDocumentMoniker": "Final_Project_DBMS\\DataAccess\\DA_BanHang.cs",
               "ToolTip": "D:\\University\\N\u0103m 3\\K\u1EF3 1\\DBMS\\Project\\Final_Project_DBMS\\Final_Project_DBMS\\DataAccess\\DA_BanHang.cs",
               "RelativeToolTip": "Final_Project_DBMS\\DataAccess\\DA_BanHang.cs",
-              "ViewState": "AQIAAF8AAAAAAAAAAAAIwGsAAAAMAAAA",
+              "ViewState": "AQIAAGEAAAAAAAAAAAAIwGIAAAAsAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-07T08:55:30.748Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "DA_ChiTietSPDV.cs",
               "DocumentMoniker": "D:\\University\\N\u0103m 3\\K\u1EF3 1\\DBMS\\Project\\Final_Project_DBMS\\Final_Project_DBMS\\DataAccess\\DA_ChiTietSPDV.cs",
               "RelativeDocumentMoniker": "Final_Project_DBMS\\DataAccess\\DA_ChiTietSPDV.cs",

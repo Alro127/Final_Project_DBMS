@@ -473,14 +473,18 @@ namespace Final_Project_DBMS.View.Screen_BanHang
 
         private void btn_huy_bo_Click(object sender, EventArgs e)
         {
-            string sqlcmd = "proc_XoaHoaDon";
-            object[] paramValues = { IDHoaDonHienTai.ToString() };
-            string[] paramNames = { "@id_hoadon" };
-            dA_BanHang.xoaHoaDonDangLap(sqlcmd, paramValues, paramNames);
+            foreach (ListViewItem item in lv_hoa_don.Items)
+            {
+                string idVatPham = item.SubItems[0].Text;
+                string nameVatPham = item.SubItems[1].Text;
+                dA_BanHang.xoaSPDVKhoiHoaDonDangLap(IDHoaDonHienTai.ToString(), idVatPham, nameVatPham);
+            }
+            dA_BanHang.xoaHoaDonDangLap(IDHoaDonHienTai.ToString());
             lv_hoa_don.Items.Clear();
             IDHoaDonHienTai = -1;
             XoaGiaoDichHienTai();
             setTongTien(0);
+            dich_vu_Load();
         }
         private void XoaGiaoDichHienTai()
         {

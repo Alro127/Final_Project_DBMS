@@ -101,19 +101,25 @@ namespace Final_Project_DBMS.DataAccess
             string sqlcmd = "SELECT dbo.func_LayMaPhong(@input)";
             string[] paramNames = { "@input" };
             object[] paramValues = { tenVatPham };
-
-            int maPhong = (int)db.getResultFromProc(sqlcmd, paramValues, paramNames, isText:true);
-            string[] upDateParamNames = { "@idphongdv", "@trangthai" };
-            object[] upDateParamValues = { maPhong, "Sẵn sàng" };
-            sqlcmd = "proc_CapNhatTrangThaiPhongDichVu";
-            dA.capNhatTrangThaiPhongDichVu(sqlcmd, upDateParamNames, upDateParamValues);
+             
+            object t_maPhong = db.getResultFromProc(sqlcmd, paramValues, paramNames, isText: true);
+            if (t_maPhong is int maPhong)
+            {
+                string[] upDateParamNames = { "@idphongdv", "@trangthai" };
+                object[] upDateParamValues = { maPhong, "Sẵn sàng" };
+                sqlcmd = "proc_CapNhatTrangThaiPhongDichVu";
+                dA.capNhatTrangThaiPhongDichVu(sqlcmd, upDateParamNames, upDateParamValues);
+            }
 
             sqlcmd = "delete from ChiTietHoaDon where Ma_Hoa_Don = " + IDHoaDonHienTai + " and Ma_SPDV = " + idVatPham;
             db.ExecuteQuery(sqlcmd);
 
         }
-        public void xoaHoaDonDangLap(string sqlcmd, object[] paramValues, string[] paramNames)
+        public void xoaHoaDonDangLap(string IDHoaDonHienTai)
         {
+            string sqlcmd = "proc_XoaHoaDon";
+            object[] paramValues = { IDHoaDonHienTai.ToString() };
+            string[] paramNames = { "@id_hoadon" };
             db.getResultFromProc(sqlcmd, paramValues, paramNames);
         }
         public void datTrangThaiThanhToan(string IDHoaDonHienTai)
