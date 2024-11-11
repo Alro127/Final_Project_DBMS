@@ -7,18 +7,41 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace Final_Project_DBMS.DataAccess
 {
     public class Database
     {
-        private SqlConnection conn = new SqlConnection(Properties.Settings.Default.ConnectionString);
 
+        private SqlConnection connAdmin = new SqlConnection(Properties.Settings.Default.ConnectionString);
+        private SqlConnection conn = new SqlConnection("Server=HNT\\MSSQLSERVER04; Database=PetShop; User Id=" + DA_TaiKhoan.username + "; Password=" + DA_TaiKhoan.password + ";");
         public SqlConnection getConnection
         {
             get
             {
                 return conn;
+            }
+        }
+        public SqlConnection getConnectionAdmin
+        {
+            get
+            {
+                return connAdmin;
+            }
+        }
+        public void openConnectionAdmin()
+        {
+            if (connAdmin.State == ConnectionState.Closed)
+            {
+                connAdmin.Open();
+            }
+        }
+        public void closeConnectionAdmin()
+        {
+            if (connAdmin.State == ConnectionState.Open)
+            {
+                connAdmin.Close();
             }
         }
         public void openConnection()
@@ -135,6 +158,42 @@ namespace Final_Project_DBMS.DataAccess
             closeConnection();
             return result;
         }
-
+        public object ExecuteReturnAdmin(string query, SqlParameter[] parameters)
+        {
+            object result = null;
+            SqlCommand cmd = new SqlCommand(query, getConnectionAdmin);
+            try
+            {
+                openConnectionAdmin();
+                cmd.Parameters.AddRange(parameters);
+                result = cmd.ExecuteScalar();    
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally { closeConnectionAdmin(); }
+            return result;
+        }
+        public bool ExecuteNonReturnAdmin(string proc, SqlParameter[] parameters)
+        {
+            bool result = false;
+            
+            try
+            {
+                openConnectionAdmin();
+                SqlCommand cmd = new SqlCommand(proc, getConnectionAdmin);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddRange(parameters);
+                int rowsAffected = cmd.ExecuteNonQuery();
+                result = rowsAffected > 0;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally { closeConnectionAdmin(); }
+            return result;
+        }
     }
 }

@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Final_Project_DBMS.View;
 using Final_Project_DBMS.View.Screen_BanHang;
+using Final_Project_DBMS.View.Screen_DangKyDangNhap;
 
 namespace Final_Project_DBMS
 {
@@ -18,7 +19,7 @@ namespace Final_Project_DBMS
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainPage());
+            Application.Run(new Form_DangNhap());
         }
     }
 }

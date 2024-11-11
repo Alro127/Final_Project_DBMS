@@ -55,6 +55,7 @@
     <Compile Include="DataAccess\DA_PhanCa.cs" />
     <Compile Include="DataAccess\DA_QuanLy.cs" />
     <Compile Include="DataAccess\DA_TinhLuong.cs" />
+    <Compile Include="DataAccess\DA_TaiKhoan.cs" />
     <Compile Include="obj\Debug\.NETFramework,Version=v4.7.2.AssemblyAttributes.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

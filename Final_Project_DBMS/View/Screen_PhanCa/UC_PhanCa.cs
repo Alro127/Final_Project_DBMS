@@ -21,6 +21,11 @@ namespace Final_Project_DBMS.View.Screen_PhanCa
         public UC_PhanCa()
         {
             InitializeComponent();
+            if (DA_TaiKhoan.permission == "RoleNhanVien")
+            {
+                ctm_ThemCaLam.Enabled = false;
+                ctm_xoaCaLam.Enabled = false;
+            }
         }
         /// <summary>
         /// Lấy danh sách ngày trong tuần

@@ -12,6 +12,7 @@ using Final_Project_DBMS.View.Screen_TinhLuong;
 using Final_Project_DBMS.View.Screen_DoanhThu;
 using Final_Project_DBMS.View.Screen_QuanLy;
 using Final_Project_DBMS.View.Screen_BanHang;
+using Final_Project_DBMS.DataAccess;
 
 namespace Final_Project_DBMS.View
 {
@@ -20,6 +21,13 @@ namespace Final_Project_DBMS.View
         public MainPage()
         {
             InitializeComponent();
+            if (DA_TaiKhoan.permission == "RoleNhanVien")
+            {
+                btnQuanLy.Visible = false;
+                btnTinhLuong.Visible = false;
+                btnDoanhThu.Visible = false;
+            }
+            
         }
 
         private void btnBanHang_Click(object sender, EventArgs e)
