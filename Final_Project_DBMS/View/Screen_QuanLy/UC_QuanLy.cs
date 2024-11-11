@@ -8,10 +8,13 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Net.NetworkInformation;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Media;
+using static System.Net.Mime.MediaTypeNames;
 using static System.Windows.Forms.LinkLabel;
 
 namespace Final_Project_DBMS.View.Screen_QuanLy
@@ -40,6 +43,7 @@ namespace Final_Project_DBMS.View.Screen_QuanLy
             dgv_ThuCung.DataSource = dA_QuanLy.DanhSachThuCung();
             dgv_VatPham.DataSource = dA_QuanLy.DanhSachVatPham();
             dgv_DichVu.DataSource = dA_QuanLy.DanhSachDichVu();
+            LoadPhongDichVu();
         }
         private void UC_QuanLy_Load(object sender, EventArgs e)
         {
@@ -82,9 +86,16 @@ namespace Final_Project_DBMS.View.Screen_QuanLy
                     int maNQL = Convert.ToInt32(txb_MaQL.Text.Trim());
 
                     // Nếu tất cả các kiểm tra đều hợp lệ, tiến hành gọi Stored Procedure
-                    string[] parameterNames = { "@Ho_Ten", "@Ngay_Sinh", "@Gioi_Tinh", "@Dia_Chi", "@SDT", "@Luong", "@Cong_Viec", "@Ma_NQL" };
                     object[] parameters = { hoTen, ngaySinh, gioiTinh, diaChi, sdt, luong, congViec, maNQL };
-                    dA_QuanLy.ExecProcedure("proc_ThemNhanVien", parameters, parameterNames);
+                    bool res = dA_QuanLy.ThemNhanVien( parameters);
+                    if (res)
+                    {
+                        MessageBox.Show("Thông tin nhân viên đã được thêm thành công.");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Không có thay đổi nào được thực hiện.");
+                    }    
                 }
                 catch (FormatException ex)
                 {
@@ -117,9 +128,16 @@ namespace Final_Project_DBMS.View.Screen_QuanLy
                     int maNQL = Convert.ToInt32(txb_MaQL.Text.Trim());
 
                     // Nếu tất cả các kiểm tra đều hợp lệ, tiến hành gọi Stored Procedure
-                    string[] parameterNames = { "@Ma_Nhan_Vien", "@Ho_Ten", "@Ngay_Sinh", "@Gioi_Tinh", "@Dia_Chi", "@SDT", "@Luong", "@Cong_Viec", "@Ma_NQL" };
                     object[] parameters = { maNhanVien, hoTen, ngaySinh, gioiTinh, diaChi, sdt, luong, congViec, maNQL };
-                    dA_QuanLy.ExecProcedure("proc_SuaNhanVien", parameters, parameterNames);
+                    bool res = dA_QuanLy.SuaNhanVien(parameters);
+                    if (res)
+                    {
+                        MessageBox.Show("Thông tin nhân viên đã được sửa thành công.");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Không có thay đổi nào được thực hiện.");
+                    }
                 }
                 catch (FormatException ex)
                 {
@@ -172,9 +190,16 @@ namespace Final_Project_DBMS.View.Screen_QuanLy
                     try
                     {
                         int maNhanVien = Convert.ToInt32(lb_maNV.Text);
-                        string[] parameterNames = { "@Ma_Nhan_Vien" };
                         object[] parameters = { maNhanVien };
-                        dA_QuanLy.ExecProcedure("proc_XoaNhanVien", parameters, parameterNames);
+                        bool res = dA_QuanLy.XoaNhanVien( parameters);
+                        if (res)
+                        {
+                            MessageBox.Show("Thông tin nhân viên đã được xóa thành công.");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Không có thay đổi nào được thực hiện.");
+                        }
                     }
                     catch (FormatException ex)
                     {
@@ -217,9 +242,16 @@ namespace Final_Project_DBMS.View.Screen_QuanLy
                     int diemTichLuy = Convert.ToInt32(txb_DiemTichLuy.Text);
 
                     // Nếu tất cả các kiểm tra đều hợp lệ, tiến hành gọi Stored Procedure
-                    string[] parameterNames = { "@Ma_Khach_Hang", "@Ten", "@SDT", "Diem_Tich_Luy" };
                     object[] parameters = { maKhachHang, hoTen, sdt, diemTichLuy };
-                    dA_QuanLy.ExecProcedure("proc_SuaKhachHang", parameters, parameterNames);
+                    bool res = dA_QuanLy.SuaKhachHang(parameters);
+                    if (res)
+                    {
+                        MessageBox.Show("Thông tin khách hàng đã được sửa thành công.");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Không có thay đổi nào được thực hiện.");
+                    }
                 }
                 catch (FormatException ex)
                 {
@@ -274,9 +306,8 @@ namespace Final_Project_DBMS.View.Screen_QuanLy
                     try
                     {
                         int maKhachHang= Convert.ToInt32(lbl_maKH.Text);
-                        string[] parameterNames = { "@Ma_Khach_Hang" };
                         object[] parameters = { maKhachHang };
-                        dA_QuanLy.ExecProcedure("proc_XoaKhachHang", parameters, parameterNames);
+                        dA_QuanLy.XoaKhachHang(parameters);
                     }
                     catch (FormatException ex)
                     {
@@ -420,9 +451,8 @@ namespace Final_Project_DBMS.View.Screen_QuanLy
                     GiaiPhongTaiNguyen(filePath);
                     // Xóa thông tin hình ảnh khỏi cơ sở dữ liệu
                     string duongdan = filePath.Replace("D:/HQTCSDL/PetShop/Final_Project_DBMS/Final_Project_DBMS/", "").Replace("/", "\\").Trim();
-                    string[] paramNames = { "@Ma_SPDV", "@Duong_Dan" };
                     object[] paramValues = { ma, duongdan };
-                    dA_QuanLy.ExecProcedure("proc_XoaHinhAnh", paramValues, paramNames);
+                    dA_QuanLy.XoaHinhAnh(paramValues);
 
                     // Xóa file ảnh
                     File.Delete(filePath);
@@ -627,10 +657,17 @@ namespace Final_Project_DBMS.View.Screen_QuanLy
 
 
                     // Tạo mảng chứa tên các tham số và các giá trị của chúng
-                    string[] paramNames = {"@Ten", "@Mo_Ta", "@Gia_Ban_Goc", "@Gia_Khuyen_Mai", "@Thuong_Hieu", "@Han_Su_Dung", "@So_Luong_Ton_Kho"};
                     int ma;
-                    object[] paramValues = { ten, moTa, giaBanGoc, giaKhuyenMai, thuongHieu, hanSuDung, soLuongTonKho};
-                    ma = dA_QuanLy.ExecuteQueryLayMa("proc_ThemVatPham", paramValues, paramNames);
+                    object[] paramValues = { ten, moTa, giaBanGoc, giaKhuyenMai, thuongHieu, hanSuDung, soLuongTonKho };
+                    ma = dA_QuanLy.ThemVatPham(paramValues);
+                    if (ma != -1)
+                    {
+                        MessageBox.Show("Thông tin vật phẩm đã được thêm thành công.");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Không có thay đổi nào được thực hiện.");
+                    }
                     string originalDirectory = Path.GetDirectoryName(anhTemp[0]);
 
                     // Tạo đường dẫn mới bằng cách thêm chuỗi vào thư mục
@@ -643,7 +680,6 @@ namespace Final_Project_DBMS.View.Screen_QuanLy
                     {
                         if (ma != -1)
                         {
-                            string[] paramNamesHA = { "@Ma_SPDV", "@Duong_Dan" };
                             string duongdan = "";
                             for (int i = 0; i < anhTemp.Count; i++)
                             {
@@ -651,7 +687,7 @@ namespace Final_Project_DBMS.View.Screen_QuanLy
                                 //
                                 duongdan = anhTemp[i].Replace("D:\\HQTCSDL\\PetShop\\Final_Project_DBMS\\Final_Project_DBMS\\", "");
                                 object[] paramValuesHA = { ma, duongdan };
-                                dA_QuanLy.ExecProcedure("proc_ThemHinhAnh", paramValuesHA, paramNamesHA);
+                                dA_QuanLy.ThemHinhAnh(paramValuesHA);
                                 File.Copy(anhRoot[i], anhTemp[i], true);
                             }
                         }
@@ -689,7 +725,6 @@ namespace Final_Project_DBMS.View.Screen_QuanLy
 
 
                     // Tạo mảng chứa tên các tham số và các giá trị của chúng
-                    string[] paramNames = { "@Ma_Vat_Pham", "@Ten", "@Mo_Ta", "@Gia_Ban_Goc", "@Gia_Khuyen_Mai", "@Thuong_Hieu", "@Han_Su_Dung", "@So_Luong_Ton_Kho", "@Duong_Dan" };
                     string duongdan = "";
                     if (anhTemp.Count > 0)
                     {
@@ -698,7 +733,7 @@ namespace Final_Project_DBMS.View.Screen_QuanLy
                             duongdan = anhTemp[i];
                             duongdan = duongdan.Replace("D:\\HQTCSDL\\PetShop\\Final_Project_DBMS\\Final_Project_DBMS\\", "");
                             object[] paramValues = { maVatPham, ten, moTa, giaBanGoc, giaKhuyenMai, thuongHieu, hanSuDung, soLuongTonKho,duongdan };
-                            dA_QuanLy.ExecProcedure("proc_SuaVatPham", paramValues, paramNames);
+                            dA_QuanLy.SuaVatPham(paramValues);
                             File.Copy(anhRoot[i], anhTemp[i], true);
                         }
                         anhTemp.Clear();
@@ -707,7 +742,7 @@ namespace Final_Project_DBMS.View.Screen_QuanLy
                     else
                     {
                         object[] paramValues = { maVatPham, ten, moTa, giaBanGoc, giaKhuyenMai, thuongHieu, hanSuDung, soLuongTonKho, duongdan };
-                        dA_QuanLy.ExecProcedure("proc_SuaVatPham", paramValues, paramNames);
+                        dA_QuanLy.SuaVatPham(paramValues);
                     }
                 }
                 catch (FormatException ex)
@@ -725,7 +760,17 @@ namespace Final_Project_DBMS.View.Screen_QuanLy
                 }
             }
         }
+        private void LoadPhongDichVu()
+        {
+            DataTable dt = dA_QuanLy.DanhSachPhongDichVu();
+            dgv_PhongDichVu.DataSource = dt;
+            cb_tenDV.Items.Clear();
 
+            foreach (DataRow row in dt.Rows)
+            {
+                cb_tenDV.Items.Add(row["Ma_Dich_Vu"].ToString() + " - " + row["Ten_Dich_Vu"].ToString());
+            }
+        }
         private void btn_ThemVP_Click(object sender, EventArgs e)
         {
             lb_maVP.Text = "";
@@ -756,10 +801,18 @@ namespace Final_Project_DBMS.View.Screen_QuanLy
 
                     int sophong = Convert.ToInt32(txb_SoPhong.Text.Trim());
                     // Tạo mảng chứa tên các tham số và các giá trị của chúng
-                    string[] paramNames = {"@Ten", "@Mo_Ta", "@Gia_Ban_Goc", "@Gia_Khuyen_Mai", "@Thoi_Gian_Thuc_Hien", "@So_Luong_Phong_Trong"};
+                    
                     int ma;
                     object[] paramValues = { tenDV, moTaDV, giaBanGoc, giaKhuyenMai,tgth,sophong };
-                    ma = dA_QuanLy.ExecuteQueryLayMa("proc_ThemDichVu", paramValues, paramNames);
+                    ma = dA_QuanLy.ThemDichVu( paramValues);
+                    if (ma != -1)
+                    {
+                        MessageBox.Show("Thông tin dịch vụ đã được thêm thành công.");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Không có thay đổi nào được thực hiện.");
+                    }
                     string originalDirectory = Path.GetDirectoryName(anhTemp[0]);
 
                     // Tạo đường dẫn mới bằng cách thêm chuỗi vào thư mục
@@ -772,7 +825,6 @@ namespace Final_Project_DBMS.View.Screen_QuanLy
                     {
                         if (ma != -1)
                         {
-                            string[] paramNamesHA = { "@Ma_SPDV", "@Duong_Dan"};
                             string duongdan = "";
                             for (int i = 0; i < anhTemp.Count; i++)
                             {
@@ -780,7 +832,7 @@ namespace Final_Project_DBMS.View.Screen_QuanLy
                                 //
                                 duongdan = anhTemp[i].Replace("D:\\HQTCSDL\\PetShop\\Final_Project_DBMS\\Final_Project_DBMS\\", "");
                                 object[] paramValuesHA = { ma, duongdan};
-                                dA_QuanLy.ExecProcedure("proc_ThemHinhAnh",paramValuesHA,paramNamesHA);
+                                dA_QuanLy.ThemHinhAnh(paramValuesHA);
                                 File.Copy(anhRoot[i], anhTemp[i], true);
                             }
                         }
@@ -820,7 +872,7 @@ namespace Final_Project_DBMS.View.Screen_QuanLy
                     int sophong = Convert.ToInt32(txb_SoPhong.Text.Trim());
                     string duongdan = "";
                     // Tạo mảng chứa tên các tham số và các giá trị của chúng
-                    string[] paramNames = { "@Ma_Dich_Vu", "@Ten", "@Mo_Ta", "@Gia_Ban_Goc", "@Gia_Khuyen_Mai", "@Thoi_Gian_Thuc_Hien", "@So_Luong_Phong_Trong","@Duong_Dan" };
+                    
                     
                     if (anhTemp.Count > 0)
                     {
@@ -829,7 +881,7 @@ namespace Final_Project_DBMS.View.Screen_QuanLy
                             duongdan = anhTemp[i];
                             duongdan = duongdan.Replace("D:\\HQTCSDL\\PetShop\\Final_Project_DBMS\\Final_Project_DBMS\\", "");
                             object[] paramValues = { maDichVu, tenDV, moTaDV, giaBanGoc, giaKhuyenMai, tgth, sophong ,duongdan};
-                            dA_QuanLy.ExecProcedure("proc_SuaDichVu", paramValues, paramNames);
+                            dA_QuanLy.SuaDichVu(paramValues);
                             File.Copy(anhRoot[i], anhTemp[i], true);
                         }
                         anhTemp.Clear();
@@ -838,7 +890,7 @@ namespace Final_Project_DBMS.View.Screen_QuanLy
                     else
                     {
                         object[] paramValues = { maDichVu, tenDV, moTaDV, giaBanGoc, giaKhuyenMai, tgth, sophong, duongdan };
-                        dA_QuanLy.ExecProcedure("proc_SuaDichVu", paramValues, paramNames);
+                        dA_QuanLy.SuaDichVu(paramValues);
                     }
                 }
                 catch (FormatException ex)
@@ -899,14 +951,19 @@ namespace Final_Project_DBMS.View.Screen_QuanLy
 
 
                     // Tạo mảng chứa tên các tham số và các giá trị của chúng
-                    string[] paramNames = { "@Loai", "@Giong", "@Ngay_Sinh", "@Gioi_Tinh", "@Mau_Sac", "@Can_Nang",
-                                "@Tinh_Trang_Suc_Khoe", "@Trang_Thai", "@So_Lan_Tiem", "@Ten_SPDV", "@Mo_Ta_SPDV",
-                                "@Gia_Ban_Goc", "@Gia_Khuyen_Mai" };
                     int ma;
                     object[] paramValues = {loai, giong, ngaySinhTC, gioiTinhTC, mauSac, canNang, sucKhoe, trangThai,
                                  soLanTiem, tenTC, motaTC, giaBanGoc, giaKhuyenMai };
 
-                    ma = dA_QuanLy.ExecuteQueryLayMa("proc_ThemThuCung", paramValues, paramNames);
+                    ma = dA_QuanLy.ThemThuCung(paramValues);
+                    if (ma != -1)
+                    {
+                        MessageBox.Show("Thông tin thú cưng đã được thêm thành công.");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Không có thay đổi nào được thực hiện.");
+                    }
                     string originalDirectory = Path.GetDirectoryName(anhTemp[0]);
 
                     // Tạo đường dẫn mới bằng cách thêm chuỗi vào thư mục
@@ -919,7 +976,6 @@ namespace Final_Project_DBMS.View.Screen_QuanLy
                     {
                         if (ma != -1)
                         {
-                            string[] paramNamesHA = { "@Ma_SPDV", "@Duong_Dan" };
                             string duongdan = "";
                             for (int i = 0; i < anhTemp.Count; i++)
                             {
@@ -927,7 +983,7 @@ namespace Final_Project_DBMS.View.Screen_QuanLy
                                 //
                                 duongdan = anhTemp[i].Replace("D:\\HQTCSDL\\PetShop\\Final_Project_DBMS\\Final_Project_DBMS\\", "");
                                 object[] paramValuesHA = { ma, duongdan };
-                                dA_QuanLy.ExecProcedure("proc_ThemHinhAnh", paramValuesHA, paramNamesHA);
+                                dA_QuanLy.ThemHinhAnh(paramValuesHA);
                                 File.Copy(anhRoot[i], anhTemp[i], true);
                             }
                         }
@@ -975,9 +1031,7 @@ namespace Final_Project_DBMS.View.Screen_QuanLy
 
 
                     // Tạo mảng chứa tên các tham số và các giá trị của chúng
-                    string[] paramNames = {"@Ma_Thu_Cung","@Loai", "@Giong", "@Ngay_Sinh", "@Gioi_Tinh", "@Mau_Sac", "@Can_Nang",
-                                "@Tinh_Trang_Suc_Khoe", "@Trang_Thai", "@So_Lan_Tiem", "@Ten_SPDV", "@Mo_Ta_SPDV",
-                                "@Gia_Ban_Goc", "@Gia_Khuyen_Mai","@Duong_Dan" };
+
                     string duongdan = "";
                     if (anhTemp.Count > 0)
                     {
@@ -987,7 +1041,7 @@ namespace Final_Project_DBMS.View.Screen_QuanLy
                             duongdan = duongdan.Replace("D:\\HQTCSDL\\PetShop\\Final_Project_DBMS\\Final_Project_DBMS\\", "");
                             object[] paramValues = {maTC,loai, giong, ngaySinhTC, gioiTinhTC, mauSac, canNang, sucKhoe, trangThai,
                                  soLanTiem, tenTC, motaTC, giaBanGoc, giaKhuyenMai,duongdan };
-                            dA_QuanLy.ExecProcedure("proc_SuaThuCung", paramValues, paramNames);
+                            dA_QuanLy.SuaThuCung(paramValues);
                             File.Copy(anhRoot[i], anhTemp[i], true);
                         }
                         anhTemp.Clear();
@@ -997,7 +1051,7 @@ namespace Final_Project_DBMS.View.Screen_QuanLy
                     {
                         object[] paramValues = {maTC,loai, giong, ngaySinhTC, gioiTinhTC, mauSac, canNang, sucKhoe, trangThai,
                                  soLanTiem, tenTC, motaTC, giaBanGoc, giaKhuyenMai,duongdan };
-                        dA_QuanLy.ExecProcedure("proc_SuaThuCung", paramValues, paramNames);
+                        dA_QuanLy.SuaThuCung(paramValues);
                     }
                 }
                 catch (FormatException ex)
@@ -1060,8 +1114,107 @@ namespace Final_Project_DBMS.View.Screen_QuanLy
 
         private void btn_TimKiemKH_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(txb_TenKHTK.Text.Trim());
             dgv_KhachHang.DataSource = dA_QuanLy.TimKiemKhachHangTheoTen(txb_TenKHTK.Text.Trim());
+        }
+
+        private void btn_timkiemPDV_Click(object sender, EventArgs e)
+        {
+            dgv_PhongDichVu.DataSource = dA_QuanLy.TimKiemPhongDichVuTheoTen(txb_tenPDVTK.Text.Trim());
+        }
+
+        private void dgv_PhongDichVu_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && !dgv_PhongDichVu.Rows[e.RowIndex].IsNewRow)
+            {
+                // Lấy dòng hiện tại
+                DataGridViewRow row = dgv_PhongDichVu.Rows[e.RowIndex];
+
+                // Đổ dữ liệu vào các TextBox
+                txb_maPDV.Text = row.Cells["Ma_Phong"].Value.ToString();
+                cb_tenDV.Text = row.Cells["Ma_Dich_Vu"].Value.ToString() + " - " + row.Cells["Ten_Dich_Vu"].Value.ToString();
+                txb_tgbdPDV.Text = row.Cells["Thoi_Gian_Bat_Dau"].Value.ToString();
+                txb_tgktPDV.Text = row.Cells["Thoi_Gian_Ket_Thuc"].Value.ToString();
+                cb_trangthaiPDV.Text = row.Cells["Trang_Thai"].Value.ToString();
+            }
+        }
+
+        private void btn_ThemPDV_Click(object sender, EventArgs e)
+        {
+            string ma_PDV = txb_maPDV.Text.Trim();
+            string ma_DV = cb_tenDV.Text.Trim().Substring(0, cb_tenDV.Text.Trim().IndexOf(" "));
+            string trangthai = cb_trangthaiPDV.Text.Trim();
+            // Tạo mảng chứa tên các tham số và các giá trị của chúng
+            object[] paramValues = {ma_PDV, ma_DV, trangthai };
+            bool res = dA_QuanLy.ThemPhongDichVu(paramValues);
+            if (res)
+            {
+                MessageBox.Show("Thông tin phòng dịch vụ đã được thêm thành công.");
+            }
+            LoadPhongDichVu();
+        }
+
+        private void btn_suaPDV_Click(object sender, EventArgs e)
+        {
+            string ma_PDV = txb_maPDV.Text.Trim();
+            string ma_DV = cb_tenDV.Text.Trim().Substring(0, cb_tenDV.Text.Trim().IndexOf(" "));
+            string trangthai = cb_trangthaiPDV.Text.Trim();
+            // Tạo mảng chứa tên các tham số và các giá trị của chúng
+            object[] paramValues = { ma_PDV, ma_DV, trangthai };
+            bool res = dA_QuanLy.SuaPhongDichVu(paramValues);
+            if (res)
+            {
+                MessageBox.Show("Thông tin phòng dịch vụ đã được sửa thành công.");
+            }
+            LoadPhongDichVu();
+        }
+
+        private void btn_XoaPDV_Click(object sender, EventArgs e)
+        {
+            if (txb_maPDV.Text == "")
+            {
+                MessageBox.Show("Vui lòng chọn vào khách hàng bạn muốn xóa.");
+            }
+            else
+            {
+                DialogResult dialogResult = MessageBox.Show(
+               "Bạn có chắc chắn muốn xóa khách hàng này không?", // Thông điệp
+               "Xác nhận xóa", // Tiêu đề
+               MessageBoxButtons.YesNo, // Các nút
+               MessageBoxIcon.Question // Biểu tượng
+                );
+
+                // Kiểm tra kết quả
+                if (dialogResult == DialogResult.Yes)
+                {
+                    try
+                    {
+                        string ma_PDV = txb_maPDV.Text.Trim();
+                        // Tạo mảng chứa tên các tham số và các giá trị của chúng
+                        object[] paramValues = { ma_PDV };
+                        bool res = dA_QuanLy.XoaPhongDichVu(paramValues);
+                    }
+                    catch (FormatException ex)
+                    {
+                        // Bắt lỗi định dạng dữ liệu (ví dụ: số điện thoại không hợp lệ)
+                        MessageBox.Show("Lỗi định dạng: " + ex.Message);
+                    }
+                    catch (Exception ex)
+                    {
+                        // Bắt lỗi chung khác
+                        MessageBox.Show("Đã xảy ra lỗi: " + ex.Message);
+                    }
+                    finally
+                    {
+                        LoadPhongDichVu();
+                    }
+                }
+                else
+                {
+                    // Nếu người dùng nhấn "No", không làm gì cả
+                    // Có thể hiển thị thông báo hoặc thực hiện hành động khác nếu cần
+                    MessageBox.Show("Hành động xóa đã bị hủy.");
+                }
+            }
         }
     }
 }

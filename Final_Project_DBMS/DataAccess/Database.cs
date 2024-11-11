@@ -101,7 +101,6 @@ namespace Final_Project_DBMS.DataAccess
 
                 MessageBox.Show(e.Message, "Warning");
             }
-            
             closeConnection();
             return data;
         }
@@ -132,7 +131,6 @@ namespace Final_Project_DBMS.DataAccess
                 {
                     // Gán tham số vào SqlCommand
                     sqlCommand.Parameters.AddWithValue(paramName[i], parametervalue[i]);
-                    
                 }
             }
             if (isExecReader)
@@ -178,7 +176,7 @@ namespace Final_Project_DBMS.DataAccess
         public bool ExecuteNonReturnAdmin(string proc, SqlParameter[] parameters)
         {
             bool result = false;
-            
+
             try
             {
                 openConnectionAdmin();
@@ -194,6 +192,78 @@ namespace Final_Project_DBMS.DataAccess
             }
             finally { closeConnectionAdmin(); }
             return result;
+        }
+        public int ExecuteQueryLayMa(string procedureName, object[] parameters, string[] parameterNames)
+        {
+            int maspdv = -1; // Giá trị mặc định trả về nếu có lỗi
+            conn = getConnection;
+            SqlCommand cmd = new SqlCommand(procedureName, conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            // Thêm các tham số đầu vào vào SqlCommand
+            for (int i = 0; i < parameterNames.Length; i++)
+            {
+                cmd.Parameters.AddWithValue(parameterNames[i], parameters[i]);
+            }
+
+            // Thêm tham số đầu ra @Ma_SPDV
+            SqlParameter maSpdvParam = new SqlParameter("@Ma_SPDV", SqlDbType.Int);
+            maSpdvParam.Direction = ParameterDirection.Output;
+            cmd.Parameters.Add(maSpdvParam);
+
+            try
+            {
+                openConnection();
+                int rowsAffected = cmd.ExecuteNonQuery();
+
+                // Kiểm tra kết quả sau khi thực hiện
+                if (rowsAffected > 0)
+                {
+                    // Lấy giá trị từ tham số đầu ra @Ma_SPDV
+                    maspdv = (int)maSpdvParam.Value;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message);
+            }
+            finally
+            {
+                closeConnection();
+            }
+            return maspdv;
+        }
+        public bool ExecProcedure(string procedureName, object[] parameters, string[] parameterNames)
+        {
+            conn = getConnection;
+            SqlCommand cmd = new SqlCommand(procedureName, conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            // Thêm các tham số vào SqlCommand
+            for (int i = 0; i < parameterNames.Length; i++)
+            {
+                cmd.Parameters.AddWithValue(parameterNames[i], parameters[i]);
+            }
+
+            try
+            {
+                openConnection();
+                int rowsAffected = cmd.ExecuteNonQuery();
+                // Hiển thị thông báo sau khi thực hiện
+                if (rowsAffected != 0)
+                {
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                closeConnection();
+            }
+            return false;
         }
     }
 }
