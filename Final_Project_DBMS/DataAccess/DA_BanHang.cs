@@ -87,14 +87,14 @@ namespace Final_Project_DBMS.DataAccess
             string cmd = "proc_TaoHoaDonMoi";
             return Convert.ToInt16(db.getResultFromProc(cmd));
         }
-        public decimal themChiTietHoaDon(string IDHoaDonHienTai, UC_SanPhamCard item)
-        {
-            object[] parameterValues = { IDHoaDonHienTai, item.Id, item.Ten, item.GiaUudai };
-            string[] parameterNames = { "@id_hoadon", "@id_vatpham", "@ten", "@dongia" };
-            string SQLcmd = "proc_ThemChiTietHoaDon";
-            return Convert.ToDecimal(db.getResultFromProc(SQLcmd, parameterValues, parameterNames));
+        //public decimal themChiTietHoaDon(string IDHoaDonHienTai, UC_SanPhamCard item)
+        //{
+        //    object[] parameterValues = { IDHoaDonHienTai, item.Id, item.Ten, item.GiaUudai };
+        //    string[] parameterNames = { "@id_hoadon", "@id_vatpham", "@ten", "@dongia" };
+        //    string SQLcmd = "proc_ThemChiTietHoaDon";
+        //    return Convert.ToDecimal(db.getResultFromProc(SQLcmd, parameterValues, parameterNames));
 
-        }
+        //}
         public void xoaSPDVKhoiHoaDonDangLap(string IDHoaDonHienTai, string idVatPham)
         {
             string sqlcmd = "delete from ChiTietHoaDon where Ma_Hoa_Don = " + IDHoaDonHienTai + " and Ma_SPDV = " + idVatPham;
