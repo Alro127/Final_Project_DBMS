@@ -71,20 +71,18 @@ namespace Final_Project_DBMS.View.Screen_QuanLy
 
         private void btn_OK_Click(object sender, EventArgs e)
         {
-            if(lb_maNV.Text == "")
+            string hoTen = txb_TenNV.Text.Trim();
+            DateTime ngaySinh = dtp_NgaySinhNV.Value;
+            string gioiTinh = cb_GioiTinh.Text.Trim();
+            string diaChi = txb_DiaChiNV.Text.Trim();
+            string sdt = txb_sdtNV.Text.Trim();
+            decimal luong = decimal.Parse(txb_LuongNV.Text);
+            string congViec = txb_CongViec.Text.Trim();
+            int maNQL = Convert.ToInt32(txb_MaQL.Text.Trim());
+            if (lb_maNV.Text == "")
             {
                 try
                 {
-                    // Lấy dữ liệu từ các TextBox
-                    string hoTen = txb_TenNV.Text.Trim();
-                    DateTime ngaySinh = dtp_NgaySinhNV.Value;
-                    string gioiTinh = cb_GioiTinh.Text.Trim();
-                    string diaChi = txb_DiaChiNV.Text.Trim();
-                    string sdt = txb_sdtNV.Text.Trim();
-                    decimal luong = decimal.Parse(txb_LuongNV.Text);
-                    string congViec = txb_CongViec.Text.Trim();
-                    int maNQL = Convert.ToInt32(txb_MaQL.Text.Trim());
-
                     // Nếu tất cả các kiểm tra đều hợp lệ, tiến hành gọi Stored Procedure
                     object[] parameters = { hoTen, ngaySinh, gioiTinh, diaChi, sdt, luong, congViec, maNQL };
                     bool res = dA_QuanLy.ThemNhanVien( parameters);
@@ -118,15 +116,6 @@ namespace Final_Project_DBMS.View.Screen_QuanLy
                 {
                     // Lấy dữ liệu từ các TextBox
                     int maNhanVien = Convert.ToInt32(lb_maNV.Text);
-                    string hoTen = txb_TenNV.Text.Trim();
-                    DateTime ngaySinh = dtp_NgaySinhNV.Value;
-                    string gioiTinh = cb_GioiTinh.Text.Trim();
-                    string diaChi = txb_DiaChiNV.Text.Trim();
-                    string sdt = txb_sdtNV.Text.Trim();
-                    decimal luong = decimal.Parse(txb_LuongNV.Text);
-                    string congViec = txb_CongViec.Text.Trim();
-                    int maNQL = Convert.ToInt32(txb_MaQL.Text.Trim());
-
                     // Nếu tất cả các kiểm tra đều hợp lệ, tiến hành gọi Stored Procedure
                     object[] parameters = { maNhanVien, hoTen, ngaySinh, gioiTinh, diaChi, sdt, luong, congViec, maNQL };
                     bool res = dA_QuanLy.SuaNhanVien(parameters);
@@ -323,12 +312,6 @@ namespace Final_Project_DBMS.View.Screen_QuanLy
                     {
                         LoadData();
                     }
-                }
-                else
-                {
-                    // Nếu người dùng nhấn "No", không làm gì cả
-                    // Có thể hiển thị thông báo hoặc thực hiện hành động khác nếu cần
-                    MessageBox.Show("Hành động xóa đã bị hủy.");
                 }
             }
         }
@@ -639,25 +622,20 @@ namespace Final_Project_DBMS.View.Screen_QuanLy
             anhTemp.Clear();
             anhRoot.Clear();
         }
-
         private void btn_okVP_Click(object sender, EventArgs e)
         {
+            string ten = txb_TenVP.Text.Trim();
+            string moTa = rtb_moTaVP.Text.Trim(); // Mô tả vật phẩm
+            decimal giaBanGoc = decimal.Parse(txb_GiaGocVP.Text); // Giá bán gốc
+            decimal giaKhuyenMai = decimal.Parse(txb_GiaKMVP.Text); // Giá khuyến mãi
+            string thuongHieu = txb_ThuongHieuVP.Text.Trim(); // Thương hiệu
+            DateTime hanSuDung = dtp_HSDVP.Value; // Hạn sử dụng
+            int soLuongTonKho = Convert.ToInt32(txb_SoLuongVP.Text); // Số lượng tồn kho
+            int ma = 0;
             if (lb_maVP.Text == "")
             {
                 try
                 {
-                    // Lấy dữ liệu từ các TextBox và các điều khiển khác
-                    string ten = txb_TenVP.Text.Trim();
-                    string moTa = rtb_moTaVP.Text.Trim(); // Mô tả vật phẩm
-                    decimal giaBanGoc = decimal.Parse(txb_GiaGocVP.Text); // Giá bán gốc
-                    decimal giaKhuyenMai = decimal.Parse(txb_GiaKMVP.Text); // Giá khuyến mãi
-                    string thuongHieu = txb_ThuongHieuVP.Text.Trim(); // Thương hiệu
-                    DateTime hanSuDung = dtp_HSDVP.Value; // Hạn sử dụng
-                    int soLuongTonKho = Convert.ToInt32(txb_SoLuongVP.Text); // Số lượng tồn kho
-
-
-                    // Tạo mảng chứa tên các tham số và các giá trị của chúng
-                    int ma;
                     object[] paramValues = { ten, moTa, giaBanGoc, giaKhuyenMai, thuongHieu, hanSuDung, soLuongTonKho };
                     ma = dA_QuanLy.ThemVatPham(paramValues);
                     if (ma != -1)
@@ -670,30 +648,11 @@ namespace Final_Project_DBMS.View.Screen_QuanLy
                     }
                     string originalDirectory = Path.GetDirectoryName(anhTemp[0]);
 
-                    // Tạo đường dẫn mới bằng cách thêm chuỗi vào thư mục
                     string newDirectory = Path.Combine(originalDirectory, ma.ToString());
                     if (!Directory.Exists(newDirectory))
                     {
                         Directory.CreateDirectory(newDirectory);
                     }
-                    if (anhTemp.Count > 0)
-                    {
-                        if (ma != -1)
-                        {
-                            string duongdan = "";
-                            for (int i = 0; i < anhTemp.Count; i++)
-                            {
-                                anhTemp[i] = anhTemp[i].Replace("images", "images\\" + ma);
-                                //
-                                duongdan = anhTemp[i].Replace("D:\\HQTCSDL\\PetShop\\Final_Project_DBMS\\Final_Project_DBMS\\", "");
-                                object[] paramValuesHA = { ma, duongdan };
-                                dA_QuanLy.ThemHinhAnh(paramValuesHA);
-                                File.Copy(anhRoot[i], anhTemp[i], true);
-                            }
-                        }
-                    }
-                    anhTemp.Clear();
-                    anhRoot.Clear();
                 }
                 catch (FormatException ex)
                 {
@@ -715,35 +674,16 @@ namespace Final_Project_DBMS.View.Screen_QuanLy
                 {
 
                     int maVatPham = Convert.ToInt32(lb_maVP.Text); // Mã vật phẩm
-                    string ten = txb_TenVP.Text.Trim(); // Tên vật phẩm
-                    string moTa = rtb_moTaVP.Text.Trim(); // Mô tả vật phẩm
-                    decimal giaBanGoc = decimal.Parse(txb_GiaGocVP.Text); // Giá bán gốc
-                    decimal giaKhuyenMai = decimal.Parse(txb_GiaKMVP.Text); // Giá khuyến mãi
-                    string thuongHieu = txb_ThuongHieuVP.Text.Trim(); // Thương hiệu
-                    DateTime hanSuDung = dtp_HSDVP.Value; // Hạn sử dụng
-                    int soLuongTonKho = Convert.ToInt32(txb_SoLuongVP.Text); // Số lượng tồn kho
-
-
-                    // Tạo mảng chứa tên các tham số và các giá trị của chúng
-                    string duongdan = "";
-                    if (anhTemp.Count > 0)
+                    object[] paramValues = { maVatPham, ten, moTa, giaBanGoc, giaKhuyenMai, thuongHieu, hanSuDung, soLuongTonKho};
+                    if (dA_QuanLy.SuaVatPham(paramValues))
                     {
-                        for (int i = 0; i < anhTemp.Count; i++)
-                        {
-                            duongdan = anhTemp[i];
-                            duongdan = duongdan.Replace("D:\\HQTCSDL\\PetShop\\Final_Project_DBMS\\Final_Project_DBMS\\", "");
-                            object[] paramValues = { maVatPham, ten, moTa, giaBanGoc, giaKhuyenMai, thuongHieu, hanSuDung, soLuongTonKho,duongdan };
-                            dA_QuanLy.SuaVatPham(paramValues);
-                            File.Copy(anhRoot[i], anhTemp[i], true);
-                        }
-                        anhTemp.Clear();
-                        anhRoot.Clear();
+                        MessageBox.Show("Thông tin vật phẩm đã được sửa thành công.");
                     }
                     else
                     {
-                        object[] paramValues = { maVatPham, ten, moTa, giaBanGoc, giaKhuyenMai, thuongHieu, hanSuDung, soLuongTonKho, duongdan };
-                        dA_QuanLy.SuaVatPham(paramValues);
+                        MessageBox.Show("Không có thay đổi nào được thực hiện.");
                     }
+
                 }
                 catch (FormatException ex)
                 {
@@ -759,6 +699,24 @@ namespace Final_Project_DBMS.View.Screen_QuanLy
                     LoadData();
                 }
             }
+            if (anhTemp.Count > 0)
+            {
+                if (ma != -1)
+                {
+                    string duongdan;
+                    for (int i = 0; i < anhTemp.Count; i++)
+                    {
+                        anhTemp[i] = anhTemp[i].Replace("images", "images\\" + ma);
+                        //
+                        duongdan = anhTemp[i].Replace("D:\\HQTCSDL\\PetShop\\Final_Project_DBMS\\Final_Project_DBMS\\", "");
+                        object[] paramValuesHA = { ma, duongdan };
+                        dA_QuanLy.ThemHinhAnh(paramValuesHA);
+                        File.Copy(anhRoot[i], anhTemp[i], true);
+                    }
+                }
+            }
+            anhTemp.Clear();
+            anhRoot.Clear();
         }
         private void LoadPhongDichVu()
         {
@@ -783,26 +741,21 @@ namespace Final_Project_DBMS.View.Screen_QuanLy
             txb_GiaGocVP.Text = "";
             txb_GiaKMVP.Text = "";
         }
-
         private void btn_okDV_Click(object sender, EventArgs e)
         {
+            string tenDV = txb_TenDV.Text.Trim();
+            int tgth = Convert.ToInt32(txb_TGTH.Text.Trim());
+            string moTaDV = rtb_motaDV.Text.Trim();
+
+            // Thông tin sản phẩm/dịch vụ
+            decimal giaBanGoc = decimal.Parse(txb_GiaGocDV.Text.Trim());
+            decimal giaKhuyenMai = decimal.Parse(txb_GiaKMDV.Text.Trim());
+            int ma = 0;
+            int sophong = Convert.ToInt32(txb_SoPhong.Text.Trim());
             if (lb_maDV.Text == "")
             {
                 try
                 {
-                    // Lấy dữ liệu từ các TextBox và các điều khiển khác
-                    string tenDV = txb_TenDV.Text.Trim();
-                    int tgth = Convert.ToInt32(txb_TGTH.Text.Trim());
-                    string moTaDV = rtb_motaDV.Text.Trim();
-
-                    // Thông tin sản phẩm/dịch vụ
-                    decimal giaBanGoc = decimal.Parse(txb_GiaGocDV.Text.Trim());
-                    decimal giaKhuyenMai = decimal.Parse(txb_GiaKMDV.Text.Trim());
-
-                    int sophong = Convert.ToInt32(txb_SoPhong.Text.Trim());
-                    // Tạo mảng chứa tên các tham số và các giá trị của chúng
-                    
-                    int ma;
                     object[] paramValues = { tenDV, moTaDV, giaBanGoc, giaKhuyenMai,tgth,sophong };
                     ma = dA_QuanLy.ThemDichVu( paramValues);
                     if (ma != -1)
@@ -820,22 +773,6 @@ namespace Final_Project_DBMS.View.Screen_QuanLy
                     if (!Directory.Exists(newDirectory))
                     {
                         Directory.CreateDirectory(newDirectory);
-                    }
-                    if (anhTemp.Count > 0)
-                    {
-                        if (ma != -1)
-                        {
-                            string duongdan = "";
-                            for (int i = 0; i < anhTemp.Count; i++)
-                            {
-                                anhTemp[i] = anhTemp[i].Replace("images", "images\\" + ma);
-                                //
-                                duongdan = anhTemp[i].Replace("D:\\HQTCSDL\\PetShop\\Final_Project_DBMS\\Final_Project_DBMS\\", "");
-                                object[] paramValuesHA = { ma, duongdan};
-                                dA_QuanLy.ThemHinhAnh(paramValuesHA);
-                                File.Copy(anhRoot[i], anhTemp[i], true);
-                            }
-                        }
                     }
                     anhTemp.Clear();
                     anhRoot.Clear();
@@ -861,36 +798,16 @@ namespace Final_Project_DBMS.View.Screen_QuanLy
 
                     // Lấy dữ liệu từ các TextBox và các điều khiển khác
                     int maDichVu = Convert.ToInt32(lb_maDV.Text);
-                    string tenDV = txb_TenDV.Text.Trim();
-                    int tgth = Convert.ToInt32(txb_TGTH.Text.Trim());
-                    string moTaDV = rtb_motaDV.Text.Trim();
-
-                    // Thông tin sản phẩm/dịch vụ
-                    decimal giaBanGoc = decimal.Parse(txb_GiaGocDV.Text.Trim());
-                    decimal giaKhuyenMai = decimal.Parse(txb_GiaKMDV.Text.Trim());
-
-                    int sophong = Convert.ToInt32(txb_SoPhong.Text.Trim());
                     string duongdan = "";
                     // Tạo mảng chứa tên các tham số và các giá trị của chúng
-                    
-                    
-                    if (anhTemp.Count > 0)
+                    object[] paramValues = { maDichVu, tenDV, moTaDV, giaBanGoc, giaKhuyenMai, tgth, sophong};
+                    if (dA_QuanLy.SuaDichVu(paramValues))
                     {
-                        for (int i = 0; i < anhTemp.Count; i++)
-                        {
-                            duongdan = anhTemp[i];
-                            duongdan = duongdan.Replace("D:\\HQTCSDL\\PetShop\\Final_Project_DBMS\\Final_Project_DBMS\\", "");
-                            object[] paramValues = { maDichVu, tenDV, moTaDV, giaBanGoc, giaKhuyenMai, tgth, sophong ,duongdan};
-                            dA_QuanLy.SuaDichVu(paramValues);
-                            File.Copy(anhRoot[i], anhTemp[i], true);
-                        }
-                        anhTemp.Clear();
-                        anhRoot.Clear();
+                        MessageBox.Show("Thông tin dịch vụ đã được sửa thành công.");
                     }
                     else
                     {
-                        object[] paramValues = { maDichVu, tenDV, moTaDV, giaBanGoc, giaKhuyenMai, tgth, sophong, duongdan };
-                        dA_QuanLy.SuaDichVu(paramValues);
+                        MessageBox.Show("Không có thay đổi nào được thực hiện.");
                     }
                 }
                 catch (FormatException ex)
@@ -905,6 +822,22 @@ namespace Final_Project_DBMS.View.Screen_QuanLy
                 finally
                 {
                     LoadData();
+                }
+            }
+            if (anhTemp.Count > 0)
+            {
+                if (ma != -1)
+                {
+                    string duongdan = "";
+                    for (int i = 0; i < anhTemp.Count; i++)
+                    {
+                        anhTemp[i] = anhTemp[i].Replace("images", "images\\" + ma);
+                        //
+                        duongdan = anhTemp[i].Replace("D:\\HQTCSDL\\PetShop\\Final_Project_DBMS\\Final_Project_DBMS\\", "");
+                        object[] paramValuesHA = { ma, duongdan };
+                        dA_QuanLy.ThemHinhAnh(paramValuesHA);
+                        File.Copy(anhRoot[i], anhTemp[i], true);
+                    }
                 }
             }
         }
@@ -925,36 +858,31 @@ namespace Final_Project_DBMS.View.Screen_QuanLy
             txb_SoPhong.Text = "";
             flp_HinhAnhDV.Controls.Clear();
         }
-
         private void btn_okTC_Click(object sender, EventArgs e)
         {
+            string tenTC = txb_TenTC.Text.Trim();
+            string loai = txb_Loai.Text.Trim();
+            string giong = txb_GiongTC.Text.Trim();
+            DateTime ngaySinhTC = dtp_NgaySinhTC.Value;
+            string gioiTinhTC = cb_GioiTinhTC.Text;
+            string mauSac = txb_MauSacTC.Text.Trim();
+            decimal canNang = decimal.Parse(txb_CanNangTC.Text.Trim());
+            string sucKhoe = cb_sucKhoeTC.Text.Trim();
+            string trangThai = cb_trangThaiTC.Text.Trim();
+            int soLanTiem = Convert.ToInt32(txb_SoMuiTiemTC.Text.Trim());
+
+            // Thông tin sản phẩm/dịch vụ
+            decimal giaBanGoc = decimal.Parse(txb_GiaGocTC.Text.Trim());
+            decimal giaKhuyenMai = decimal.Parse(txb_GiaKMTC.Text.Trim());
+            string motaTC = rtb_motaTC.Text.Trim();
+            int ma = 0;
             if (lb_maTC.Text == "")
             {
                 try
                 {
-                    // Lấy dữ liệu từ các TextBox và các điều khiển khác
-                    string tenTC = txb_TenTC.Text.Trim();
-                    string loai = txb_Loai.Text.Trim();
-                    string giong = txb_GiongTC.Text.Trim();
-                    DateTime ngaySinhTC = dtp_NgaySinhTC.Value;
-                    string gioiTinhTC = cb_GioiTinhTC.Text;
-                    string mauSac = txb_MauSacTC.Text.Trim();
-                    decimal canNang = decimal.Parse(txb_CanNangTC.Text.Trim());
-                    string sucKhoe = cb_sucKhoeTC.Text.Trim();
-                    string trangThai = cb_trangThaiTC.Text.Trim();
-                    int soLanTiem = Convert.ToInt32(txb_SoMuiTiemTC.Text.Trim());
-
-                    // Thông tin sản phẩm/dịch vụ
-                    decimal giaBanGoc = decimal.Parse(txb_GiaGocTC.Text.Trim());
-                    decimal giaKhuyenMai = decimal.Parse(txb_GiaKMTC.Text.Trim());
-                    string motaTC = rtb_motaTC.Text.Trim();
-
-
-                    // Tạo mảng chứa tên các tham số và các giá trị của chúng
-                    int ma;
+                    
                     object[] paramValues = {loai, giong, ngaySinhTC, gioiTinhTC, mauSac, canNang, sucKhoe, trangThai,
                                  soLanTiem, tenTC, motaTC, giaBanGoc, giaKhuyenMai };
-
                     ma = dA_QuanLy.ThemThuCung(paramValues);
                     if (ma != -1)
                     {
@@ -972,24 +900,7 @@ namespace Final_Project_DBMS.View.Screen_QuanLy
                     {
                         Directory.CreateDirectory(newDirectory);
                     }
-                    if (anhTemp.Count > 0)
-                    {
-                        if (ma != -1)
-                        {
-                            string duongdan = "";
-                            for (int i = 0; i < anhTemp.Count; i++)
-                            {
-                                anhTemp[i] = anhTemp[i].Replace("images", "images\\" + ma);
-                                //
-                                duongdan = anhTemp[i].Replace("D:\\HQTCSDL\\PetShop\\Final_Project_DBMS\\Final_Project_DBMS\\", "");
-                                object[] paramValuesHA = { ma, duongdan };
-                                dA_QuanLy.ThemHinhAnh(paramValuesHA);
-                                File.Copy(anhRoot[i], anhTemp[i], true);
-                            }
-                        }
-                    }
-                    anhTemp.Clear();
-                    anhRoot.Clear();
+                    
                 }
                 catch (FormatException ex)
                 {
@@ -1009,49 +920,16 @@ namespace Final_Project_DBMS.View.Screen_QuanLy
             {
                 try
                 {
-
-                    // Lấy dữ liệu từ các TextBox và các điều khiển khác
                     int maTC = Convert.ToInt32(lb_maTC.Text);
-                    // Lấy dữ liệu từ các TextBox và các điều khiển khác
-                    string tenTC = txb_TenTC.Text.Trim();
-                    string loai = txb_Loai.Text.Trim();
-                    string giong = txb_GiongTC.Text.Trim();
-                    DateTime ngaySinhTC = dtp_NgaySinhTC.Value;
-                    string gioiTinhTC = cb_GioiTinhTC.Text;
-                    string mauSac = txb_MauSacTC.Text.Trim();
-                    decimal canNang = decimal.Parse(txb_CanNangTC.Text.Trim());
-                    string sucKhoe = cb_sucKhoeTC.Text.Trim();
-                    string trangThai = cb_trangThaiTC.Text.Trim();
-                    int soLanTiem = Convert.ToInt32(txb_SoMuiTiemTC.Text.Trim());
-
-                    // Thông tin sản phẩm/dịch vụ
-                    decimal giaBanGoc = decimal.Parse(txb_GiaGocTC.Text.Trim());
-                    decimal giaKhuyenMai = decimal.Parse(txb_GiaKMTC.Text.Trim());
-                    string motaTC = rtb_motaTC.Text.Trim();
-
-
-                    // Tạo mảng chứa tên các tham số và các giá trị của chúng
-
-                    string duongdan = "";
-                    if (anhTemp.Count > 0)
+                    object[] paramValues = {maTC, loai, giong, ngaySinhTC, gioiTinhTC, mauSac, canNang, sucKhoe, trangThai,
+                                 soLanTiem, tenTC, motaTC, giaBanGoc, giaKhuyenMai};
+                    if (dA_QuanLy.SuaThuCung(paramValues))
                     {
-                        for (int i = 0; i < anhTemp.Count; i++)
-                        {
-                            duongdan = anhTemp[i];
-                            duongdan = duongdan.Replace("D:\\HQTCSDL\\PetShop\\Final_Project_DBMS\\Final_Project_DBMS\\", "");
-                            object[] paramValues = {maTC,loai, giong, ngaySinhTC, gioiTinhTC, mauSac, canNang, sucKhoe, trangThai,
-                                 soLanTiem, tenTC, motaTC, giaBanGoc, giaKhuyenMai,duongdan };
-                            dA_QuanLy.SuaThuCung(paramValues);
-                            File.Copy(anhRoot[i], anhTemp[i], true);
-                        }
-                        anhTemp.Clear();
-                        anhRoot.Clear();
+                        MessageBox.Show("Thông tin thú cưng đã được sửa thành công.");
                     }
                     else
                     {
-                        object[] paramValues = {maTC,loai, giong, ngaySinhTC, gioiTinhTC, mauSac, canNang, sucKhoe, trangThai,
-                                 soLanTiem, tenTC, motaTC, giaBanGoc, giaKhuyenMai,duongdan };
-                        dA_QuanLy.SuaThuCung(paramValues);
+                        MessageBox.Show("Không có thay đổi nào được thực hiện.");
                     }
                 }
                 catch (FormatException ex)
@@ -1068,6 +946,24 @@ namespace Final_Project_DBMS.View.Screen_QuanLy
                     LoadData();
                 }
             }
+            if (anhTemp.Count > 0)
+            {
+                if (ma != -1)
+                {
+                    string duongdan;
+                    for (int i = 0; i < anhTemp.Count; i++)
+                    {
+                        anhTemp[i] = anhTemp[i].Replace("images", "images\\" + ma);
+                        //
+                        duongdan = anhTemp[i].Replace("D:\\HQTCSDL\\PetShop\\Final_Project_DBMS\\Final_Project_DBMS\\", "");
+                        object[] paramValuesHA = { ma, duongdan };
+                        dA_QuanLy.ThemHinhAnh(paramValuesHA);
+                        File.Copy(anhRoot[i], anhTemp[i], true);
+                    }
+                }
+            }
+            anhTemp.Clear();
+            anhRoot.Clear();
         }
 
         private void btn_ThemAnhVP_Click(object sender, EventArgs e)
