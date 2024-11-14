@@ -15,7 +15,21 @@ namespace Final_Project_DBMS.DataAccess
         public static string password;
         public static string permission;
         public static string manv;
-        
+        public static string getMaNV()
+        {
+            Database db = new Database();
+            string result = null;
+            if (username != null && password != null)
+            {
+                string query = "SELECT Ma_Nhan_Vien From TaiKhoan Where Ten_Dang_Nhap = @username";
+                SqlParameter[] parameters = new SqlParameter[]
+                {
+                    new SqlParameter("@username", SqlDbType.NVarChar) { Value = username },
+                };
+                result = db.ExecuteReturnAdmin(query, parameters).ToString();
+            }
+            return result;
+        }
         public static string getQuyen()
         {
             Database db = new Database();

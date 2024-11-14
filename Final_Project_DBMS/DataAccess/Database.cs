@@ -15,7 +15,8 @@ namespace Final_Project_DBMS.DataAccess
     {
 
         private SqlConnection connAdmin = new SqlConnection(Properties.Settings.Default.ConnectionString);
-        private SqlConnection conn = new SqlConnection("Server=HNT\\MSSQLSERVER04; Database=PetShop; User Id=" + DA_TaiKhoan.username + "; Password=" + DA_TaiKhoan.password + ";");
+        private SqlConnection conn = new SqlConnection("Server=MEOWWW\\DAT; Database=PetShop; User Id=" + DA_TaiKhoan.username + "; Password=" + DA_TaiKhoan.password + ";");
+        // private SqlConnection conn = new SqlConnection("Server=(localdb)\\MSSQLLocalDB; Database=PetShop; User Id=" + DA_TaiKhoan.username + "; Password=" + DA_TaiKhoan.password + ";");
         public SqlConnection getConnection
         {
             get

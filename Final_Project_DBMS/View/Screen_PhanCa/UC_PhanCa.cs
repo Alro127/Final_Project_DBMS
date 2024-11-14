@@ -17,14 +17,14 @@ namespace Final_Project_DBMS.View.Screen_PhanCa
         DateTime startDate = DateTime.Now.Date;
         DataTable caLamTable = new DataTable();
         DA_PhanCa dA_PhanCa = new DA_PhanCa();
-        
+
         public UC_PhanCa()
         {
             InitializeComponent();
             if (DA_TaiKhoan.permission == "RoleNhanVien")
             {
                 ctm_ThemCaLam.Enabled = false;
-                ctm_xoaCaLam.Enabled = false;
+                ctm_tuongTacCaLam.Enabled = false;
             }
         }
         /// <summary>
@@ -83,7 +83,22 @@ namespace Final_Project_DBMS.View.Screen_PhanCa
             {
                 string strFlp = "flp" + sessionDictionary[row["Buoi"].ToString()] + daysOfWeek[Convert.ToDateTime(row["Ngay_Lam_Viec"])];
                 FlowLayoutPanel flp = (FlowLayoutPanel)this.Controls.Find(strFlp, true).First();
-                flp.Controls.Add(new Label() { Text = row["Ho_Ten"].ToString(), ContextMenuStrip = ctm_xoaCaLam, Tag = row });
+
+                Label label = new Label()
+                {
+                    Text = row["Ho_Ten"].ToString(),
+                    ContextMenuStrip = ctm_tuongTacCaLam,
+                    Tag = row
+                };
+                if (row["Check_In"].ToString() != "")
+                {
+                    ToolStripMenuItem checkInToolStripMenuItem = (ToolStripMenuItem)ctm_tuongTacCaLam.Items["checkInToolStripMenuItem"];
+                    checkInToolStripMenuItem.Text = "Đã check in";
+                    checkInToolStripMenuItem.Enabled = false;
+                }
+
+                flp.Controls.Add(label);
+
             }
         }
         private void btn_pre_Click(object sender, EventArgs e)
@@ -104,7 +119,7 @@ namespace Final_Project_DBMS.View.Screen_PhanCa
         }
         private void xóaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Label lbl = ctm_xoaCaLam.SourceControl as Label;
+            Label lbl = ctm_tuongTacCaLam.SourceControl as Label;
             if (lbl != null) // Kiểm tra xem có label nào được chọn không
             {
                 DataRow row = (DataRow)lbl.Tag;
@@ -116,6 +131,19 @@ namespace Final_Project_DBMS.View.Screen_PhanCa
         {
             startDate = startDate.AddDays(-((int)startDate.DayOfWeek));
             Run();
+        }
+
+        private void checkInToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Label lbl = ctm_tuongTacCaLam.SourceControl as Label;
+            if (lbl != null) // Kiểm tra xem có label nào được chọn không
+            {
+                DataRow row = (DataRow)lbl.Tag;
+                dA_PhanCa.CheckIn(row);
+                Run();
+                MessageBox.Show("Đã check in");
+
+            }
         }
     }
 }

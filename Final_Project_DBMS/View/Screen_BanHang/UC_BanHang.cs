@@ -83,9 +83,10 @@ namespace Final_Project_DBMS.View.Screen_BanHang
         }
         private void dich_vu_Load(DataTable dichvu = null)
         {
+            dA_BanHang.capNhatSoPhongTrong();
             if (dichvu == null)
             {
-                dt_dichvu = dA_BanHang.layView("view_DanhSachPhongDichVu");
+                dt_dichvu = dA_BanHang.layView("view_DanhSachDichVu");
             }
             else
             {
@@ -318,7 +319,7 @@ namespace Final_Project_DBMS.View.Screen_BanHang
                             tenView = "view_DanhSachVatPham";
                             break;
                         case 2:
-                            tenView = "view_DanhSachPhongDichVu";
+                            tenView = "view_DanhSachDichVu";
                             break;
                         default:
                             tenView = null;

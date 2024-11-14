@@ -10,6 +10,7 @@ using Final_Project_DBMS.control.converter;
 using Final_Project_DBMS.View.Screen_BanHang;
 using System.Data.SqlTypes;
 using System.Xml.Linq;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace Final_Project_DBMS.DataAccess
 {
@@ -124,8 +125,13 @@ namespace Final_Project_DBMS.DataAccess
         }
         public void datTrangThaiThanhToan(string IDHoaDonHienTai)
         {
-            string sqlcmd = "update HoaDon set Trang_thai = N'Đã thanh toán' where Ma_Hoa_Don = " + IDHoaDonHienTai;
-            db.ExecuteQuery(sqlcmd);
+            string sqlcmd = "UPDATE HoaDon SET Trang_thai = N'Đã thanh toán', Ma_Nhan_Vien = @MaNhanVien WHERE Ma_Hoa_Don = @MaHoaDon";
+            SqlParameter[] parameters = new SqlParameter[]
+            {
+                    new SqlParameter("@MaNhanVien", SqlDbType.NVarChar) { Value = DA_TaiKhoan.manv },
+                    new SqlParameter("@MaHoaDon", SqlDbType.NVarChar) { Value = IDHoaDonHienTai }
+            };
+            db.ExecuteQuery(sqlcmd, parameters);
         }
         public DataTable taiHoaDon()
         {
@@ -165,6 +171,11 @@ namespace Final_Project_DBMS.DataAccess
             string[] paramNames = { "@dtrangthai", "@itrangthai" };
             object[] paramValues = { @dtrangthai, @itrangthai };
             return (bool)(db.getResultFromProc(sqlcmd, paramValues, paramNames, isText:true));
+        }
+        public void capNhatSoPhongTrong()
+        {
+            string sqlcmd = "proc_CapNhatSoLuongPhongTrong";
+            db.getResultFromProc(sqlcmd);
         }
     }
 }

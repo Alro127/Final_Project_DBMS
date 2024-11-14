@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace Final_Project_DBMS.DataAccess
 {
-    
+
     public class DA_PhanCa
     {
         Database db = new Database();
@@ -98,6 +98,30 @@ namespace Final_Project_DBMS.DataAccess
                 {
                     MessageBox.Show("Không có thay đổi nào được thực hiện.");
                 }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                db.closeConnection();
+
+            }
+        }
+        public void CheckIn(DataRow row)
+        {
+            conn = db.getConnection;
+            SqlCommand cmd = new SqlCommand("Proc_CheckIn", conn);
+            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("@Buoi", row["Buoi"]);
+            cmd.Parameters.AddWithValue("@Ngay_Lam_Viec", row["Ngay_Lam_Viec"]);
+            cmd.Parameters.AddWithValue("@Ma_Nhan_Vien", row["Ma_Nhan_Vien"]);
+            try
+            {
+                db.openConnection();
+                cmd.ExecuteNonQuery();
             }
             catch (Exception ex)
             {

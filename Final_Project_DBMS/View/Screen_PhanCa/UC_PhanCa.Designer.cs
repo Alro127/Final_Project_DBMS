@@ -68,14 +68,15 @@
             this.label9 = new System.Windows.Forms.Label();
             this.flp00 = new System.Windows.Forms.FlowLayoutPanel();
             this.flp06 = new System.Windows.Forms.FlowLayoutPanel();
-            this.ctm_xoaCaLam = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.ctm_tuongTacCaLam = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.xóaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.label12 = new System.Windows.Forms.Label();
+            this.checkInToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.ctm_ThemCaLam.SuspendLayout();
-            this.ctm_xoaCaLam.SuspendLayout();
+            this.ctm_tuongTacCaLam.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -588,18 +589,19 @@
             this.flp06.Size = new System.Drawing.Size(200, 220);
             this.flp06.TabIndex = 17;
             // 
-            // ctm_xoaCaLam
+            // ctm_tuongTacCaLam
             // 
-            this.ctm_xoaCaLam.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.ctm_xoaCaLam.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.xóaToolStripMenuItem});
-            this.ctm_xoaCaLam.Name = "ctm_xoaCaLam";
-            this.ctm_xoaCaLam.Size = new System.Drawing.Size(105, 28);
+            this.ctm_tuongTacCaLam.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.ctm_tuongTacCaLam.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.xóaToolStripMenuItem,
+            this.checkInToolStripMenuItem});
+            this.ctm_tuongTacCaLam.Name = "ctm_xoaCaLam";
+            this.ctm_tuongTacCaLam.Size = new System.Drawing.Size(211, 80);
             // 
             // xóaToolStripMenuItem
             // 
             this.xóaToolStripMenuItem.Name = "xóaToolStripMenuItem";
-            this.xóaToolStripMenuItem.Size = new System.Drawing.Size(104, 24);
+            this.xóaToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
             this.xóaToolStripMenuItem.Text = "Xóa";
             this.xóaToolStripMenuItem.Click += new System.EventHandler(this.xóaToolStripMenuItem_Click);
             // 
@@ -626,6 +628,13 @@
             this.label12.Text = "Phân ca";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // checkInToolStripMenuItem
+            // 
+            this.checkInToolStripMenuItem.Name = "checkInToolStripMenuItem";
+            this.checkInToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
+            this.checkInToolStripMenuItem.Text = "Check In";
+            this.checkInToolStripMenuItem.Click += new System.EventHandler(this.checkInToolStripMenuItem_Click);
+            // 
             // UC_PhanCa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -643,7 +652,7 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.ctm_ThemCaLam.ResumeLayout(false);
-            this.ctm_xoaCaLam.ResumeLayout(false);
+            this.ctm_tuongTacCaLam.ResumeLayout(false);
             this.flowLayoutPanel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -686,7 +695,7 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.FlowLayoutPanel flp03;
         private System.Windows.Forms.FlowLayoutPanel flp04;
-        private System.Windows.Forms.ContextMenuStrip ctm_xoaCaLam;
+        private System.Windows.Forms.ContextMenuStrip ctm_tuongTacCaLam;
         private System.Windows.Forms.ToolStripMenuItem xóaToolStripMenuItem;
         private System.Windows.Forms.ContextMenuStrip ctm_ThemCaLam;
         private System.Windows.Forms.ToolStripMenuItem thêmToolStripMenuItem;
@@ -694,6 +703,7 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Button btn_pre;
         private System.Windows.Forms.Button btn_next;
+        private System.Windows.Forms.ToolStripMenuItem checkInToolStripMenuItem;
     }
 
 

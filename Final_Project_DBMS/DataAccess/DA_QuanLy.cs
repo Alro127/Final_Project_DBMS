@@ -5,6 +5,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Net.NetworkInformation;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -65,6 +66,11 @@ namespace Final_Project_DBMS.DataAccess
             string[] parameterNames = { "@Ma_Nhan_Vien" };
             return db.ExecProcedure("proc_XoaNhanVien", parameters, parameterNames);
         }
+        public bool XoaSanPhamDichVu(object[] parameters)
+        {
+            string[] parameterNames = { "@Ma_SPDV" };
+            return db.ExecProcedure("proc_XoaSanPhamDichVu", parameters, parameterNames);
+        }
         public bool SuaKhachHang(object[] parameters)
         {
             string[] parameterNames = { "@Ma_Khach_Hang", "@Ten", "@SDT", "Diem_Tich_Luy" };
@@ -111,22 +117,22 @@ namespace Final_Project_DBMS.DataAccess
         }
         public int ThemDichVu(object[] parameters)
         {
-            string[] paramNames = { "@Ten", "@Mo_Ta", "@Gia_Ban_Goc", "@Gia_Khuyen_Mai", "@Thoi_Gian_Thuc_Hien", "@So_Luong_Phong_Trong" }; ;
+            string[] paramNames = { "@Ten", "@Mo_Ta", "@Gia_Ban_Goc", "@Gia_Khuyen_Mai", "@Thoi_Gian_Thuc_Hien" }; ;
             return db.ExecuteQueryLayMa("proc_ThemDichVu", parameters, paramNames);
         }
         public bool SuaDichVu(object[] parameters)
         {
-            string[] paramNames = { "@Ma_Dich_Vu", "@Ten", "@Mo_Ta", "@Gia_Ban_Goc", "@Gia_Khuyen_Mai", "@Thoi_Gian_Thuc_Hien", "@So_Luong_Phong_Trong"};
+            string[] paramNames = { "@Ma_Dich_Vu", "@Ten", "@Mo_Ta", "@Gia_Ban_Goc", "@Gia_Khuyen_Mai", "@Thoi_Gian_Thuc_Hien"};
             return db.ExecProcedure("proc_SuaDichVu", parameters, paramNames);
         }
         public bool ThemPhongDichVu(object[] parameters)
         {
-            string[] paramNames = { "@Ma_Phong", "@Ma_Dich_Vu" , "@Trang_Thai" };
+            string[] paramNames = { "@Ma_Phong", "@Ma_Dich_Vu"};
             return db.ExecProcedure("proc_ThemPhongDichVu", parameters, paramNames);
         }
         public bool SuaPhongDichVu(object[] parameters)
         {
-            string[] paramNames = { "@Ma_Phong", "@Ma_Dich_Vu", "@Trang_Thai" };
+            string[] paramNames = { "@Ma_Phong", "@Ma_Dich_Vu"};
             return db.ExecProcedure("proc_SuaPhongDichVu", parameters, paramNames);
         }
         public bool XoaPhongDichVu(object[] parameters)
