@@ -191,7 +191,7 @@ namespace Final_Project_DBMS.View.Screen_BanHang
                 DataTable temp = dA_BanHang.layHinhAnhSPDV(id);
                 string link = null;
                 
-                if (temp.Rows.Count >0 )
+                if (temp.Rows.Count >0)
                 {
                     DataRow dataRow = temp.Rows[0];
                     link = dataRow["Duong_Dan"].ToString();
@@ -268,6 +268,8 @@ namespace Final_Project_DBMS.View.Screen_BanHang
                 currentItem = new ListViewItem(row);
                 lv_hoa_don.Items.Add(currentItem);
             }
+            thu_cung_load();
+            vat_pham_load();
         }
         private string getValueCBGiaTien()
         {
@@ -485,7 +487,7 @@ namespace Final_Project_DBMS.View.Screen_BanHang
 
             }
             setTongTien(LayTongTienHoaDonHienTai());
-            dich_vu_Load();
+            san_pham_va_dich_vu_Load();
         }
 
         private void btn_huy_bo_Click(object sender, EventArgs e)
@@ -501,7 +503,7 @@ namespace Final_Project_DBMS.View.Screen_BanHang
             IDHoaDonHienTai = -1;
             XoaGiaoDichHienTai();
             setTongTien(0);
-            dich_vu_Load();
+            san_pham_va_dich_vu_Load();
         }
         private void XoaGiaoDichHienTai()
         {
@@ -566,7 +568,12 @@ namespace Final_Project_DBMS.View.Screen_BanHang
                 string[] lvItem = { idVatpham, ten, soluong, dongia, thanhtien };
                 lv_hoa_don.Items.Add(new ListViewItem(lvItem));
             }
-            txt_id_khachhang.Text = dt.Rows[0]["Ma_Khach_Hang"].ToString();
+
+            // Chặn họng trước, tý sửa sau
+            if (dt.Rows.Count > 0)
+            {
+                txt_id_khachhang.Text = dt.Rows[0]["Ma_Khach_Hang"].ToString();
+            }
             if (txt_id_khachhang.Text.Length == 0)
                 txt_id_khachhang.Text = "0";
             btn_xac_nhan_id_khachhang_Click(null, null);

@@ -53,5 +53,12 @@ namespace Final_Project_DBMS.DataAccess
             object[] paramValues = { iDDV };
             return (DataTable)db.getResultFromProc(sqlcmd, paramValues, paramNames, isText: true, isExecReader:true);
         }
+        public bool coTheThemHang(int idSPDV)
+        {
+            string cmd = "SELECT dbo.func_CoTheThemTCVP(@ID)";
+            object[] paramValues = { idSPDV };
+            string[] paramName = { "@ID" };
+            return (bool)db.getResultFromProc(cmd, paramValues, paramName, isText: true);
+        }
     }
 }

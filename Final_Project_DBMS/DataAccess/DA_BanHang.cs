@@ -177,5 +177,7 @@ namespace Final_Project_DBMS.DataAccess
             string sqlcmd = "proc_CapNhatSoLuongPhongTrong";
             db.getResultFromProc(sqlcmd);
         }
+
+       
     }
 }

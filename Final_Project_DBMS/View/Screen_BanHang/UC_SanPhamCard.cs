@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Final_Project_DBMS.DataAccess;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +13,7 @@ namespace Final_Project_DBMS.View.Screen_BanHang
 {
     public partial class UC_SanPhamCard : UserControl
     {
+        public DA_ChiTietSPDV dA = new DA_ChiTietSPDV();
         public EventHandler addHoaDon;
         public EventHandler chitietvatpham;
         private int id;
@@ -42,8 +44,21 @@ namespace Final_Project_DBMS.View.Screen_BanHang
             lbl_ten.TextAlign = ContentAlignment.MiddleCenter;
             picture_spdv.ImageLocation = link;
             picture_spdv.SizeMode = PictureBoxSizeMode.StretchImage;
+
+            canBeBought();
         }
 
+        private void canBeBought()
+        {
+            if (dA.coTheThemHang(Id))
+            {
+                btnThem.Enabled = true;
+            }
+            else
+            {
+                btnThem.Enabled = false;
+            }
+        }
         private void grbTen_Enter(object sender, EventArgs e)
         {
 
