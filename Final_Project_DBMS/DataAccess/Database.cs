@@ -153,9 +153,19 @@ namespace Final_Project_DBMS.DataAccess
                 }
 
             }
-            object result = sqlCommand.ExecuteScalar();
-            closeConnection();
-            return result;
+            try
+            {
+                object result = sqlCommand.ExecuteScalar();
+                closeConnection();
+                return result;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message.ToString());
+
+            }
+            return null;
+           
         }
         public object ExecuteReturnAdmin(string query, SqlParameter[] parameters)
         {

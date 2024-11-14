@@ -69,10 +69,10 @@ namespace Final_Project_DBMS.DataAccess
         }
         public void capNhatThongTinKhachHangLenHoaDon(string idkhachhang, string IDHoaDonHienTai)
         {
-            string sqlcmd = "Update HoaDon Set Ma_Khach_Hang = " + idkhachhang + " where Ma_Hoa_Don = " + IDHoaDonHienTai;
-            db.ExecuteQuery(sqlcmd);
+           /* string sqlcmd = "Update HoaDon Set Ma_Khach_Hang = " + idkhachhang + " where Ma_Hoa_Don = " + IDHoaDonHienTai;
+            db.ExecuteQuery(sqlcmd);*/
 
-            sqlcmd = "EXEC proc_CapNhatTongTien @Ma_Khach_Hang = " + idkhachhang + ", @Ma_Hoa_Don = " + IDHoaDonHienTai;
+            string sqlcmd = "EXEC proc_CapNhatTongTien @Ma_Khach_Hang = " + idkhachhang + ", @Ma_Hoa_Don = " + IDHoaDonHienTai;
             db.ExecuteQuery(sqlcmd);
         }
         public DataTable layThongTinKhachHang(string idkhachhang)
@@ -177,7 +177,13 @@ namespace Final_Project_DBMS.DataAccess
             string sqlcmd = "proc_CapNhatSoLuongPhongTrong";
             db.getResultFromProc(sqlcmd);
         }
-
+        public bool coTheThaoTacHoaDon(int IDHoaDon)
+        {
+            string sqlcmd = "select dbo.func_CoTheThaoTacHoaDon(@ID_HoaDon)";
+            string[] paramNames = { "@ID_HoaDon" };
+            object[] paramValues = { IDHoaDon };
+            return (bool)((db.getResultFromProc(sqlcmd, paramValues, paramNames, isText: true)));
+        }
        
     }
 }
