@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace Final_Project_DBMS.DataAccess
 {
-    
+
     public class DA_PhanCa
     {
         Database db = new Database();

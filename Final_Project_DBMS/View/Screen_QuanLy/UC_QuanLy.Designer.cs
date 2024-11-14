@@ -167,19 +167,16 @@
             this.txb_maPDV = new System.Windows.Forms.TextBox();
             this.lbl_maPDV = new System.Windows.Forms.Label();
             this.cb_tenDV = new System.Windows.Forms.ComboBox();
-            this.txb_tgktPDV = new System.Windows.Forms.TextBox();
-            this.label52 = new System.Windows.Forms.Label();
             this.label44 = new System.Windows.Forms.Label();
-            this.txb_tgbdPDV = new System.Windows.Forms.TextBox();
-            this.label45 = new System.Windows.Forms.Label();
-            this.label46 = new System.Windows.Forms.Label();
             this.label50 = new System.Windows.Forms.Label();
             this.label51 = new System.Windows.Forms.Label();
             this.txb_tenPDVTK = new System.Windows.Forms.TextBox();
             this.btn_timkiemPDV = new System.Windows.Forms.Button();
             this.dgv_PhongDichVu = new System.Windows.Forms.DataGridView();
             this.btn_suaPDV = new System.Windows.Forms.Button();
-            this.cb_trangthaiPDV = new System.Windows.Forms.ComboBox();
+            this.btn_XoaTC = new System.Windows.Forms.Button();
+            this.btn_XoaVP = new System.Windows.Forms.Button();
+            this.btn_XoaDV = new System.Windows.Forms.Button();
             this.flowLayoutPanel2.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.tp_NV.SuspendLayout();
@@ -531,6 +528,7 @@
             // 
             // tp_TC
             // 
+            this.tp_TC.Controls.Add(this.btn_XoaTC);
             this.tp_TC.Controls.Add(this.panel1);
             this.tp_TC.Controls.Add(this.txb_TenTCTK);
             this.tp_TC.Controls.Add(this.btn_TimKiemTC);
@@ -955,6 +953,7 @@
             // 
             // tp_VP
             // 
+            this.tp_VP.Controls.Add(this.btn_XoaVP);
             this.tp_VP.Controls.Add(this.panel2);
             this.tp_VP.Controls.Add(this.txb_TenVPTK);
             this.tp_VP.Controls.Add(this.btn_TimKiemVP);
@@ -1240,6 +1239,7 @@
             // 
             // tp_DV
             // 
+            this.tp_DV.Controls.Add(this.btn_XoaDV);
             this.tp_DV.Controls.Add(this.panel4);
             this.tp_DV.Controls.Add(this.txb_TenDVTK);
             this.tp_DV.Controls.Add(this.btn_TimKiemDV);
@@ -1715,16 +1715,10 @@
             // 
             this.panel6.AutoScroll = true;
             this.panel6.AutoScrollMinSize = new System.Drawing.Size(0, 650);
-            this.panel6.Controls.Add(this.cb_trangthaiPDV);
             this.panel6.Controls.Add(this.txb_maPDV);
             this.panel6.Controls.Add(this.lbl_maPDV);
             this.panel6.Controls.Add(this.cb_tenDV);
-            this.panel6.Controls.Add(this.txb_tgktPDV);
-            this.panel6.Controls.Add(this.label52);
             this.panel6.Controls.Add(this.label44);
-            this.panel6.Controls.Add(this.txb_tgbdPDV);
-            this.panel6.Controls.Add(this.label45);
-            this.panel6.Controls.Add(this.label46);
             this.panel6.Controls.Add(this.label50);
             this.panel6.Controls.Add(this.label51);
             this.panel6.Location = new System.Drawing.Point(950, 67);
@@ -1759,25 +1753,6 @@
             this.cb_tenDV.Size = new System.Drawing.Size(302, 24);
             this.cb_tenDV.TabIndex = 113;
             // 
-            // txb_tgktPDV
-            // 
-            this.txb_tgktPDV.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txb_tgktPDV.Location = new System.Drawing.Point(201, 207);
-            this.txb_tgktPDV.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txb_tgktPDV.Name = "txb_tgktPDV";
-            this.txb_tgktPDV.Size = new System.Drawing.Size(301, 30);
-            this.txb_tgktPDV.TabIndex = 112;
-            // 
-            // label52
-            // 
-            this.label52.AutoSize = true;
-            this.label52.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label52.Location = new System.Drawing.Point(16, 207);
-            this.label52.Name = "label52";
-            this.label52.Size = new System.Drawing.Size(183, 28);
-            this.label52.TabIndex = 111;
-            this.label52.Text = "Thời gian kết thúc:";
-            // 
             // label44
             // 
             this.label44.AutoSize = true;
@@ -1786,35 +1761,6 @@
             this.label44.Name = "label44";
             this.label44.Size = new System.Drawing.Size(0, 16);
             this.label44.TabIndex = 110;
-            // 
-            // txb_tgbdPDV
-            // 
-            this.txb_tgbdPDV.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txb_tgbdPDV.Location = new System.Drawing.Point(201, 151);
-            this.txb_tgbdPDV.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txb_tgbdPDV.Name = "txb_tgbdPDV";
-            this.txb_tgbdPDV.Size = new System.Drawing.Size(301, 30);
-            this.txb_tgbdPDV.TabIndex = 78;
-            // 
-            // label45
-            // 
-            this.label45.AutoSize = true;
-            this.label45.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label45.Location = new System.Drawing.Point(16, 151);
-            this.label45.Name = "label45";
-            this.label45.Size = new System.Drawing.Size(177, 28);
-            this.label45.TabIndex = 77;
-            this.label45.Text = "Thời gian bắt đầu:";
-            // 
-            // label46
-            // 
-            this.label46.AutoSize = true;
-            this.label46.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label46.Location = new System.Drawing.Point(16, 108);
-            this.label46.Name = "label46";
-            this.label46.Size = new System.Drawing.Size(107, 28);
-            this.label46.TabIndex = 75;
-            this.label46.Text = "Trạng thái:";
             // 
             // label50
             // 
@@ -1881,17 +1827,41 @@
             this.btn_suaPDV.UseVisualStyleBackColor = true;
             this.btn_suaPDV.Click += new System.EventHandler(this.btn_suaPDV_Click);
             // 
-            // cb_trangthaiPDV
+            // btn_XoaTC
             // 
-            this.cb_trangthaiPDV.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cb_trangthaiPDV.FormattingEnabled = true;
-            this.cb_trangthaiPDV.Items.AddRange(new object[] {
-            "Sẵn sàng",
-            "Chưa sẵn sàng"});
-            this.cb_trangthaiPDV.Location = new System.Drawing.Point(201, 108);
-            this.cb_trangthaiPDV.Name = "cb_trangthaiPDV";
-            this.cb_trangthaiPDV.Size = new System.Drawing.Size(302, 24);
-            this.cb_trangthaiPDV.TabIndex = 116;
+            this.btn_XoaTC.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_XoaTC.Location = new System.Drawing.Point(1078, 15);
+            this.btn_XoaTC.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_XoaTC.Name = "btn_XoaTC";
+            this.btn_XoaTC.Size = new System.Drawing.Size(104, 36);
+            this.btn_XoaTC.TabIndex = 80;
+            this.btn_XoaTC.Text = "Xóa";
+            this.btn_XoaTC.UseVisualStyleBackColor = true;
+            this.btn_XoaTC.Click += new System.EventHandler(this.btn_XoaTC_Click);
+            // 
+            // btn_XoaVP
+            // 
+            this.btn_XoaVP.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_XoaVP.Location = new System.Drawing.Point(1067, 12);
+            this.btn_XoaVP.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_XoaVP.Name = "btn_XoaVP";
+            this.btn_XoaVP.Size = new System.Drawing.Size(104, 36);
+            this.btn_XoaVP.TabIndex = 87;
+            this.btn_XoaVP.Text = "Xóa";
+            this.btn_XoaVP.UseVisualStyleBackColor = true;
+            this.btn_XoaVP.Click += new System.EventHandler(this.btn_XoaVP_Click);
+            // 
+            // btn_XoaDV
+            // 
+            this.btn_XoaDV.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_XoaDV.Location = new System.Drawing.Point(1072, 9);
+            this.btn_XoaDV.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_XoaDV.Name = "btn_XoaDV";
+            this.btn_XoaDV.Size = new System.Drawing.Size(104, 36);
+            this.btn_XoaDV.TabIndex = 94;
+            this.btn_XoaDV.Text = "Xóa";
+            this.btn_XoaDV.UseVisualStyleBackColor = true;
+            this.btn_XoaDV.Click += new System.EventHandler(this.btn_XoaDV_Click);
             // 
             // UC_QuanLy
             // 
@@ -2078,8 +2048,6 @@
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Label label44;
         private System.Windows.Forms.Button btn_suaPDV;
-        private System.Windows.Forms.Label label45;
-        private System.Windows.Forms.Label label46;
         private System.Windows.Forms.Label label50;
         private System.Windows.Forms.Label label51;
         private System.Windows.Forms.TextBox txb_tenPDVTK;
@@ -2087,11 +2055,10 @@
         private System.Windows.Forms.DataGridView dgv_PhongDichVu;
         private System.Windows.Forms.Button btn_XoaPDV;
         private System.Windows.Forms.ComboBox cb_tenDV;
-        private System.Windows.Forms.TextBox txb_tgktPDV;
-        private System.Windows.Forms.Label label52;
         private System.Windows.Forms.Label lbl_maPDV;
-        private System.Windows.Forms.TextBox txb_tgbdPDV;
         private System.Windows.Forms.TextBox txb_maPDV;
-        private System.Windows.Forms.ComboBox cb_trangthaiPDV;
+        private System.Windows.Forms.Button btn_XoaTC;
+        private System.Windows.Forms.Button btn_XoaVP;
+        private System.Windows.Forms.Button btn_XoaDV;
     }
 }

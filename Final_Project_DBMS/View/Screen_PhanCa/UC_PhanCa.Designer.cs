@@ -73,6 +73,7 @@
             this.checkInToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.label12 = new System.Windows.Forms.Label();
+            this.checkInToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.ctm_ThemCaLam.SuspendLayout();
@@ -596,12 +597,12 @@
             this.xóaToolStripMenuItem,
             this.checkInToolStripMenuItem});
             this.ctm_tuongTacCaLam.Name = "ctm_xoaCaLam";
-            this.ctm_tuongTacCaLam.Size = new System.Drawing.Size(134, 52);
+            this.ctm_tuongTacCaLam.Size = new System.Drawing.Size(211, 80);
             // 
             // xóaToolStripMenuItem
             // 
             this.xóaToolStripMenuItem.Name = "xóaToolStripMenuItem";
-            this.xóaToolStripMenuItem.Size = new System.Drawing.Size(133, 24);
+            this.xóaToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
             this.xóaToolStripMenuItem.Text = "Xóa";
             this.xóaToolStripMenuItem.Click += new System.EventHandler(this.xóaToolStripMenuItem_Click);
             // 
@@ -634,6 +635,13 @@
             this.label12.TabIndex = 1;
             this.label12.Text = "Phân ca";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // checkInToolStripMenuItem
+            // 
+            this.checkInToolStripMenuItem.Name = "checkInToolStripMenuItem";
+            this.checkInToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
+            this.checkInToolStripMenuItem.Text = "Check In";
+            this.checkInToolStripMenuItem.Click += new System.EventHandler(this.checkInToolStripMenuItem_Click);
             // 
             // UC_PhanCa
             // 

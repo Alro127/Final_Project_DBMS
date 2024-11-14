@@ -17,7 +17,7 @@ namespace Final_Project_DBMS.View.Screen_PhanCa
         DateTime startDate = DateTime.Now.Date;
         DataTable caLamTable = new DataTable();
         DA_PhanCa dA_PhanCa = new DA_PhanCa();
-        
+
         public UC_PhanCa()
         {
             InitializeComponent();
@@ -98,7 +98,7 @@ namespace Final_Project_DBMS.View.Screen_PhanCa
                 }
 
                 flp.Controls.Add(label);
-                
+
             }
         }
         private void btn_pre_Click(object sender, EventArgs e)

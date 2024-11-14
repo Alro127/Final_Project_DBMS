@@ -33,6 +33,7 @@ namespace Final_Project_DBMS.View.Screen_DangKyDangNhap
 
             // Gọi phương thức getQuyen để lấy quyền của tài khoản
             DA_TaiKhoan.permission = DA_TaiKhoan.getQuyen();
+            DA_TaiKhoan.manv = DA_TaiKhoan.getMaNV();
 
             // Kiểm tra nếu quyền không phải là "No Access"
             if (DA_TaiKhoan.permission != "No Access")

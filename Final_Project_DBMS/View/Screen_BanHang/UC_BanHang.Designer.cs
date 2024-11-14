@@ -68,7 +68,7 @@
             this.tp_hoa_don = new System.Windows.Forms.TabPage();
             this.gv_hoadon = new System.Windows.Forms.DataGridView();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.btn_chinh_sua_hoadon = new System.Windows.Forms.Button();
+            this.btn_xemchitiet_hoadon = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.dtp = new System.Windows.Forms.DateTimePicker();
             this.tp_thanh_vien = new System.Windows.Forms.TabPage();
@@ -496,7 +496,7 @@
             // 
             // panel4
             // 
-            this.panel4.Controls.Add(this.btn_chinh_sua_hoadon);
+            this.panel4.Controls.Add(this.btn_xemchitiet_hoadon);
             this.panel4.Controls.Add(this.label2);
             this.panel4.Controls.Add(this.dtp);
             this.panel4.Location = new System.Drawing.Point(3, 3);
@@ -505,15 +505,15 @@
             this.panel4.Size = new System.Drawing.Size(1486, 56);
             this.panel4.TabIndex = 0;
             // 
-            // btn_chinh_sua_hoadon
+            // btn_xemchitiet_hoadon
             // 
-            this.btn_chinh_sua_hoadon.Location = new System.Drawing.Point(1377, 8);
-            this.btn_chinh_sua_hoadon.Name = "btn_chinh_sua_hoadon";
-            this.btn_chinh_sua_hoadon.Size = new System.Drawing.Size(97, 40);
-            this.btn_chinh_sua_hoadon.TabIndex = 11;
-            this.btn_chinh_sua_hoadon.Text = "Chỉnh sửa";
-            this.btn_chinh_sua_hoadon.UseVisualStyleBackColor = true;
-            this.btn_chinh_sua_hoadon.Click += new System.EventHandler(this.btn_chinh_sua_hoadon_Click);
+            this.btn_xemchitiet_hoadon.Location = new System.Drawing.Point(1377, 8);
+            this.btn_xemchitiet_hoadon.Name = "btn_xemchitiet_hoadon";
+            this.btn_xemchitiet_hoadon.Size = new System.Drawing.Size(97, 40);
+            this.btn_xemchitiet_hoadon.TabIndex = 11;
+            this.btn_xemchitiet_hoadon.Text = "Xem chi tiết";
+            this.btn_xemchitiet_hoadon.UseVisualStyleBackColor = true;
+            this.btn_xemchitiet_hoadon.Click += new System.EventHandler(this.btn_xemchitiet_hoadon_Click);
             // 
             // label2
             // 
@@ -688,7 +688,7 @@
         private System.Windows.Forms.TabPage tp_hoa_don;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.TabPage tp_thanh_vien;
-        private System.Windows.Forms.Button btn_chinh_sua_hoadon;
+        private System.Windows.Forms.Button btn_xemchitiet_hoadon;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DateTimePicker dtp;
         private System.Windows.Forms.DataGridView gv_hoadon;

@@ -58,16 +58,19 @@ namespace Final_Project_DBMS.View.Screen_BanHang
                 listImg.Add(link);
 
             }
-            pb_main.ImageLocation = listImg[0];
-            pb_main.SizeMode = PictureBoxSizeMode.StretchImage;
-            foreach (string item in listImg)
+            if (listImg.Count > 0)
             {
-                PictureBox pictureBox = new PictureBox();
-                pictureBox.ImageLocation = item;
-                pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
-                pictureBox.Click += PictureBox_Click;
-                flp_hinhanh.Controls.Add(pictureBox);
-            }
+                pb_main.ImageLocation = listImg[0];
+                pb_main.SizeMode = PictureBoxSizeMode.StretchImage;
+                foreach (string item in listImg)
+                {
+                    PictureBox pictureBox = new PictureBox();
+                    pictureBox.ImageLocation = item;
+                    pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
+                    pictureBox.Click += PictureBox_Click;
+                    flp_hinhanh.Controls.Add(pictureBox);
+                }
+            }        
         }
         private void PictureBox_Click(object sender, EventArgs e)
         {
@@ -118,7 +121,7 @@ namespace Final_Project_DBMS.View.Screen_BanHang
 
         private void dg_dsPhong_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            if (e.RowIndex >= 0)
+            if (e.RowIndex >= 0 && e.RowIndex < dg_dsPhong.Rows.Count - 1)
             {
                 // Lấy hàng được click từ DataGridView
                 DataGridViewRow row = dg_dsPhong.Rows[e.RowIndex];

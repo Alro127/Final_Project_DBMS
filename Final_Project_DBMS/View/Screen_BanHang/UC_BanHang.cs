@@ -83,9 +83,10 @@ namespace Final_Project_DBMS.View.Screen_BanHang
         }
         private void dich_vu_Load(DataTable dichvu = null)
         {
+            dA_BanHang.capNhatSoPhongTrong();
             if (dichvu == null)
             {
-                dt_dichvu = dA_BanHang.layView("view_DanhSachPhongDichVu");
+                dt_dichvu = dA_BanHang.layView("view_DanhSachDichVu");
             }
             else
             {
@@ -190,7 +191,7 @@ namespace Final_Project_DBMS.View.Screen_BanHang
                 DataTable temp = dA_BanHang.layHinhAnhSPDV(id);
                 string link = null;
                 
-                if (temp.Rows.Count >0 )
+                if (temp.Rows.Count >0)
                 {
                     DataRow dataRow = temp.Rows[0];
                     link = dataRow["Duong_Dan"].ToString();
@@ -267,6 +268,8 @@ namespace Final_Project_DBMS.View.Screen_BanHang
                 currentItem = new ListViewItem(row);
                 lv_hoa_don.Items.Add(currentItem);
             }
+            thu_cung_load();
+            vat_pham_load();
         }
         private string getValueCBGiaTien()
         {
@@ -318,7 +321,7 @@ namespace Final_Project_DBMS.View.Screen_BanHang
                             tenView = "view_DanhSachVatPham";
                             break;
                         case 2:
-                            tenView = "view_DanhSachPhongDichVu";
+                            tenView = "view_DanhSachDichVu";
                             break;
                         default:
                             tenView = null;
@@ -484,7 +487,7 @@ namespace Final_Project_DBMS.View.Screen_BanHang
 
             }
             setTongTien(LayTongTienHoaDonHienTai());
-            dich_vu_Load();
+            san_pham_va_dich_vu_Load();
         }
 
         private void btn_huy_bo_Click(object sender, EventArgs e)
@@ -500,7 +503,7 @@ namespace Final_Project_DBMS.View.Screen_BanHang
             IDHoaDonHienTai = -1;
             XoaGiaoDichHienTai();
             setTongTien(0);
-            dich_vu_Load();
+            san_pham_va_dich_vu_Load();
         }
         private void XoaGiaoDichHienTai()
         {
@@ -537,7 +540,7 @@ namespace Final_Project_DBMS.View.Screen_BanHang
             }
         }
 
-        private void btn_chinh_sua_hoadon_Click(object sender, EventArgs e)
+        private void btn_xemchitiet_hoadon_Click(object sender, EventArgs e)
         {
             
             DataGridViewRow hoadonhientai = gv_hoadon.CurrentRow;
@@ -546,6 +549,7 @@ namespace Final_Project_DBMS.View.Screen_BanHang
                 IDHoaDonHienTai = Convert.ToInt32(hoadonhientai.Cells[0].Value);
                 DataTable chitiethoadon = dA_BanHang.xemChiTietHoaDon(IDHoaDonHienTai);
                 CapNhatGiaoDienHoaDonCanChinhSua(chitiethoadon);
+                
             }
         }
         /// <summary>
@@ -565,7 +569,12 @@ namespace Final_Project_DBMS.View.Screen_BanHang
                 string[] lvItem = { idVatpham, ten, soluong, dongia, thanhtien };
                 lv_hoa_don.Items.Add(new ListViewItem(lvItem));
             }
-            txt_id_khachhang.Text = dt.Rows[0]["Ma_Khach_Hang"].ToString();
+
+            // Chặn họng trước, tý sửa sau
+            if (dt.Rows.Count > 0)
+            {
+                txt_id_khachhang.Text = dt.Rows[0]["Ma_Khach_Hang"].ToString();
+            }
             if (txt_id_khachhang.Text.Length == 0)
                 txt_id_khachhang.Text = "0";
             btn_xac_nhan_id_khachhang_Click(null, null);
