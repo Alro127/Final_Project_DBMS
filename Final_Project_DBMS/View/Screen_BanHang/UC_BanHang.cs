@@ -119,9 +119,13 @@ namespace Final_Project_DBMS.View.Screen_BanHang
 
         private void AddHoaDonDV(object sender, EventArgs e)
         {
+            // Nếu hóa đơn hiện tại là đã thanh toán hoặc id hóa đơn không tòn tại (-1)
             if (!dA_BanHang.coTheThaoTacHoaDon(IDHoaDonHienTai))
             {
-                return;
+                // Nếu hóa đơn khác -1 (tức là hóa đơn đã thanh toán) thì không cho thêm mới, return
+                if (IDHoaDonHienTai != -1)
+                    return;
+                // Ngược lại thì đi tiếp
             }
             UC_DichVuCard _DichVuCard = (UC_DichVuCard)sender;
             Form_DanhSachPhongDV form_DanhSachPhongDV = new Form_DanhSachPhongDV(_DichVuCard.Id);
@@ -445,6 +449,10 @@ namespace Final_Project_DBMS.View.Screen_BanHang
         private void btn_xac_nhan_id_khachhang_Click(object sender, EventArgs e)
         {
             // Buoc cap nhat CSDL
+            if (!dA_BanHang.coTheThaoTacHoaDon(IDHoaDonHienTai))
+            {
+                return;
+            }
             idkhachhang = "0";
             if (txt_id_khachhang.Text != "0")
             {
@@ -519,12 +527,12 @@ namespace Final_Project_DBMS.View.Screen_BanHang
                 MessageBox.Show("Không thể xóa toàn bộ hóa đơn đã thanh toán tại đây!", "Warning!");
                 return;
             }*/
-            foreach (ListViewItem item in lv_hoa_don.Items)
+        /*    foreach (ListViewItem item in lv_hoa_don.Items)
             {
                 string idVatPham = item.SubItems[0].Text;
                 string nameVatPham = item.SubItems[1].Text;
                 dA_BanHang.xoaSPDVKhoiHoaDonDangLap(IDHoaDonHienTai.ToString(), idVatPham, nameVatPham);
-            }
+            }*/
             dA_BanHang.xoaHoaDonDangLap(IDHoaDonHienTai.ToString());
             lv_hoa_don.Items.Clear();
             IDHoaDonHienTai = -1;
@@ -546,7 +554,7 @@ namespace Final_Project_DBMS.View.Screen_BanHang
         {
             if (!dA_BanHang.coTheThaoTacHoaDon(IDHoaDonHienTai))
             {
-                MessageBox.Show("Không thể thực hiện thao tác nào với hóa đơn đã thanh toán này");
+                MessageBox.Show("Không thể thực hiện thao tác nào với hóa đơn này!", "Warning!");
                 return;
             }
             if (dA_BanHang.coTheThemHoaDon(IDHoaDonHienTai.ToString()))

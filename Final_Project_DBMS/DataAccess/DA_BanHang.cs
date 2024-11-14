@@ -177,12 +177,19 @@ namespace Final_Project_DBMS.DataAccess
             string sqlcmd = "proc_CapNhatSoLuongPhongTrong";
             db.getResultFromProc(sqlcmd);
         }
+
+        /// <summary>
+        /// Kiểm tra xem hóa đơn có trạng thái đã thanh toán hay chưa thanh toán, trả về lần lượt false và true
+        /// </summary>
+        /// <param name="IDHoaDon"></param>
+        /// <returns></returns>
         public bool coTheThaoTacHoaDon(int IDHoaDon)
         {
             string sqlcmd = "select dbo.func_CoTheThaoTacHoaDon(@ID_HoaDon)";
             string[] paramNames = { "@ID_HoaDon" };
             object[] paramValues = { IDHoaDon };
-            return (bool)((db.getResultFromProc(sqlcmd, paramValues, paramNames, isText: true)));
+            bool result = (bool)((db.getResultFromProc(sqlcmd, paramValues, paramNames, isText: true)));
+            return result;
         }
        
     }

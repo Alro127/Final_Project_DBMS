@@ -71,3 +71,4 @@ D:\HK1_Nam3\DBMS\Final_Project_DBMS\Final_Project_DBMS\obj\Debug\Final_Project_D
 D:\University\Năm 3\Kỳ 1\DBMS\Project\Final_Project_DBMS\Final_Project_DBMS\obj\Debug\Final_Project_DBMS.View.Screen_DangKyDangNhap.Form_DangKy.resources
 D:\University\Năm 3\Kỳ 1\DBMS\Project\Final_Project_DBMS\Final_Project_DBMS\obj\Debug\Final_Project_DBMS.View.Screen_DangKyDangNhap.Form_DangNhap.resources
 D:\HK1_Nam3\DBMS\Final_Project_DBMS\Final_Project_DBMS\obj\Debug\Final_Project_DBMS.View.Screen_PhanCa.Form_CheckIn.resources
+D:\University\Năm 3\Kỳ 1\DBMS\Project\Final_Project_DBMS\Final_Project_DBMS\obj\Debug\Final_Project_DBMS.View.Screen_PhanCa.Form_CheckIn.resources
