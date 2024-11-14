@@ -90,13 +90,6 @@ namespace Final_Project_DBMS.View.Screen_PhanCa
                     ContextMenuStrip = ctm_tuongTacCaLam,
                     Tag = row
                 };
-                if (row["Check_In"].ToString() != "")
-                {
-                    ToolStripMenuItem checkInToolStripMenuItem = (ToolStripMenuItem)ctm_tuongTacCaLam.Items["checkInToolStripMenuItem"];
-                    checkInToolStripMenuItem.Text = "Đã check in";
-                    checkInToolStripMenuItem.Enabled = false;
-                }
-
                 flp.Controls.Add(label);
 
             }
@@ -136,14 +129,13 @@ namespace Final_Project_DBMS.View.Screen_PhanCa
         private void checkInToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Label lbl = ctm_tuongTacCaLam.SourceControl as Label;
-            if (lbl != null) // Kiểm tra xem có label nào được chọn không
+            if (lbl != null)
             {
                 DataRow row = (DataRow)lbl.Tag;
-                dA_PhanCa.CheckIn(row);
-                Run();
-                MessageBox.Show("Đã check in");
-                
-            }
+                Form_CheckIn form_CheckIn = new Form_CheckIn(row);
+                form_CheckIn.ShowDialog();
+            }            
+           
         }
 
     }

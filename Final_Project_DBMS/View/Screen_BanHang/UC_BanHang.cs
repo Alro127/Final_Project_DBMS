@@ -108,7 +108,7 @@ namespace Final_Project_DBMS.View.Screen_BanHang
                     link = dataRow["Duong_Dan"].ToString();
                     link = imageLinkConverter.Convert(link).ToString();
                 }
-                link = imageLinkConverter.Convert(link).ToString();
+
                 int sophongtrong = Convert.ToInt16(row["So_Luong_Phong_Trong"]);
                 UC_DichVuCard cardvatpham = new UC_DichVuCard(id, name, giagoc, giauudai, link, sophongtrong);
                 cardvatpham.addHoaDon += AddHoaDonDV;
@@ -119,6 +119,10 @@ namespace Final_Project_DBMS.View.Screen_BanHang
 
         private void AddHoaDonDV(object sender, EventArgs e)
         {
+            if (!dA_BanHang.coTheThaoTacHoaDon(IDHoaDonHienTai))
+            {
+                return;
+            }
             UC_DichVuCard _DichVuCard = (UC_DichVuCard)sender;
             Form_DanhSachPhongDV form_DanhSachPhongDV = new Form_DanhSachPhongDV(_DichVuCard.Id);
             form_DanhSachPhongDV.ShowDialog();
@@ -236,12 +240,21 @@ namespace Final_Project_DBMS.View.Screen_BanHang
                 IDHoaDonHienTai = dA_BanHang.taoHoaDonMoi();
             }
 
+            // Nếu là hóa đơn được lấy từ mục chỉnh sửa
+            if (!dA_BanHang.coTheThaoTacHoaDon(IDHoaDonHienTai))
+            {
+                return;
+            }
             // Tránh trường hợp khi nhập id khách hàng vào trước khi thêm hóa đơn thì không lấy được mã giảm giá
             btn_xac_nhan_id_khachhang_Click(sender, e);
 
 
             // Thêm vào chi tiết hóa đơn
             decimal thanhtien = dA_BanHang.themChiTietHoaDon(IDHoaDonHienTai.ToString(), item);
+
+            // Kiểm tra nếu thành tiền là 0, không làm nữa vì không thêm dược
+            if (thanhtien == 0)
+                return;
 
             // cập nhật tổng tiền
             tongtien = LayTongTienHoaDonHienTai();
@@ -440,6 +453,11 @@ namespace Final_Project_DBMS.View.Screen_BanHang
 
             dA_BanHang.capNhatThongTinKhachHangLenHoaDon(idkhachhang, IDHoaDonHienTai.ToString());
             /* dA_BanHang.tinhTongTien(idkhachhang, IDHoaDonHienTai);*/
+            capNhatThongTinKhachHangLenGiaoDien(idkhachhang);
+            setTongTien(LayTongTienHoaDonHienTai());
+        }
+        private void capNhatThongTinKhachHangLenGiaoDien(string idkhachhang)
+        {
             if (idkhachhang != null)
             {
                 DataTable dt_vw_khach_hang = dA_BanHang.layThongTinKhachHang(idkhachhang);
@@ -449,7 +467,6 @@ namespace Final_Project_DBMS.View.Screen_BanHang
                     lbl_giam_gia.Text = row["Diem_Tich_Luy"].ToString();
                 }
             }
-            setTongTien(LayTongTienHoaDonHienTai());
         }
         private void setTongTien(decimal value)
         {
@@ -476,6 +493,11 @@ namespace Final_Project_DBMS.View.Screen_BanHang
 
         private void btn_xoa_Click(object sender, EventArgs e)
         {
+            if (!dA_BanHang.coTheThaoTacHoaDon(IDHoaDonHienTai))
+            {
+                MessageBox.Show("Không thể xóa vật phẩm trong hóa đơn đã thanh toán tại đây!", "Warning!");
+                return;
+            }
             if (lv_hoa_don.SelectedItems == null)
                 return;
             foreach (ListViewItem item in lv_hoa_don.SelectedItems)
@@ -492,6 +514,11 @@ namespace Final_Project_DBMS.View.Screen_BanHang
 
         private void btn_huy_bo_Click(object sender, EventArgs e)
         {
+/*            if (!dA_BanHang.coTheThaoTacHoaDon(IDHoaDonHienTai))
+            {
+                MessageBox.Show("Không thể xóa toàn bộ hóa đơn đã thanh toán tại đây!", "Warning!");
+                return;
+            }*/
             foreach (ListViewItem item in lv_hoa_don.Items)
             {
                 string idVatPham = item.SubItems[0].Text;
@@ -517,6 +544,11 @@ namespace Final_Project_DBMS.View.Screen_BanHang
 
         private void btn_xac_nhan_Click(object sender, EventArgs e)
         {
+            if (!dA_BanHang.coTheThaoTacHoaDon(IDHoaDonHienTai))
+            {
+                MessageBox.Show("Không thể thực hiện thao tác nào với hóa đơn đã thanh toán này");
+                return;
+            }
             if (dA_BanHang.coTheThemHoaDon(IDHoaDonHienTai.ToString()))
             {
                 DialogResult result = MessageBox.Show("Bạn có muốn thanh toán ngay?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -548,8 +580,8 @@ namespace Final_Project_DBMS.View.Screen_BanHang
             {
                 IDHoaDonHienTai = Convert.ToInt32(hoadonhientai.Cells[0].Value);
                 DataTable chitiethoadon = dA_BanHang.xemChiTietHoaDon(IDHoaDonHienTai);
-                CapNhatGiaoDienHoaDonCanChinhSua(chitiethoadon);
-                
+                if (chitiethoadon != null)
+                    CapNhatGiaoDienHoaDonCanChinhSua(chitiethoadon);
             }
         }
         /// <summary>
@@ -569,15 +601,17 @@ namespace Final_Project_DBMS.View.Screen_BanHang
                 string[] lvItem = { idVatpham, ten, soluong, dongia, thanhtien };
                 lv_hoa_don.Items.Add(new ListViewItem(lvItem));
             }
-
             // Chặn họng trước, tý sửa sau
             if (dt.Rows.Count > 0)
             {
                 txt_id_khachhang.Text = dt.Rows[0]["Ma_Khach_Hang"].ToString();
+    
             }
             if (txt_id_khachhang.Text.Length == 0)
                 txt_id_khachhang.Text = "0";
-            btn_xac_nhan_id_khachhang_Click(null, null);
+            /*btn_xac_nhan_id_khachhang_Click(null, null);*/
+            capNhatThongTinKhachHangLenGiaoDien(txt_id_khachhang.Text);
+            setTongTien(LayTongTienHoaDonHienTai());
             tc_ban_hang.SelectedIndex = 0;
         }
         private void tc_ban_hang_SelectedIndexChanged(object sender, EventArgs e)
@@ -621,6 +655,11 @@ namespace Final_Project_DBMS.View.Screen_BanHang
         private void btn_tim_kiem_thanh_vien_Click(object sender, EventArgs e)
         {
             TimKiem();
+        }
+
+        private void flp_thu_cung_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

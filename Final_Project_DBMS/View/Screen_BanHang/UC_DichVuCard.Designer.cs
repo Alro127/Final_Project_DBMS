@@ -119,6 +119,8 @@
             // picture_spdv
             // 
             this.picture_spdv.Location = new System.Drawing.Point(3, 3);
+            this.picture_spdv.MaximumSize = new System.Drawing.Size(194, 190);
+            this.picture_spdv.MinimumSize = new System.Drawing.Size(194, 190);
             this.picture_spdv.Name = "picture_spdv";
             this.picture_spdv.Size = new System.Drawing.Size(194, 190);
             this.picture_spdv.TabIndex = 4;
@@ -142,6 +144,8 @@
             this.Controls.Add(this.grbTen);
             this.Controls.Add(this.picture_spdv);
             this.Controls.Add(this.btnChiTiet);
+            this.MaximumSize = new System.Drawing.Size(200, 370);
+            this.MinimumSize = new System.Drawing.Size(200, 370);
             this.Name = "UC_DichVuCard";
             this.Size = new System.Drawing.Size(200, 370);
             this.Load += new System.EventHandler(this.UC_DichVuCard_Load);

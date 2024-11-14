@@ -308,6 +308,7 @@
             this.flp_thu_cung.Name = "flp_thu_cung";
             this.flp_thu_cung.Size = new System.Drawing.Size(954, 566);
             this.flp_thu_cung.TabIndex = 1;
+            this.flp_thu_cung.Paint += new System.Windows.Forms.PaintEventHandler(this.flp_thu_cung_Paint);
             // 
             // tp_vat_pham
             // 
