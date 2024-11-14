@@ -40,7 +40,7 @@
             // cbMaNV
             // 
             this.cbMaNV.FormattingEnabled = true;
-            this.cbMaNV.Location = new System.Drawing.Point(146, 17);
+            this.cbMaNV.Location = new System.Drawing.Point(228, 17);
             this.cbMaNV.Name = "cbMaNV";
             this.cbMaNV.Size = new System.Drawing.Size(200, 24);
             this.cbMaNV.TabIndex = 0;
@@ -52,14 +52,14 @@
             "Sáng",
             "Chiều",
             "Tối"});
-            this.cbBuoiLam.Location = new System.Drawing.Point(146, 69);
+            this.cbBuoiLam.Location = new System.Drawing.Point(228, 69);
             this.cbBuoiLam.Name = "cbBuoiLam";
             this.cbBuoiLam.Size = new System.Drawing.Size(200, 24);
             this.cbBuoiLam.TabIndex = 1;
             // 
             // dpNgayLamViec
             // 
-            this.dpNgayLamViec.Location = new System.Drawing.Point(146, 122);
+            this.dpNgayLamViec.Location = new System.Drawing.Point(228, 122);
             this.dpNgayLamViec.Name = "dpNgayLamViec";
             this.dpNgayLamViec.Size = new System.Drawing.Size(200, 22);
             this.dpNgayLamViec.TabIndex = 2;
@@ -98,7 +98,7 @@
             // 
             this.btn_OK.Location = new System.Drawing.Point(15, 171);
             this.btn_OK.Name = "btn_OK";
-            this.btn_OK.Size = new System.Drawing.Size(331, 41);
+            this.btn_OK.Size = new System.Drawing.Size(413, 41);
             this.btn_OK.TabIndex = 6;
             this.btn_OK.Text = "OK";
             this.btn_OK.UseVisualStyleBackColor = true;
@@ -108,7 +108,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(369, 231);
+            this.ClientSize = new System.Drawing.Size(454, 231);
             this.Controls.Add(this.btn_OK);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);

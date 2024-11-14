@@ -720,7 +720,7 @@ namespace Final_Project_DBMS.View.Screen_QuanLy
         }
         private void LoadPhongDichVu()
         {
-            DataTable dt = dA_QuanLy.DanhSachPhongDichVu();
+            DataTable dt = dA_QuanLy.DanhSachDichVu();
             dgv_PhongDichVu.DataSource = dt;
             cb_tenDV.Items.Clear();
 
