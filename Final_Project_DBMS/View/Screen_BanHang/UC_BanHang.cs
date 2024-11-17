@@ -71,7 +71,11 @@ namespace Final_Project_DBMS.View.Screen_BanHang
                 txt_gia_bat_dau.Text = startingValue.ToString();
                 txt_gia_ket_thuc.Text = endingValue.ToString();
             }
-
+            else
+            {
+                txt_gia_bat_dau.Text = null;
+                txt_gia_ket_thuc.Text = null;
+            }
             cb_gia.SelectedIndex = 0;
             cb_alphabet.SelectedIndex = 0;
             lv_hoa_don.View = System.Windows.Forms.View.Details;
@@ -375,6 +379,11 @@ namespace Final_Project_DBMS.View.Screen_BanHang
 
             // Kiểm tra giá kết thúc
             endingValue = txt_gia_ket_thuc.Text;
+
+            if (startingValue == "")
+                startingValue = null;
+            if (endingValue == "")
+                endingValue= null;
         }
         private void TimKiem()
         {
@@ -552,11 +561,11 @@ namespace Final_Project_DBMS.View.Screen_BanHang
 
         private void btn_xac_nhan_Click(object sender, EventArgs e)
         {
-            if (!dA_BanHang.coTheThaoTacHoaDon(IDHoaDonHienTai))
+         /*   if (!dA_BanHang.coTheThaoTacHoaDon(IDHoaDonHienTai))
             {
                 MessageBox.Show("Không thể thực hiện thao tác nào với hóa đơn này!", "Warning!");
                 return;
-            }
+            }*/
             if (dA_BanHang.coTheThemHoaDon(IDHoaDonHienTai.ToString()))
             {
                 DialogResult result = MessageBox.Show("Bạn có muốn thanh toán ngay?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);

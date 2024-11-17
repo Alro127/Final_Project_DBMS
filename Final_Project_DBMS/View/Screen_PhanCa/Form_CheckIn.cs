@@ -37,6 +37,7 @@ namespace Final_Project_DBMS.View.Screen_PhanCa
         {
             DA_PhanCa dA_PhanCa = new DA_PhanCa();
             dA_PhanCa.CheckIn(row);
+            this.Close();
         }
     }
 }

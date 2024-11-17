@@ -148,7 +148,7 @@ namespace Final_Project_DBMS.DataAccess
                 }
                 catch (Exception e)
                 {
-                    MessageBox.Show(e.ToString());
+                    MessageBox.Show(e.Message, "Warning!");
                     return null;
                 }
 

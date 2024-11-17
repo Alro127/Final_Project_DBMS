@@ -134,6 +134,7 @@ namespace Final_Project_DBMS.View.Screen_PhanCa
                 DataRow row = (DataRow)lbl.Tag;
                 Form_CheckIn form_CheckIn = new Form_CheckIn(row);
                 form_CheckIn.ShowDialog();
+                Run();
             }            
            
         }
